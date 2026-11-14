@@ -6,47 +6,47 @@ export default function ReasonsList() {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <section className="section-light py-24 px-4 relative overflow-hidden">
+    <section className="section-light py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden">
       {/* Decorative background circle */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-80 sm:w-96 h-80 sm:h-96 bg-amber-100/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block mb-3"
+            className="inline-block mb-2 sm:mb-3"
           >
-            <span className="pill-badge pill-badge-rose">
+            <span className="pill-badge pill-badge-rose text-xs">
               <span>💖</span> Five Beautiful Truths
             </span>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-3"
+            className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-2 sm:mb-3"
           >
             Why My Heart Chose You
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-hand text-xl text-warm-700 max-w-xl mx-auto"
+            className="font-hand text-lg sm:text-xl text-warm-700 max-w-xl mx-auto"
           >
             Just a few reasons out of thousands that I keep close to my soul
           </motion.p>
         </div>
 
         {/* Cards Stack */}
-        <div className="space-y-6">
+        <div className="space-y-3.5 sm:space-y-6">
           {DATA.reasons.map((reason, index) => {
             const isLast = index === DATA.reasons.length - 1;
             const isExpanded = activeCard === index;
@@ -59,7 +59,7 @@ export default function ReasonsList() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 onClick={() => setActiveCard(isExpanded ? null : index)}
-                className={`cursor-pointer relative p-6 sm:p-8 rounded-3xl transition-all duration-300 ${
+                className={`cursor-pointer relative p-4 sm:p-6 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-300 ${
                   isLast
                     ? 'bg-gradient-to-br from-rose-500 via-rose-600 to-rose-700 text-white shadow-xl shadow-rose-500/25 border-2 border-rose-300/40'
                     : 'glass-card-light hover:shadow-xl'

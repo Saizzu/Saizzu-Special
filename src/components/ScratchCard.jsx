@@ -177,22 +177,22 @@ export default function ScratchCard() {
   }, [isScratching, checkReveal]);
 
   return (
-    <section className="section-light py-20 px-4">
+    <section className="section-light py-12 sm:py-20 px-3 sm:px-6">
       <motion.div
         className="max-w-2xl mx-auto text-center"
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
       >
         {/* Pill badge */}
-        <span className="pill-badge pill-badge-gold mb-6 inline-block">
+        <span className="pill-badge pill-badge-gold mb-3 sm:mb-5 inline-block text-xs">
           ✨ hidden memory
         </span>
 
         {/* Title */}
         <h2
-          className="font-display text-3xl sm:text-4xl md:text-5xl mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl mb-2 sm:mb-3"
           style={{ color: 'var(--color-wine)' }}
         >
           Scratch to uncover something special
@@ -200,7 +200,7 @@ export default function ScratchCard() {
 
         {/* Subtitle */}
         <p
-          className="font-hand text-xl sm:text-2xl mb-10"
+          className="font-hand text-lg sm:text-2xl mb-6 sm:mb-10"
           style={{ color: 'var(--color-text-mid)' }}
         >
           {prompt}
@@ -210,7 +210,7 @@ export default function ScratchCard() {
         <div className="stitch-border max-w-md mx-auto shadow-xl">
           <div
             ref={containerRef}
-            className="relative w-full overflow-hidden rounded-2xl h-[460px] sm:h-[520px]"
+            className="relative w-full overflow-hidden rounded-2xl h-[420px] sm:h-[500px]"
           >
             {/* Behind layer — reveal photo */}
             {photo ? (

@@ -17,46 +17,46 @@ export default function PhotoCarousel() {
   const current = photos[currentIndex];
 
   return (
-    <section className="section-light py-24 px-4 relative overflow-hidden">
+    <section className="section-light py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden">
       <div className="max-w-2xl mx-auto text-center relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block mb-3"
+          className="inline-block mb-2 sm:mb-3"
         >
-          <span className="pill-badge pill-badge-rose">
+          <span className="pill-badge pill-badge-rose text-xs">
             <span>📷</span> Polaroid Memories
           </span>
         </motion.div>
 
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-2 sm:mb-3"
         >
           Snapshots of Us
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-xl text-warm-700 mb-12"
+          className="font-hand text-lg sm:text-xl text-warm-700 mb-6 sm:mb-12"
         >
           A few frozen fragments of time that I hold closest to my heart
         </motion.p>
 
         {/* Polaroid Card */}
-        <div className="relative inline-block w-full max-w-md mx-auto">
+        <div className="relative inline-block w-full max-w-sm sm:max-w-md mx-auto">
           {/* Washi tape on top */}
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-28 h-7 bg-rose-400/50 -rotate-2 rounded-sm shadow-sm backdrop-blur-sm z-20 pointer-events-none" />
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-6 sm:h-7 bg-rose-400/50 -rotate-2 rounded-sm shadow-sm backdrop-blur-sm z-20 pointer-events-none" />
 
-          <div className="bg-gradient-to-b from-[#FFFDF9] via-[#FFF7F0] to-[#FFEBF0] p-4 sm:p-5 pb-8 rounded-2xl shadow-2xl shadow-rose-950/15 border-2 border-rose-200/80 transform rotate-1 hover:rotate-0 transition-transform duration-300 relative">
+          <div className="bg-gradient-to-b from-[#FFFDF9] via-[#FFF7F0] to-[#FFEBF0] p-3.5 sm:p-5 pb-6 sm:pb-8 rounded-2xl shadow-2xl shadow-rose-950/15 border-2 border-rose-200/80 transform rotate-1 hover:rotate-0 transition-transform duration-300 relative">
             {/* Corner heart stamps */}
             <span className="absolute top-2 left-3 text-rose-300 text-xs select-none">♥</span>
             <span className="absolute bottom-2 right-3 text-rose-300 text-xs select-none">♥</span>

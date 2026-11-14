@@ -6,48 +6,48 @@ export default function ChatStats() {
   const { chatStats } = DATA;
 
   return (
-    <section className="section-dark py-24 px-4 relative overflow-hidden">
+    <section className="section-dark py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 left-10 w-80 h-80 bg-rose-950/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-amber-950/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-10 w-60 sm:w-80 h-60 sm:h-80 bg-rose-950/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-60 sm:w-80 h-60 sm:h-80 bg-amber-950/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block mb-3"
+            className="inline-block mb-2 sm:mb-3"
           >
-            <span className="pill-badge pill-badge-dark">
+            <span className="pill-badge pill-badge-dark text-xs">
               <span>📊</span> Our Chat Wrapped
             </span>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-3"
+            className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
           >
             Our Story in Numbers
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-hand text-xl text-warm-200"
+            className="font-hand text-lg sm:text-xl text-warm-200"
           >
             Every message, every late-night call, and every single "hmmm" between us
           </motion.p>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {/* Card 1: Total Messages (Span 2) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

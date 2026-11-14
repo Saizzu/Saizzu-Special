@@ -21,40 +21,40 @@ export default function LoveEnvelope() {
   };
 
   return (
-    <section className="section-dark py-24 px-4 relative overflow-hidden">
+    <section className="section-dark py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden">
       {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-rose-900/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-96 h-80 sm:h-96 bg-rose-900/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-xl mx-auto text-center relative z-10">
         {/* Pill Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block mb-4"
+          className="inline-block mb-2 sm:mb-4"
         >
-          <span className="pill-badge pill-badge-dark">
+          <span className="pill-badge pill-badge-dark text-xs">
             <span>💌</span> A Private Letter
           </span>
         </motion.div>
 
         {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-gradient-gold"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 text-gradient-gold"
         >
           Sealed With My Whole Heart
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-xl text-warm-300 mb-12"
+          className="font-hand text-lg sm:text-xl text-warm-300 mb-8 sm:mb-12 max-w-md mx-auto"
         >
           Tap the wax seal to break the seal and read what my soul wrote for you
         </motion.p>
@@ -69,9 +69,9 @@ export default function LoveEnvelope() {
         >
           <div
             onClick={handleOpen}
-            className="cursor-pointer group relative bg-gradient-to-br from-[#FFF5EB] via-[#FCEEE2] to-[#EAD5C3] rounded-2xl p-8 shadow-2xl border border-amber-200/40 hover:shadow-rose-950/50 transition-all duration-300 transform group-hover:-translate-y-1"
+            className="cursor-pointer group relative bg-gradient-to-br from-[#FFF5EB] via-[#FCEEE2] to-[#EAD5C3] rounded-2xl p-6 sm:p-8 shadow-2xl border border-amber-200/40 hover:shadow-rose-950/50 transition-all duration-300 transform group-hover:-translate-y-1"
             style={{
-              minHeight: '230px',
+              minHeight: '210px',
             }}
           >
             {/* Envelope flap folded simulation */}

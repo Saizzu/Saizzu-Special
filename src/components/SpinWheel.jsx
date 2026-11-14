@@ -76,39 +76,39 @@ export default function SpinWheel() {
   const winningItem = winningIndex !== null ? items[winningIndex] : null;
 
   return (
-    <section className="section-dark py-20 sm:py-24 px-4 relative overflow-hidden text-center">
+    <section className="section-dark py-12 sm:py-20 px-3 sm:px-6 relative overflow-hidden text-center">
       {/* Ambient background glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-rose-950/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-rose-950/25 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block mb-3"
+          className="inline-block mb-2 sm:mb-3"
         >
-          <span className="pill-badge pill-badge-dark">
+          <span className="pill-badge pill-badge-dark text-xs">
             <span>🎡</span> Date & Gift Roulette
           </span>
         </motion.div>
 
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
         >
           Spin for Your Surprise
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-xl sm:text-2xl text-warm-200 mb-8 sm:mb-12 max-w-xl mx-auto"
+          className="font-hand text-lg sm:text-2xl text-warm-200 mb-6 sm:mb-10 max-w-xl mx-auto"
         >
           {DATA.wheelNote}
         </motion.p>

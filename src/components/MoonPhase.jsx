@@ -4,7 +4,7 @@ import DATA from '../data.js';
 
 export default function MoonPhase() {
   return (
-    <section className="section-dark py-24 px-4 relative overflow-hidden text-center">
+    <section className="section-dark py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden text-center">
       {/* Starfield twinkling points */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         {[...Array(24)].map((_, i) => (
@@ -25,32 +25,32 @@ export default function MoonPhase() {
       <div className="max-w-xl mx-auto relative z-10">
         {/* Pill Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block mb-3"
+          className="inline-block mb-2 sm:mb-3"
         >
-          <span className="pill-badge pill-badge-dark">
+          <span className="pill-badge pill-badge-dark text-xs">
             <span>🌙</span> Celestial Witness
           </span>
         </motion.div>
 
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
         >
           The Moon That Night
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-xl text-warm-200 mb-12"
+          className="font-hand text-lg sm:text-xl text-warm-200 mb-6 sm:mb-12"
         >
           November 26, 2023 — The exact sky that looked down upon our beginning
         </motion.p>
@@ -61,14 +61,14 @@ export default function MoonPhase() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative inline-block mb-8"
+          className="relative inline-block mb-6 sm:mb-8"
         >
           {/* Orbital Glow Aura */}
-          <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-amber-200/20 via-rose-300/20 to-amber-200/20 blur-2xl animate-pulse-glow" />
+          <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-gradient-to-r from-amber-200/20 via-rose-300/20 to-amber-200/20 blur-2xl animate-pulse-glow" />
 
           {/* Moon Sphere */}
           <div
-            className="w-56 h-56 sm:w-64 sm:h-64 rounded-full relative overflow-hidden shadow-2xl border border-amber-200/40"
+            className="w-44 h-44 sm:w-64 sm:h-64 rounded-full relative overflow-hidden shadow-2xl border border-amber-200/40"
             style={{
               background:
                 'radial-gradient(circle at 35% 35%, #FFF6E8 0%, #E8D5B8 35%, #C2AC8A 70%, #4A3A28 100%)',

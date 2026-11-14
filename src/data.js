@@ -15,6 +15,7 @@ const DATA = {
   relationshipStartDate: "2023-11-26",          // When you became a couple
   specialDate: "2026-11-15",                    // The day this page is for
   milestoneDate: "2026-11-15",                  // Next big milestone
+  milestoneText: "1 year to our milestone, Insha'Allah 💫",
   moonPhaseDate: "2023-11-26",                  // Date for moon phase visual
   moonPhaseLabel: "The night our story began",
 

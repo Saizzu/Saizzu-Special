@@ -52,42 +52,42 @@ export default function CompatibilityMeter() {
   };
 
   return (
-    <section className="section-light py-24 px-4 text-center relative overflow-hidden">
+    <section className="section-light py-12 sm:py-20 px-3 sm:px-6 text-center relative overflow-hidden">
       <div className="max-w-2xl mx-auto relative z-10">
         {/* Pill Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block mb-3"
+          className="inline-block mb-2 sm:mb-3"
         >
-          <span className="pill-badge pill-badge-rose">
+          <span className="pill-badge pill-badge-rose text-xs">
             <span>🔬</span> Cosmic Soulmate Algorithm
           </span>
         </motion.div>
 
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-2 sm:mb-3"
         >
           Love Compatibility Meter
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-xl text-warm-700 mb-10"
+          className="font-hand text-lg sm:text-xl text-warm-700 mb-6 sm:mb-10"
         >
           Let's run our names through the love observatory
         </motion.p>
 
         {/* Input Names Box */}
-        <div className="glass-card-light p-6 sm:p-8 rounded-3xl mb-8">
+        <div className="glass-card-light p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-6 sm:mb-8">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <div className="w-full sm:w-1/2">
               <label className="block text-xs uppercase tracking-wider text-warm-700/80 font-semibold mb-1 text-left">

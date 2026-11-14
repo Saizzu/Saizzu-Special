@@ -58,28 +58,28 @@ export default function FlowerBurst() {
   };
 
   return (
-    <section className="section-light py-20 px-4 text-center relative overflow-hidden">
+    <section className="section-light py-10 sm:py-20 px-3 sm:px-6 text-center relative overflow-hidden">
       <div className="max-w-2xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           className="inline-block"
         >
-          <span className="pill-badge pill-badge-rose mb-3">
+          <span className="pill-badge pill-badge-rose mb-2 sm:mb-3 text-xs">
             <span>💐</span> Spontaneous Blooms
           </span>
-          <h3 className="font-display text-2xl sm:text-3xl font-bold text-love-900 mb-2">
+          <h3 className="font-display text-xl sm:text-3xl font-bold text-love-900 mb-1.5 sm:mb-2">
             Just In Case Nobody Told You Today
           </h3>
-          <p className="font-hand text-lg sm:text-xl text-warm-700 mb-8">
+          <p className="font-hand text-base sm:text-xl text-warm-700 mb-6 sm:mb-8">
             You deserve every flower that ever bloomed under the sun
           </p>
 
           {/* Interactive Button */}
           <button
             onClick={handleBloom}
-            className="group relative inline-flex items-center gap-3 px-8 py-4 sm:px-10 sm:py-5 rounded-full bg-gradient-to-r from-rose-500 via-rose-600 to-rose-700 text-white font-hand text-xl sm:text-2xl shadow-xl hover:shadow-2xl hover:shadow-rose-500/40 transform hover:-translate-y-1 active:scale-95 transition-all duration-300 border-2 border-rose-300/40"
+            className="group relative inline-flex items-center gap-2.5 sm:gap-3 px-6 py-3.5 sm:px-10 sm:py-5 rounded-full bg-gradient-to-r from-rose-500 via-rose-600 to-rose-700 text-white font-hand text-lg sm:text-2xl shadow-xl hover:shadow-2xl hover:shadow-rose-500/40 transform hover:-translate-y-1 active:scale-95 transition-all duration-300 border-2 border-rose-300/40"
           >
             <span className="text-2xl group-hover:scale-125 transition-transform duration-300">
               🌸

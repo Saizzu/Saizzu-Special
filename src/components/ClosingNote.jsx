@@ -13,15 +13,15 @@ const inView = (delay = 0) => ({
 function ClosingNote() {
   return (
     <section
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-14 sm:py-24 md:py-32 overflow-hidden px-4"
       style={{ background: 'linear-gradient(180deg, #110A18 0%, #0D0718 100%)' }}
     >
-      <div className="relative z-10 max-w-2xl mx-auto px-6 flex flex-col items-center text-center gap-8">
+      <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center text-center gap-5 sm:gap-8">
 
         {/* ── section heading ──────────────────────────────── */}
         <motion.h2
           {...inView(0)}
-          className="font-display text-3xl md:text-4xl lg:text-5xl font-bold"
+          className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold"
           style={{
             background: 'linear-gradient(135deg, #D4A574, #FBBF24, #D4A574)',
             backgroundSize: '200% 200%',

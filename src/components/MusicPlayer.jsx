@@ -10,47 +10,47 @@ export default function MusicPlayer() {
   const currentSong = songs[activeTrack];
 
   return (
-    <section className="section-dark py-24 px-4 relative overflow-hidden">
+    <section className="section-dark py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden">
       {/* Background radial gradient */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-950/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-rose-950/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block mb-3"
+            className="inline-block mb-2 sm:mb-3"
           >
-            <span className="pill-badge pill-badge-dark">
+            <span className="pill-badge pill-badge-dark text-xs">
               <span>🎵</span> SIDE A • 4 TRACKS
             </span>
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-3"
+            className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
           >
             {DATA.playlistTitle}
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-hand text-xl text-warm-200"
+            className="font-hand text-lg sm:text-xl text-warm-200"
           >
             {DATA.playlistSubtitle}
           </motion.p>
         </div>
 
         {/* Player Layout: Turntable / Vinyl Left + Tracklist Right */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
           {/* Vinyl Disc Showcase (5 cols) */}
           <div className="md:col-span-5 flex flex-col items-center justify-center">
             <div className="relative group">
