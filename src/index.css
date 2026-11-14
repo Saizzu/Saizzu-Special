@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   Global Styles — Bespoke Romantic "Velvet & Rose-Gold" Theme
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --color-bg-cream: #FFF1F4;
+  --color-bg-dark: #12091A;
+  --color-bg-dark-mid: #1C0F28;
+  --color-rose: #E11D48;
+  --color-rose-soft: #FB7185;
+  --color-rose-blush: #FFE4E8;
+  --color-gold: #D4A574;
+  --color-gold-light: #F0D9B5;
+  --color-wine: #881337;
+  --color-wine-deep: #4C0519;
+  --color-text-dark: #2C1810;
+  --color-text-mid: #7D5A4F;
+  --color-text-cream: #FEF2E8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #FFF1F4;
+  color: var(--color-text-dark);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ── Scrollbar Styling ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF1F4;
+}
+::-webkit-scrollbar-thumb {
+  background: #FB7185;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E11D48;
+}
+
+/* ── Romantic Section Backgrounds ─────────────────────────── */
+.section-dark {
+  background: linear-gradient(180deg, #12091A 0%, #1A0E26 50%, #12091A 100%);
+  color: var(--color-text-cream);
+  position: relative;
+}
+
+.section-light {
+  background: linear-gradient(180deg, #FFF0F3 0%, #FFE5E9 40%, #FFF5F7 70%, #FFE8EC 100%);
+  color: var(--color-text-dark);
+  position: relative;
+}
+
+/* Subtle heart wallpaper watermark on light sections */
+.section-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(225, 29, 72, 0.08) 1.2px, transparent 1.2px),
+                    radial-gradient(rgba(244, 63, 94, 0.04) 1.2px, transparent 1.2px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* ── Glass Cards ───────────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 113, 133, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card-light {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 241, 243, 0.9) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(244, 63, 94, 0.22);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -5px rgba(225, 29, 72, 0.09), 0 4px 14px rgba(212, 165, 116, 0.08);
+}
+
+/* ── Text Gradients ────────────────────────────────────────── */
+.text-gradient-rose {
+  background: linear-gradient(135deg, #E11D48, #FB7185, #E11D48);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4A574, #FDE68A, #D4A574);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Urdu / RTL text ───────────────────────────────────────── */
+.urdu-text {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+  text-align: right;
+  line-height: 2.7;
+  font-size: 1.15rem;
+}
+
+/* ── Handwritten Text ──────────────────────────────────────── */
+.handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* ── Pill Badges ───────────────────────────────────────────── */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pill-badge-rose {
+  background: rgba(225, 29, 72, 0.12);
+  color: #BE123C;
+  border: 1px solid rgba(225, 29, 72, 0.2);
+}
+
+.pill-badge-gold {
+  background: rgba(212, 165, 116, 0.18);
+  color: #B45309;
+  border: 1px solid rgba(212, 165, 116, 0.35);
+}
+
+.pill-badge-dark {
+  background: rgba(225, 29, 72, 0.2);
+  color: #FDA4AF;
+  border: 1px solid rgba(251, 113, 133, 0.3);
+}
+
+/* ── Stitch Border ─────────────────────────────────────────── */
+.stitch-border {
+  border: 2px dashed rgba(244, 63, 94, 0.4);
+  border-radius: 20px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Wax Seal ──────────────────────────────────────────────── */
+.wax-seal {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #F43F5E, #BE123C 45%, #881337 75%, #4C0519);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: rgba(255, 224, 230, 0.95);
+  box-shadow:
+    inset 0 -3px 6px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(255,255,255,0.2),
+    0 6px 18px rgba(136, 19, 55, 0.45);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.wax-seal:hover {
+  transform: scale(1.08);
+  box-shadow:
+    inset 0 -3px 6px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(255,255,255,0.2),
+    0 8px 24px rgba(225, 29, 72, 0.6);
+}
+
+/* ── Canvas Scratch ────────────────────────────────────────── */
+.scratch-canvas {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='12' cy='12' r='10' fill='rgba(225,29,72,0.4)' stroke='%23E11D48' stroke-width='2'/%3E%3C/svg%3E") 12 12, crosshair;
+  touch-action: none;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.perspective-800 {
+  perspective: 800px;
+}
+
+/* ── Mobile Optimizations ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .urdu-text {
+    font-size: 1rem;
+    line-height: 2.5;
+  }
+}

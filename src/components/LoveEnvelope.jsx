@@ -1,0 +1,198 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import DATA from '../data.js';
+
+export default function LoveEnvelope() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isFlapped, setIsFlapped] = useState(false);
+
+  const handleOpen = () => {
+    setIsFlapped(true);
+    setTimeout(() => {
+      setIsOpen(true);
+    }, 600);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setTimeout(() => {
+      setIsFlapped(false);
+    }, 300);
+  };
+
+  return (
+    <section className="section-dark py-24 px-4 relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-rose-900/20 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-xl mx-auto text-center relative z-10">
+        {/* Pill Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="inline-block mb-4"
+        >
+          <span className="pill-badge pill-badge-dark">
+            <span>💌</span> A Private Letter
+          </span>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-gradient-gold"
+        >
+          Sealed With My Whole Heart
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="font-hand text-xl text-warm-300 mb-12"
+        >
+          Tap the wax seal to break the seal and read what my soul wrote for you
+        </motion.p>
+
+        {/* 3D Envelope Container */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="relative mx-auto w-full max-w-sm perspective-800"
+        >
+          <div
+            onClick={handleOpen}
+            className="cursor-pointer group relative bg-gradient-to-br from-[#FFF5EB] via-[#FCEEE2] to-[#EAD5C3] rounded-2xl p-8 shadow-2xl border border-amber-200/40 hover:shadow-rose-950/50 transition-all duration-300 transform group-hover:-translate-y-1"
+            style={{
+              minHeight: '230px',
+            }}
+          >
+            {/* Envelope flap folded simulation */}
+            <div
+              className={`absolute top-0 left-0 right-0 h-28 origin-top transition-transform duration-700 rounded-t-2xl flex items-center justify-center ${
+                isFlapped ? 'rotate-x-180 -translate-y-2' : ''
+              }`}
+              style={{
+                background: 'linear-gradient(180deg, #F5DFCC 0%, #ECD3BD 100%)',
+                clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+              }}
+            >
+              {/* Wax Seal Centered */}
+              <div
+                className="wax-seal absolute top-12"
+                title="Tap to open"
+              >
+                <span>{DATA.envelopeSealLetter || 'M'}</span>
+              </div>
+            </div>
+
+            {/* Letter peek edge */}
+            <div className="absolute top-8 left-8 right-8 h-12 bg-white/80 rounded-t border-t border-dashed border-rose-300/40 opacity-70" />
+
+            {/* Front Envelope Details */}
+            <div className="mt-24 text-center">
+              <p className="font-hand text-2xl text-rose-900 font-semibold mb-1">
+                For: {DATA.partnerName} ({DATA.nicknames[0]})
+              </p>
+              <p className="font-hand text-sm text-warm-700/80">
+                From: {DATA.gifterName} • Tap seal to open ✦
+              </p>
+            </div>
+
+            {/* Washi tape accents */}
+            <div className="absolute -top-3 right-6 w-16 h-6 bg-rose-400/30 -rotate-6 rounded-sm shadow-sm backdrop-blur-sm pointer-events-none" />
+            <div className="absolute -bottom-2 left-6 w-16 h-6 bg-amber-400/25 rotate-3 rounded-sm shadow-sm backdrop-blur-sm pointer-events-none" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Fullscreen Reading Modal */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto"
+            onClick={handleClose}
+          >
+            <motion.div
+              initial={{ scale: 0.85, y: 30, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 20, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-2xl bg-[#FFFDF9] text-stone-900 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-amber-200/60"
+              style={{
+                backgroundImage:
+                  'radial-gradient(#e5d5c5 0.75px, transparent 0.75px), repeating-linear-gradient(transparent, transparent 31px, #f1e4d8 31px, #f1e4d8 32px)',
+                backgroundSize: '24px 24px, 100% 32px',
+              }}
+            >
+              {/* Close Button */}
+              <button
+                onClick={handleClose}
+                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100 hover:bg-rose-100 text-stone-600 hover:text-rose-600 flex items-center justify-center transition-colors text-lg shadow-sm"
+                aria-label="Close letter"
+              >
+                ✕
+              </button>
+
+              {/* Decorative Header */}
+              <div className="text-center pb-4 mb-6 border-b border-amber-300/40">
+                <span className="text-rose-500 text-2xl">❦</span>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-rose-950 mt-1">
+                  میری روحِ من کے نام
+                </h3>
+                <p className="font-hand text-base text-stone-500">
+                  {DATA.gifterName} کا محبت بھرا خط
+                </p>
+              </div>
+
+              {/* Letter Body in Beautiful Urdu */}
+              <div className="urdu-text text-stone-800 space-y-4 px-2 sm:px-4 max-h-[60vh] overflow-y-auto pr-2">
+                {DATA.loveLetter.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx} className="leading-loose">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              {/* Footer Signature */}
+              <div className="mt-8 pt-4 border-t border-amber-300/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="wax-seal w-10 h-10 text-xs">
+                    {DATA.envelopeSealLetter || 'M'}
+                  </span>
+                  <div className="text-left">
+                    <p className="font-hand text-lg font-bold text-rose-900 leading-none">
+                      Forever Yours,
+                    </p>
+                    <p className="font-display text-sm text-stone-600">
+                      {DATA.gifterName}
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleClose}
+                  className="px-6 py-2 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-sm transition-colors shadow-md hover:shadow-rose-500/30"
+                >
+                  Keep In My Heart 💖
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
