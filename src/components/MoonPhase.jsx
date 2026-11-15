@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function MoonPhase() {
   const [isAudioActive, setIsAudioActive] = useState(false);
@@ -18,14 +18,14 @@ export default function MoonPhase() {
   const togglePlayPause = () => {
     if (isPlaying) {
       iframeRef.current?.contentWindow?.postMessage(
-        JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
-        '*'
+        JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
+        "*",
       );
       setIsPlaying(false);
     } else {
       iframeRef.current?.contentWindow?.postMessage(
-        JSON.stringify({ event: 'command', func: 'playVideo', args: [] }),
-        '*'
+        JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+        "*",
       );
       setIsPlaying(true);
     }
@@ -41,15 +41,14 @@ export default function MoonPhase() {
     <section className="section-dark py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden text-center">
       {/* Hidden YouTube audio stream (no video visible, audio only) */}
       {isAudioActive && (
-        <iframe
-          ref={iframeRef}
+        <audio
           key="moon-audio-stream"
           tabIndex={-1}
           aria-hidden="true"
           className="absolute -top-[9999px] -left-[9999px] w-1 h-1 opacity-0 pointer-events-none"
-          src="https://www.youtube.com/embed/CROUI2z_dVY?autoplay=1&enablejsapi=1&start=44"
-          title="Moon Background Melody"
-          allow="autoplay; encrypted-media"
+          src="/public/saizzu.mpeg"
+          autoPlay
+          loop
         />
       )}
 
@@ -109,7 +108,7 @@ export default function MoonPhase() {
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             onClick={handleMoonClick}
             className="relative flex items-center justify-center cursor-pointer group select-none"
             title="Click to play / pause secret melody 🎵"
@@ -117,7 +116,9 @@ export default function MoonPhase() {
             {/* Soft Orbital Glow Aura */}
             <div
               className={`absolute -inset-8 sm:-inset-12 rounded-full bg-gradient-to-tr from-amber-200/25 via-rose-400/25 to-amber-100/25 blur-3xl pointer-events-none transition-all duration-700 ${
-                isPlaying ? 'scale-110 opacity-100 animate-pulse' : 'scale-100 opacity-60'
+                isPlaying
+                  ? "scale-110 opacity-100 animate-pulse"
+                  : "scale-100 opacity-60"
               }`}
             />
 
@@ -131,8 +132,8 @@ export default function MoonPhase() {
               className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full relative overflow-hidden shadow-2xl border-2 border-amber-200/50 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-500"
               style={{
                 boxShadow: isPlaying
-                  ? '0 0 55px rgba(251, 191, 36, 0.45), 0 0 95px rgba(244, 63, 94, 0.3), inset 0 0 35px rgba(0, 0, 0, 0.7)'
-                  : '0 0 40px rgba(251, 191, 36, 0.25), 0 0 75px rgba(244, 63, 94, 0.15), inset 0 0 35px rgba(0, 0, 0, 0.7)',
+                  ? "0 0 55px rgba(251, 191, 36, 0.45), 0 0 95px rgba(244, 63, 94, 0.3), inset 0 0 35px rgba(0, 0, 0, 0.7)"
+                  : "0 0 40px rgba(251, 191, 36, 0.25), 0 0 75px rgba(244, 63, 94, 0.15), inset 0 0 35px rgba(0, 0, 0, 0.7)",
               }}
             >
               {/* Actual Cropped Moon Image (fits 100% edge-to-edge) */}
@@ -142,8 +143,8 @@ export default function MoonPhase() {
                 className="w-full h-full object-cover select-none pointer-events-none"
                 onError={(e) => {
                   if (!e.target.dataset.triedFallback) {
-                    e.target.dataset.triedFallback = 'true';
-                    e.target.src = './photos/moon.avif';
+                    e.target.dataset.triedFallback = "true";
+                    e.target.src = "./photos/moon.avif";
                   }
                 }}
               />
@@ -156,8 +157,8 @@ export default function MoonPhase() {
                 style={{ opacity: 0.3 }}
                 onError={(e) => {
                   if (!e.target.dataset.triedAbsolute) {
-                    e.target.dataset.triedAbsolute = 'true';
-                    e.target.src = '/photos/saizzu-moon.jpg';
+                    e.target.dataset.triedAbsolute = "true";
+                    e.target.src = "/photos/saizzu-moon.jpg";
                   }
                 }}
               />
@@ -167,7 +168,7 @@ export default function MoonPhase() {
                 className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
                   boxShadow:
-                    'inset 0 0 35px rgba(18, 9, 26, 0.8), inset -12px -12px 35px rgba(0,0,0,0.6)',
+                    "inset 0 0 35px rgba(18, 9, 26, 0.8), inset -12px -12px 35px rgba(0,0,0,0.6)",
                 }}
               />
 
@@ -212,18 +213,20 @@ export default function MoonPhase() {
                       <span
                         key={i}
                         className={`w-1 bg-amber-400 rounded-full transition-all duration-300 ${
-                          isPlaying ? 'animate-equalizer' : 'h-1'
+                          isPlaying ? "animate-equalizer" : "h-1"
                         }`}
                         style={{
                           animationDelay: `${i * 0.15}s`,
-                          height: isPlaying ? undefined : '3px',
+                          height: isPlaying ? undefined : "3px",
                         }}
                       />
                     ))}
                   </div>
 
                   <span className="text-xs sm:text-sm font-display font-medium text-amber-200">
-                    {isPlaying ? 'Playing Secret Moon Song' : 'Moon Song Paused'}
+                    {isPlaying
+                      ? "Playing Secret Moon Song"
+                      : "Moon Song Paused"}
                   </span>
 
                   {/* Play / Pause Toggle Button */}
@@ -231,10 +234,10 @@ export default function MoonPhase() {
                     type="button"
                     onClick={togglePlayPause}
                     className="px-3 py-1 rounded-full text-xs font-semibold bg-rose-600 hover:bg-rose-500 text-white shadow transition-all flex items-center gap-1"
-                    title={isPlaying ? 'Pause song' : 'Resume song'}
+                    title={isPlaying ? "Pause song" : "Resume song"}
                   >
-                    <span>{isPlaying ? '⏸' : '▶'}</span>
-                    <span>{isPlaying ? 'Pause' : 'Play'}</span>
+                    <span>{isPlaying ? "⏸" : "▶"}</span>
+                    <span>{isPlaying ? "Pause" : "Play"}</span>
                   </button>
 
                   {/* Close / Stop Button */}
@@ -274,7 +277,8 @@ export default function MoonPhase() {
             className="space-y-2 max-w-md mx-auto"
           >
             <p className="font-hand text-xl sm:text-2xl text-warm-100 leading-relaxed">
-              "The same moon that lights up the sky tonight is the one that watched two souls become one."
+              "The same moon that lights up the sky tonight is the one that
+              watched two souls become one."
             </p>
             <p className="font-hand text-sm sm:text-base text-rose-300/80">
               Chaand mein bhi tera hi chehra nazar aata hai... ✨
