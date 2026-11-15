@@ -7,7 +7,7 @@ export default function MoonPhase() {
     <section className="section-dark py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden text-center">
       {/* Starfield twinkling points */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
-        {[...Array(24)].map((_, i) => (
+        {[...Array(28)].map((_, i) => (
           <span
             key={i}
             className="absolute rounded-full bg-white animate-twinkle"
@@ -22,7 +22,7 @@ export default function MoonPhase() {
         ))}
       </div>
 
-      <div className="max-w-xl mx-auto relative z-10">
+      <div className="max-w-2xl mx-auto relative z-10 flex flex-col items-center">
         {/* Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -50,54 +50,99 @@ export default function MoonPhase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-200 mb-6 sm:mb-12"
+          className="font-hand text-lg sm:text-xl text-warm-200 mb-6 sm:mb-10 max-w-lg"
         >
           November 26, 2023 — The exact sky that looked down upon our beginning
         </motion.p>
 
-        {/* 3D Glowing Moon Visual */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative inline-block mb-6 sm:mb-8"
-        >
-          {/* Orbital Glow Aura */}
-          <div className="absolute -inset-6 sm:-inset-8 rounded-full bg-gradient-to-r from-amber-200/20 via-rose-300/20 to-amber-200/20 blur-2xl animate-pulse-glow" />
-
-          {/* Moon Sphere */}
-          <div
-            className="w-44 h-44 sm:w-64 sm:h-64 rounded-full relative overflow-hidden shadow-2xl border border-amber-200/40"
-            style={{
-              background:
-                'radial-gradient(circle at 35% 35%, #FFF6E8 0%, #E8D5B8 35%, #C2AC8A 70%, #4A3A28 100%)',
-              boxShadow:
-                'inset -20px -20px 40px rgba(0,0,0,0.6), 0 0 50px rgba(212,165,116,0.3)',
-            }}
+        {/* Moon Visual Container */}
+        <div className="w-full flex flex-col items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="relative flex items-center justify-center"
           >
-            {/* Crater 1 */}
-            <div className="absolute top-12 left-16 w-8 h-8 rounded-full bg-black/10 blur-[1px]" />
-            {/* Crater 2 */}
-            <div className="absolute top-24 left-28 w-12 h-12 rounded-full bg-black/15 blur-[1px]" />
-            {/* Crater 3 */}
-            <div className="absolute bottom-16 left-14 w-10 h-10 rounded-full bg-black/12 blur-[1px]" />
-            {/* Crater 4 */}
-            <div className="absolute top-20 right-14 w-6 h-6 rounded-full bg-black/10 blur-[1px]" />
+            {/* Soft Orbital Glow Aura */}
+            <div className="absolute -inset-8 sm:-inset-12 rounded-full bg-gradient-to-tr from-amber-200/25 via-rose-400/20 to-amber-100/25 blur-3xl animate-pulse-glow pointer-events-none" />
 
-            {/* Glowing Moon Rim */}
-            <div className="absolute inset-0 rounded-full border-t border-l border-white/50 pointer-events-none" />
-          </div>
-        </motion.div>
+            {/* Glowing Moon Sphere with Saizzu overlay */}
+            <div
+              className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full relative overflow-hidden shadow-2xl border-2 border-amber-200/50 flex items-center justify-center group"
+              style={{
+                boxShadow:
+                  '0 0 45px rgba(251, 191, 36, 0.25), 0 0 80px rgba(244, 63, 94, 0.15), inset 0 0 35px rgba(0, 0, 0, 0.65)',
+              }}
+            >
+              {/* Actual Moon Image provided by user */}
+              <img
+                src="./photos/moon.avif"
+                alt="Moon on November 26, 2023"
+                className="w-full h-full object-cover select-none pointer-events-none"
+                onError={(e) => {
+                  // Fallback to absolute path if relative fails
+                  if (!e.target.dataset.triedAbsolute) {
+                    e.target.dataset.triedAbsolute = 'true';
+                    e.target.src = '/photos/moon.avif';
+                  }
+                }}
+              />
 
-        {/* Moon Badge */}
-        <div className="inline-block px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-amber-300/30 text-amber-200 text-xs uppercase tracking-widest font-mono font-bold mb-4">
-          Waxing Gibbous • 98% Illuminated
+              {/* Saizzu's photo layered over the moon with 40% opacity */}
+              <img
+                src="./photos/saizzu-moon.jpg"
+                alt="Shaista (Saizzu) on the Moon"
+                className="absolute inset-0 w-full h-full object-cover object-[center_32%] rounded-full select-none pointer-events-none transition-opacity duration-500"
+                style={{ opacity: 0.4 }}
+                onError={(e) => {
+                  if (!e.target.dataset.triedAbsolute) {
+                    e.target.dataset.triedAbsolute = 'true';
+                    e.target.src = '/photos/saizzu-moon.jpg';
+                  }
+                }}
+              />
+
+              {/* Subtle inner spherical vignette & rim glow */}
+              <div
+                className="absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  boxShadow: 'inset 0 0 30px rgba(18, 9, 26, 0.7), inset -10px -10px 30px rgba(0,0,0,0.5)',
+                }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Centered Moon Phase Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex justify-center w-full mt-6 sm:mt-8 mb-5 sm:mb-6"
+          >
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-amber-300/30 text-amber-200 text-xs sm:text-sm uppercase tracking-widest font-mono font-bold shadow-lg">
+              <span>🌕</span>
+              <span>Waxing Gibbous • 98% Illuminated</span>
+            </div>
+          </motion.div>
+
+          {/* Romantic Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="space-y-2 max-w-md mx-auto"
+          >
+            <p className="font-hand text-xl sm:text-2xl text-warm-100 leading-relaxed">
+              "The same moon that lights up the sky tonight is the one that watched two souls become one."
+            </p>
+            <p className="font-hand text-sm sm:text-base text-rose-300/80">
+              Chaand mein bhi tera hi chehra nazar aata hai... ✨
+            </p>
+          </motion.div>
         </div>
-
-        <p className="font-hand text-xl sm:text-2xl text-warm-100 max-w-md mx-auto leading-relaxed">
-          "The same moon that lights up the sky tonight is the one that watched two souls become one."
-        </p>
       </div>
     </section>
   );
