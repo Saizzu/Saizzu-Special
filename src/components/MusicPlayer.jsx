@@ -33,7 +33,7 @@ export default function MusicPlayer() {
             className="inline-block mb-2 sm:mb-3"
           >
             <span className="pill-badge pill-badge-dark text-xs">
-              <span>🎵</span> SIDE A • 4 TRACKS
+              <span>🎵</span> SIDE A • {songs.length} TRACKS
             </span>
           </motion.div>
 
@@ -152,10 +152,12 @@ export default function MusicPlayer() {
                   className="w-full max-w-[280px] sm:max-w-xs mt-3 rounded-2xl overflow-hidden border-2 border-amber-400/50 shadow-2xl bg-black"
                 >
                   <iframe
-                    key={currentSong.youtubeId}
+                    key={`${currentSong.youtubeId}-${currentSong.startTime || 0}`}
                     width="100%"
                     height="140"
-                    src={`https://www.youtube.com/embed/${currentSong.youtubeId}?autoplay=1&enablejsapi=1`}
+                    src={`https://www.youtube.com/embed/${currentSong.youtubeId}?autoplay=1&enablejsapi=1${
+                      currentSong.startTime ? `&start=${currentSong.startTime}` : ''
+                    }`}
                     title={currentSong.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

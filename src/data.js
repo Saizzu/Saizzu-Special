@@ -147,6 +147,14 @@ const DATA = {
       youtubeId: "76bHXlozrZ4",
       color: "#D97706",
     },
+    {
+      title: "Mast Magan (from 2 States)",
+      artist: "Arijit Singh & Chinmayi Sripada",
+      reason: "Because every time I listen to this song—especially the part about coming to your city—it fills my heart with the longing to travel all the way to your city just to see you.",
+      youtubeId: "fXRvluHnjxE",
+      startTime: 178,
+      color: "#BE185D",
+    },
   ],
 
   // ── Photo Gallery ──────────────────────────────────────────
