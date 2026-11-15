@@ -4,53 +4,70 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function MoonPhase() {
   const [isAudioActive, setIsAudioActive] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const iframeRef = useRef(null);
 
-  const handleMoonClick = () => {
+  const audioRef = useRef(null);
+
+  // Moon click handler
+  const handleMoonClick = async () => {
     if (!isAudioActive) {
       setIsAudioActive(true);
-      setIsPlaying(true);
+
+      try {
+        await audioRef.current?.play();
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+        setIsPlaying(false);
+      }
     } else {
       togglePlayPause();
     }
   };
 
-  const togglePlayPause = () => {
-    if (isPlaying) {
-      iframeRef.current?.contentWindow?.postMessage(
-        JSON.stringify({ event: "command", func: "pauseVideo", args: [] }),
-        "*",
-      );
-      setIsPlaying(false);
+  // Play / Pause audio
+  const togglePlayPause = async () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    if (audio.paused) {
+      try {
+        await audio.play();
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+        setIsPlaying(false);
+      }
     } else {
-      iframeRef.current?.contentWindow?.postMessage(
-        JSON.stringify({ event: "command", func: "playVideo", args: [] }),
-        "*",
-      );
-      setIsPlaying(true);
+      audio.pause();
     }
   };
 
+  // Stop audio and reset
   const handleStop = (e) => {
     e.stopPropagation();
+
+    const audio = audioRef.current;
+
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
     setIsAudioActive(false);
     setIsPlaying(false);
   };
 
   return (
     <section className="section-dark py-12 sm:py-24 px-3 sm:px-6 relative overflow-hidden text-center">
-      {/* Hidden YouTube audio stream (no video visible, audio only) */}
-      {isAudioActive && (
-        <audio
-          key="moon-audio-stream"
-          tabIndex={-1}
-          aria-hidden="true"
-          className="absolute -top-[9999px] -left-[9999px] w-1 h-1 opacity-0 pointer-events-none"
-          src="/public/saizzu.mpeg"
-          autoPlay
-          loop
-        />
-      )}
+      {/* Audio Player - Always Mounted */}
+      <audio
+        ref={audioRef}
+        src="/saizzu.mpeg"
+        loop
+        preload="auto"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
+      />
 
       {/* Starfield twinkling points */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
@@ -82,6 +99,7 @@ export default function MoonPhase() {
           </span>
         </motion.div>
 
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,6 +110,7 @@ export default function MoonPhase() {
           The Moon That Night
         </motion.h2>
 
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +155,7 @@ export default function MoonPhase() {
                   : "0 0 40px rgba(251, 191, 36, 0.25), 0 0 75px rgba(244, 63, 94, 0.15), inset 0 0 35px rgba(0, 0, 0, 0.7)",
               }}
             >
-              {/* Actual Cropped Moon Image (fits 100% edge-to-edge) */}
+              {/* Actual Cropped Moon Image */}
               <img
                 src="./photos/moon.png"
                 alt="Moon on November 26, 2023"
@@ -149,7 +168,7 @@ export default function MoonPhase() {
                 }}
               />
 
-              {/* Saizzu's photo layered over the moon with 30% opacity */}
+              {/* Saizzu's Photo */}
               <img
                 src="./photos/saizzu-moon.jpg"
                 alt="Shaista (Saizzu) on the Moon"
@@ -163,7 +182,7 @@ export default function MoonPhase() {
                 }}
               />
 
-              {/* Subtle inner spherical vignette & rim glow */}
+              {/* Subtle Inner Spherical Vignette */}
               <div
                 className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
@@ -172,7 +191,7 @@ export default function MoonPhase() {
                 }}
               />
 
-              {/* Center Play Icon on Hover when audio is stopped */}
+              {/* Center Play Icon */}
               {!isAudioActive && (
                 <div className="absolute inset-0 rounded-full flex items-center justify-center bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[1px]">
                   <span className="w-12 h-12 rounded-full bg-rose-600/90 text-white flex items-center justify-center text-xl shadow-lg pl-1">
@@ -207,7 +226,7 @@ export default function MoonPhase() {
                   exit={{ opacity: 0, scale: 0.95, y: -5 }}
                   className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-stone-900/90 border border-amber-400/50 shadow-xl backdrop-blur-md"
                 >
-                  {/* Equalizer animation */}
+                  {/* Equalizer Animation */}
                   <div className="flex items-center gap-1 h-3.5 px-1">
                     {[0.4, 0.9, 0.6, 1.0, 0.5].map((_, i) => (
                       <span
@@ -223,6 +242,7 @@ export default function MoonPhase() {
                     ))}
                   </div>
 
+                  {/* Audio Status */}
                   <span className="text-xs sm:text-sm font-display font-medium text-amber-200">
                     {isPlaying
                       ? "Playing Secret Moon Song"
@@ -280,6 +300,7 @@ export default function MoonPhase() {
               "The same moon that lights up the sky tonight is the one that
               watched two souls become one."
             </p>
+
             <p className="font-hand text-sm sm:text-base text-rose-300/80">
               Chaand mein bhi tera hi chehra nazar aata hai... ✨
             </p>
