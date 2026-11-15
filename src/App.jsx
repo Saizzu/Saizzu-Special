@@ -13,10 +13,22 @@ import MusicPlayer from './components/MusicPlayer';
 import PhotoCarousel from './components/PhotoCarousel';
 import MoonPhase from './components/MoonPhase';
 import ClosingNote from './components/ClosingNote';
+import PasswordGate from './components/PasswordGate';
 import DATA from './data';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState(null);
+  const [unlocked, setUnlocked] = useState(() => {
+    return localStorage.getItem('saizzu_auth_unlocked') === 'true';
+  });
+
+  const handleLock = () => {
+    localStorage.removeItem('saizzu_auth_unlocked');
+    setUnlocked(false);
+  };
+
+  if (!unlocked) {
+    return <PasswordGate onUnlock={() => setUnlocked(true)} />;
+  }
 
   return (
     <div className="relative min-h-screen bg-[#FFF0F3] selection:bg-rose-500 selection:text-white overflow-x-hidden w-full">
@@ -25,7 +37,7 @@ export default function App() {
 
       {/* Floating Header Pill */}
       <header className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-40 max-w-[94vw] w-auto">
-        <div className="px-4 py-1.5 sm:px-5 sm:py-2 rounded-full bg-stone-950/80 backdrop-blur-md border border-rose-400/30 shadow-xl flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-warm-100 whitespace-nowrap">
+        <div className="px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full bg-stone-950/80 backdrop-blur-md border border-rose-400/30 shadow-xl flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-warm-100 whitespace-nowrap">
           <span className="text-rose-400">♥</span>
           <span className="font-display font-medium">
             For {DATA.partnerName} ({DATA.nicknames[0]})
@@ -34,6 +46,14 @@ export default function App() {
           <span className="font-hand text-amber-300 text-sm">
             From {DATA.gifterName}
           </span>
+          <span className="text-rose-400/30">|</span>
+          <button
+            onClick={handleLock}
+            title="Lock Page"
+            className="text-[11px] text-warm-300/60 hover:text-rose-400 transition-colors flex items-center gap-1"
+          >
+            <span>🔒</span>
+          </button>
         </div>
       </header>
 

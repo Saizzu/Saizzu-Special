@@ -144,7 +144,7 @@ const DATA = {
       title: "Tujhe Sochta Hoon",
       artist: "KK (Pritam)",
       reason: "Because not a single day passes without you on my mind, from the moment I wake up until I fall asleep.",
-      youtubeId: "3p7c83E622A",
+      youtubeId: "76bHXlozrZ4",
       color: "#D97706",
     },
   ],
