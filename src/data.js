@@ -4,7 +4,6 @@
 // ═══════════════════════════════════════════════════════════════
 
 const DATA = {
-
   // ── Names & Nicknames ──────────────────────────────────────
   gifterName: "Mudassir",
   partnerName: "Shaista",
@@ -12,17 +11,18 @@ const DATA = {
 
   // ── Important Dates ────────────────────────────────────────
   // Format: "YYYY-MM-DD"
-  relationshipStartDate: "2023-11-26",          // When you became a couple
-  specialDate: "2026-11-15",                    // The day this page is for
-  milestoneDate: "2026-11-15",                  // Next big milestone
+  relationshipStartDate: "2023-11-26", // When you became a couple
+  specialDate: "2026-11-15", // The day this page is for
+  milestoneDate: "2026-11-15", // Next big milestone
   milestoneText: "1 year to our milestone, Insha'Allah 💫",
-  moonPhaseDate: "2023-11-26",                  // Date for moon phase visual
+  moonPhaseDate: "2023-11-26", // Date for moon phase visual
   moonPhaseLabel: "The night our story began",
 
   // ── Hero Section ───────────────────────────────────────────
   heroHeadline: "To The Love of My Life",
   heroName: "Shaista",
-  heroSubtext: "Welcome to our little corner of the internet, my Shaista. Every scroll here is a small piece of my heart, built just to celebrate you and the magic you've brought into my life. Take your time, Rooh-E-Mann—this entire space is a reminder of how deeply loved and precious you are to me.",
+  heroSubtext:
+    "Welcome to our little corner of the internet, my Shaista. Every scroll here is a small piece of my heart, built just to celebrate you and the magic you've brought into my life. Take your time, Rooh-E-Mann—this entire space is a reminder of how deeply loved and precious you are to me.",
 
   // ── Love Letter (Envelope Reveal) ──────────────────────────
   envelopeSealLetter: "M",
@@ -101,11 +101,19 @@ const DATA = {
   wheelItems: [
     { label: "Surprise Food Delivery Treat", emoji: "🍕", color: "#E11D48" },
     { label: "Virtual Movie Night (You Pick!)", emoji: "🎬", color: "#7C3AED" },
-    { label: "Late-Night Uninterrupted Video Call", emoji: "📞", color: "#0891B2" },
+    {
+      label: "Late-Night Uninterrupted Video Call",
+      emoji: "📞",
+      color: "#0891B2",
+    },
     { label: "Surprise Wishlist Gift", emoji: "🎁", color: "#059669" },
     { label: "Handwritten Love Letter", emoji: "💌", color: "#D97706" },
     { label: "Our Next Meet-Up Wish", emoji: "✈️", color: "#2563EB" },
-    { label: "Whatever You Want (Golden Ticket)", emoji: "🎫", color: "#CA8A04" },
+    {
+      label: "Whatever You Want (Golden Ticket)",
+      emoji: "🎫",
+      color: "#CA8A04",
+    },
   ],
   wheelNote: "Whatever it lands on, I owe you. No respins. 💕",
 
@@ -122,53 +130,101 @@ const DATA = {
     {
       title: "Haan Tu Hai",
       artist: "KK (Pritam)",
-      reason: "Because every single lyric expresses exactly how deeply I feel for you, each and every day.",
+      reason:
+        "Because every single lyric expresses exactly how deeply I feel for you, each and every day.",
       youtubeId: "V1fbOsHBlZE",
       color: "#E11D48",
     },
     {
       title: "Humdard",
       artist: "Arijit Singh (Mithoon)",
-      reason: "Because this song captures just how rare, irreplaceable, and deeply special you are to my soul.",
+      reason:
+        "Because this song captures just how rare, irreplaceable, and deeply special you are to my soul.",
       youtubeId: "FJ55SHCzt88",
       color: "#7C3AED",
     },
     {
       title: "Banjaara",
       artist: "Mohammed Irfan (Mithoon)",
-      reason: "Because it reflects how completely my life changed for the better the moment you walked into it.",
+      reason:
+        "Because it reflects how completely my life changed for the better the moment you walked into it.",
       youtubeId: "0NFxcNheoLc",
       color: "#0891B2",
     },
     {
       title: "Tujhe Sochta Hoon",
       artist: "KK (Pritam)",
-      reason: "Because not a single day passes without you on my mind, from the moment I wake up until I fall asleep.",
+      reason:
+        "Because not a single day passes without you on my mind, from the moment I wake up until I fall asleep.",
       youtubeId: "76bHXlozrZ4",
       color: "#D97706",
     },
     {
       title: "Mast Magan (from 2 States)",
       artist: "Arijit Singh & Chinmayi Sripada",
-      reason: "Because every time I listen to this song—especially the part about coming to your city—it fills my heart with the longing to travel all the way to your city just to see you.",
+      reason:
+        "Because every time I listen to this song—especially the part about coming to your city—it fills my heart with the longing to travel all the way to your city just to see you.",
       youtubeId: "fXRvluHnjxE",
       startTime: 178,
       color: "#BE185D",
+    },
+    {
+      title: "Sitaare",
+      artist: "Arijit Singh (White Noise Collectives)",
+      reason:
+        "Because it feels like our stars aligned the moment we met, turning every path I walk into a journey toward you.",
+      youtubeId: "ANn4sxq0xT8",
+      color: "#EAB308",
+    },
+    {
+      title: "Dil Ibaadat",
+      artist: "KK (Pritam)",
+      reason:
+        "Because you aren’t just someone I love—you are the quiet prayer my heart whispers every single day.",
+      youtubeId: "U2QNhsAgIIE",
+      color: "#E11D48",
+    },
+    {
+      title: "Ye Tune Kya Kiya",
+      artist: "Javed Bashir (Pritam)",
+      reason:
+        "Because I could win against the whole world, yet one glance from you made me surrender my heart completely.",
+      youtubeId: "w9Qo6p4XsXE",
+      color: "#9333EA",
     },
   ],
 
   // ── Photo Gallery ──────────────────────────────────────────
   galleryPhotos: [
-    { src: "/photos/gallery/1.jpg", caption: "Where our story quietly started, even before we knew ✨" },
-    { src: "/photos/gallery/2.jpg", caption: "Young, innocent, and already falling for you 💕" },
-    { src: "/photos/gallery/3.jpg", caption: "Under a thousand lights, my eyes only saw you 🌟" },
-    { src: "/photos/gallery/4.jpg", caption: "Your grace, your beauty, my whole world 🌹" },
-    { src: "/photos/gallery/5.jpg", caption: "The smile that makes every single day worth living 😊" },
-    { src: "/photos/gallery/6.jpg", caption: "The real laughs and the unfiltered joy only you bring me 😂💖" },
+    {
+      src: "/photos/gallery/1.jpg",
+      caption: "Where our story quietly started, even before we knew ✨",
+    },
+    {
+      src: "/photos/gallery/2.jpg",
+      caption: "Young, innocent, and already falling for you 💕",
+    },
+    {
+      src: "/photos/gallery/3.jpg",
+      caption: "Under a thousand lights, my eyes only saw you 🌟",
+    },
+    {
+      src: "/photos/gallery/4.jpg",
+      caption: "Your grace, your beauty, my whole world 🌹",
+    },
+    {
+      src: "/photos/gallery/5.jpg",
+      caption: "The smile that makes every single day worth living 😊",
+    },
+    {
+      src: "/photos/gallery/6.jpg",
+      caption: "The real laughs and the unfiltered joy only you bring me 😂💖",
+    },
   ],
 
   // ── Closing Note ───────────────────────────────────────────
-  closingNote: "You've reached the end of this little page, Saizzu, but our story is only just getting started. Every single day with you feels like a gift I never want to take for granted. Keep smiling that breathtaking smile, Babu—I'm always right here, loving you more than yesterday and less than tomorrow.",
+  closingNote:
+    "You've reached the end of this little page, Saizzu, but our story is only just getting started. Every single day with you feels like a gift I never want to take for granted. Keep smiling that breathtaking smile, Babu—I'm always right here, loving you more than yesterday and less than tomorrow.",
   signOff: "All of me, forever yours",
   signName: "Mudassir",
 
