@@ -203,7 +203,7 @@ export default function PasswordGate({ onUnlock }) {
 
         {/* Cute footer note */}
         <p className="mt-5 text-[11px] text-warm-400/50 font-mono">
-          Made exclusively for Shaista by Mudassir 💍
+          Made exclusively for Saizzu by Unknown 💍
         </p>
       </motion.div>
     </div>

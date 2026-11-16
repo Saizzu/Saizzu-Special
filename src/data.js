@@ -192,6 +192,38 @@ const DATA = {
       youtubeId: "w9Qo6p4XsXE",
       color: "#9333EA",
     },
+    {
+      title: "I Love You",
+      artist: "Ash King & Clinton Cerejo (Pritam)",
+      reason:
+        "Because loving you has quietly made me a better person, and every part of me just wants to say those three words to you.",
+      youtubeId: "0JLRExeOH-k",
+      color: "#F97316",
+    },
+    {
+      title: "Tum Hi Ho",
+      artist: "Arijit Singh (Mithoon)",
+      reason:
+        "Because you are my peace, my strength, and the reason every moment of my life feels complete.",
+      youtubeId: "81qmmlsIE3k",
+      color: "#DC2626",
+    },
+    {
+      title: "Piya O Re Piya",
+      artist: "Atif Aslam & Shreya Ghoshal",
+      reason:
+        "Because even when we are miles apart, it feels like our hearts have already bridged the distance between us.",
+      youtubeId: "u-FaTNxrWhw",
+      color: "#0284C7",
+    },
+    {
+      title: "Tum Se Hi",
+      artist: "Mohit Chauhan (Pritam)",
+      reason:
+        "Because my mornings begin with you, my evenings end with you, and every breath in between feels like life only because of you.",
+      youtubeId: "mt9xg0mmt28",
+      color: "#16A34A",
+    },
   ],
 
   // ── Photo Gallery ──────────────────────────────────────────
