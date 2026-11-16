@@ -224,6 +224,23 @@ const DATA = {
       youtubeId: "mt9xg0mmt28",
       color: "#16A34A",
     },
+    {
+      title: "Tere Hawaale",
+      artist: "Arijit Singh & Shilpa Rao (Pritam)",
+      reason:
+        "Because even when we aren’t physically together, you always feel right beside me—and I’ve surrendered my entire heart and soul to you.",
+      youtubeId: "2CXSw1oPj3I",
+      startTime: 220,
+      color: "#0D9488",
+    },
+    {
+      title: "Teri Jhuki Nazar",
+      artist: "Shafqat Amanat Ali (Pritam)",
+      reason:
+        "Because even when you don’t say a word, one shy glance from you tells me everything my heart needs to hear.",
+      youtubeId: "BgmVrguFO4o",
+      color: "#DB2777",
+    },
   ],
 
   // ── Photo Gallery ──────────────────────────────────────────
