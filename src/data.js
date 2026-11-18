@@ -279,6 +279,174 @@ const DATA = {
 
   // ── Flower Burst Button ────────────────────────────────────
   flowerButtonText: "You deserve all the flowers today 🌸",
+
+  // ── WhatsApp & Interactive Features ────────────────────────
+  whatsappNumber: "917205333213",
+
+  timeCapsuleConfig: {
+    unlockEverySunday: true,
+    monthlyPamperDay: 15, // Unlocks on the 15th of EVERY month with comfort & pamper surprises
+    specialDates: [
+      {
+        month: 9,
+        day: 17,
+        title: "17th September Special ✨",
+        message:
+          "Words fall short when I try to describe how special today is for us. Thank you for coming into my life and making everything brighter, Saizzu! ❤️",
+      },
+      {
+        month: 11,
+        day: 15,
+        title: "15th November Special 💖",
+        message:
+          "Happy 15th November, my love! With every passing day, my love for you only grows deeper. Always yours, Mudassir.",
+      },
+    ],
+    monthlyPamperMessages: [
+      {
+        title: "Your Monthly Comfort & Pamper Capsule 🧸🍫",
+        message:
+          "Hey my strong girl, I know around the 15th things can feel heavy, exhausting, and overwhelming. Today is strictly a zero-stress, maximum-pampering day for you. Rest up, stay cozy, and let me take care of your cravings—warm Brown Gulab Jamun, Soanpapdi, or whatever comforts you most is just one tap away! ❤️",
+        pamperTreat: "Warm Brown Gulab Jamun + Extra Comfort & Cuddles 🍮🤗",
+      },
+      {
+        title: "Gentle Reminder: Take It Easy Today, Jaan 🌸",
+        message:
+          "You don't have to carry everything on your shoulders today. Drink some warm water, curl up in your blanket, and let me spoil you a little. Whenever you feel low or tired, just tap below and tell me what will make you smile right now! 💖",
+        pamperTreat: "Soanpapdi + Ice Cream + Unlimited Patience & Love 📦🍦",
+      },
+      {
+        title: "Special Care Package for My Favorite Person 💌",
+        message:
+          "It's the 15th—which means this capsule unlocked just to remind you how deeply loved and cared for you are. Be gentle with yourself today, Rooh-E-Mann. Tell me what you're craving and consider it done! ✨",
+        pamperTreat: "Chicken Biryani / Favorite Comfort Food Delivered 🍗❤️",
+      },
+    ],
+    sundayMessages: [
+      "Happy Sunday, Saizzu! Today is all about relaxing and receiving endless love. Tell me, which craving are we fulfilling today—Chicken Biryani or Brown Gulab Jamun? 😉",
+      "Sunday Reminder: No matter how busy the entire week gets, my real peace always begins the moment I talk to you. ❤️",
+      "It's Sunday! The Time Capsule has unlocked—and today's reward is an unscheduled long walk and ice cream together! 🍦",
+    ],
+  },
+
+  openWhenNotes: [
+    {
+      id: "miss-me",
+      label: "Open when you miss me 🥺",
+      title: "I'm Always Right Beside You",
+      message:
+        "Whenever you miss me, just close your eyes and think back to our first walk outside your college with panipuri and ice cream. I'm always just one call away, Jaan!",
+      gifUrl:
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXp1Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3oEdv4hwWTzBhWvaU0/giphy.gif",
+    },
+    {
+      id: "angry",
+      label: "Open when you're angry at me 😤",
+      title: "Forgive Your Silly Human! 🕊️",
+      message:
+        "I know your temper sits right on the tip of your nose, but one smile from you melts all my stubbornness away. Now let go of that anger—Soanpapdi and Brown Gulab Jamun are on me!",
+      gifUrl:
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHJ1Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/MDJ9IbxxvDUQM/giphy.gif",
+    },
+    {
+      id: "stressed",
+      label: "Open when you're stressed or tired 🌧️",
+      title: "Take a Deep Breath, Rooh-E-Mann",
+      message:
+        "Everything is going to work out just fine. You are so much stronger than you realize, and I'm always holding your hand through every storm. Drink some water and take a breather.",
+      gifUrl:
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXJ1Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/ZBQhoZC0nqknSviPqT/giphy.gif",
+    },
+    {
+      id: "hungry",
+      label: "Open when you're hungry 😋",
+      title: "Foodie Emergency! 🍗🍨",
+      message:
+        "If you're craving Chicken Biryani, Panipuri, or warm Brown Gulab Jamun right now, scroll down to the 'Order Your Wish' menu and place your order immediately!",
+      gifUrl:
+        "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJ1Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5Z3V5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/12uXi1GXBibALC/giphy.gif",
+    },
+  ],
+
+  triviaQuestions: [
+    {
+      question: "Where and how did our very first unofficial date happen?",
+      options: [
+        "At a fancy rooftop café",
+        "Right outside your college after classes — Panipuri, ice cream & a walk!",
+        "At a movie theater",
+        "Inside a shopping mall",
+      ],
+      correctIndex: 1,
+      correctReply:
+        "100/100! That panipuri and walk outside your college is still one of my favorite memories ever! ❤️",
+      wrongReply:
+        "Excuse me, Saizzu?! How could you forget our college-gate panipuri and ice cream? Now you owe me a treat! 😜",
+    },
+    {
+      question: "When your mood is off, which sweets can instantly cheer you up?",
+      options: [
+        "Dark Chocolate & Pastry",
+        "Soanpapdi and Brown Gulab Jamun",
+        "Rasmalai and Jalebi",
+        "Just Cold Coffee",
+      ],
+      correctIndex: 1,
+      correctReply:
+        "Spot on! The magic of Soanpapdi and Brown Gulab Jamun never fails! 🍮",
+      wrongReply:
+        "Wrong answer! How could you betray Soanpapdi and Brown Gulab Jamun like that? 😂",
+    },
+    {
+      question: "Between the two of us, who gets angry faster and more often?",
+      options: [
+        "Mudassir (Never!)",
+        "Both equally",
+        "Saizzu (My adorable Angry Bird 😤)",
+        "Neither of us",
+      ],
+      correctIndex: 2,
+      correctReply:
+        "Accepting the truth earns you one extra Brown Gulab Jamun! 😘",
+      wrongReply:
+        "Nice try, but the whole world knows whose temper flares up first! 🙈",
+    },
+    {
+      question: "What is your all-time favorite royal comfort dish?",
+      options: [
+        "Paneer Tikka",
+        "Chicken Biryani 🍗",
+        "Cheese Burst Pizza",
+        "Hakka Noodles",
+      ],
+      correctIndex: 1,
+      correctReply:
+        "Chicken Biryani supremacy! Tell me when we're getting it next? 🤤",
+      wrongReply:
+        "Wait a second—you just turned your back on Chicken Biryani?! That's a crime! 😆",
+    },
+  ],
+
+  wishOptions: {
+    cravings: [
+      "Chicken Biryani 🍗",
+      "Panipuri 🥟",
+      "Brown Gulab Jamun 🍮",
+      "Soanpapdi 📦",
+      "Ice Cream 🍦",
+    ],
+    vibes: [
+      "Evening Walk 🚶‍♂️🚶‍♀️",
+      "Long Drive 🛵",
+      "Late Night Call 📞",
+      "Just Hugs & Talks 🤗",
+    ],
+    urgencies: [
+      "Right Now 🚨",
+      "This Evening 🌇",
+      "This Coming Sunday ✨",
+    ],
+  },
 };
 
 export default DATA;

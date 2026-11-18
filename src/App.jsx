@@ -7,10 +7,15 @@ import RelationshipTimer from './components/RelationshipTimer';
 import ChatStats from './components/ChatStats';
 import FlowerBurst from './components/FlowerBurst';
 import ReasonsList from './components/ReasonsList';
+import CoupleTrivia from './components/CoupleTrivia';
 import SpinWheel from './components/SpinWheel';
 import CompatibilityMeter from './components/CompatibilityMeter';
+import TimeCapsule from './components/TimeCapsule';
+import MonthlyPamper from './components/MonthlyPamper';
 import MusicPlayer from './components/MusicPlayer';
 import PhotoCarousel from './components/PhotoCarousel';
+import OpenWhenNotes from './components/OpenWhenNotes';
+import OrderWish from './components/OrderWish';
 import MoonPhase from './components/MoonPhase';
 import ClosingNote from './components/ClosingNote';
 import PasswordGate from './components/PasswordGate';
@@ -78,22 +83,37 @@ export default function App() {
       {/* 7. Reasons I Love You */}
       <ReasonsList />
 
-      {/* 8. Spin the Wheel (Gift & Date Roulette) */}
+      {/* 8. Couple Trivia (Memory & Love Quiz) */}
+      <CoupleTrivia />
+
+      {/* 9. Spin the Wheel (Gift & Date Roulette) */}
       <SpinWheel />
 
-      {/* 9. Love Compatibility Meter */}
+      {/* 10. Love Compatibility Meter */}
       <CompatibilityMeter />
 
-      {/* 10. Our Soundtrack (Retro Vinyl Music Player) */}
+      {/* 11. Our Secret Time Capsule (Sundays & Milestones) */}
+      <TimeCapsule />
+
+      {/* 12. The 15th Monthly Pamper & Comfort Hub */}
+      <MonthlyPamper />
+
+      {/* 13. Our Soundtrack (Retro Vinyl Music Player) */}
       <MusicPlayer />
 
-      {/* 11. Memory Polaroid Carousel */}
+      {/* 14. Memory Polaroid Carousel */}
       <PhotoCarousel />
 
-      {/* 12. Celestial Moon Phase */}
+      {/* 15. "Open When..." Letters (Emotional First-Aid) */}
+      <OpenWhenNotes />
+
+      {/* 16. Order Your Wish (Craving & Vibe Hotline) */}
+      <OrderWish />
+
+      {/* 17. Celestial Moon Phase */}
       <MoonPhase />
 
-      {/* 13. Closing Note & Signature */}
+      {/* 18. Closing Note & Signature */}
       <ClosingNote />
     </div>
   );
