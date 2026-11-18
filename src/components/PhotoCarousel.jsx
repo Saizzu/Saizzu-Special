@@ -56,7 +56,7 @@ export default function PhotoCarousel() {
           {/* Washi tape on top */}
           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-6 sm:h-7 bg-rose-400/50 -rotate-2 rounded-sm shadow-sm backdrop-blur-sm z-20 pointer-events-none" />
 
-          <div className="bg-gradient-to-b from-[#FFFDF9] via-[#FFF7F0] to-[#FFEBF0] p-3.5 sm:p-5 pb-6 sm:pb-8 rounded-2xl shadow-2xl shadow-rose-950/15 border-2 border-rose-200/80 transform rotate-1 hover:rotate-0 transition-transform duration-300 relative">
+          <div className="bg-gradient-to-b from-[#FFF4F6] via-[#FFF0F3] to-[#FFE6EB] dark:from-[#131b3a] dark:via-[#0e152f] dark:to-[#171f42] p-3.5 sm:p-5 pb-6 sm:pb-8 rounded-2xl shadow-xl shadow-rose-950/10 dark:shadow-black/50 border border-rose-200/80 dark:border-indigo-400/30 transform rotate-1 hover:rotate-0 transition-transform duration-300 relative">
             {/* Corner heart stamps */}
             <span className="absolute top-2 left-3 text-rose-300 text-xs select-none">♥</span>
             <span className="absolute bottom-2 right-3 text-rose-300 text-xs select-none">♥</span>
@@ -104,14 +104,14 @@ export default function PhotoCarousel() {
               {/* Navigation Chevrons */}
               <button
                 onClick={prevPhoto}
-                className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-stone-900 flex items-center justify-center shadow-md transition-colors z-10 text-lg"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-rose-100/80 hover:bg-rose-200 text-stone-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-rose-100 border border-rose-200/60 dark:border-indigo-400/30 flex items-center justify-center shadow-md transition-colors z-10 text-lg"
                 aria-label="Previous photo"
               >
                 ‹
               </button>
               <button
                 onClick={nextPhoto}
-                className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-stone-900 flex items-center justify-center shadow-md transition-colors z-10 text-lg"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-rose-100/80 hover:bg-rose-200 text-stone-800 dark:bg-slate-800/80 dark:hover:bg-slate-700 dark:text-rose-100 border border-rose-200/60 dark:border-indigo-400/30 flex items-center justify-center shadow-md transition-colors z-10 text-lg"
                 aria-label="Next photo"
               >
                 ›
@@ -120,7 +120,7 @@ export default function PhotoCarousel() {
 
             {/* Handwritten Caption on Chin */}
             <div className="mt-5 text-center px-4 min-h-[50px] flex items-center justify-center">
-              <p className="font-hand text-2xl text-stone-800 font-semibold">
+              <p className="font-hand text-2xl text-stone-800 dark:text-rose-100 font-semibold">
                 "{current.caption}"
               </p>
             </div>

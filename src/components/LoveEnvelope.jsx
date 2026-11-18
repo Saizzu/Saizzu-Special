@@ -69,7 +69,7 @@ export default function LoveEnvelope() {
         >
           <div
             onClick={handleOpen}
-            className="cursor-pointer group relative bg-gradient-to-br from-[#FFF5EB] via-[#FCEEE2] to-[#EAD5C3] rounded-2xl p-6 sm:p-8 shadow-2xl border border-amber-200/40 hover:shadow-rose-950/50 transition-all duration-300 transform group-hover:-translate-y-1"
+            className="cursor-pointer group relative bg-gradient-to-br from-[#FFF5EB] via-[#FCEEE2] to-[#EAD5C3] dark:from-[#1e264a] dark:via-[#161e3d] dark:to-[#101730] rounded-2xl p-6 sm:p-8 shadow-2xl border border-amber-200/40 dark:border-indigo-400/30 hover:shadow-rose-950/50 transition-all duration-300 transform group-hover:-translate-y-1"
             style={{
               minHeight: '210px',
             }}
@@ -95,14 +95,14 @@ export default function LoveEnvelope() {
             </div>
 
             {/* Letter peek edge */}
-            <div className="absolute top-8 left-8 right-8 h-12 bg-white/80 rounded-t border-t border-dashed border-rose-300/40 opacity-70" />
+            <div className="absolute top-8 left-8 right-8 h-12 bg-white/80 dark:bg-slate-800/80 rounded-t border-t border-dashed border-rose-300/40 opacity-70" />
 
             {/* Front Envelope Details */}
             <div className="mt-24 text-center">
-              <p className="font-hand text-2xl text-rose-900 font-semibold mb-1">
+              <p className="font-hand text-2xl text-rose-900 dark:text-rose-200 font-semibold mb-1">
                 For: {DATA.partnerName} ({DATA.nicknames[0]})
               </p>
-              <p className="font-hand text-sm text-warm-700/80">
+              <p className="font-hand text-sm text-warm-700/80 dark:text-warm-300/80">
                 From: {DATA.gifterName} • Tap seal to open ✦
               </p>
             </div>
@@ -130,35 +130,30 @@ export default function LoveEnvelope() {
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-[#FFFDF9] text-stone-900 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-amber-200/60"
-              style={{
-                backgroundImage:
-                  'radial-gradient(#e5d5c5 0.75px, transparent 0.75px), repeating-linear-gradient(transparent, transparent 31px, #f1e4d8 31px, #f1e4d8 32px)',
-                backgroundSize: '24px 24px, 100% 32px',
-              }}
+              className="relative w-full max-w-2xl bg-[#FFF8F9]/95 dark:bg-[#131b3a]/90 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-xl my-8 border border-rose-200/80 dark:border-indigo-400/30 backdrop-blur-md"
             >
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-stone-100 hover:bg-rose-100 text-stone-600 hover:text-rose-600 flex items-center justify-center transition-colors text-lg shadow-sm"
+                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-rose-100/80 hover:bg-rose-200 dark:bg-stone-800/80 dark:hover:bg-slate-700 text-stone-700 hover:text-rose-700 dark:text-rose-200 flex items-center justify-center transition-colors text-lg shadow-sm"
                 aria-label="Close letter"
               >
                 ✕
               </button>
 
               {/* Decorative Header */}
-              <div className="text-center pb-4 mb-6 border-b border-amber-300/40">
-                <span className="text-rose-500 text-2xl">❦</span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-rose-950 mt-1">
+              <div className="text-center pb-4 mb-6 border-b border-rose-200/70 dark:border-indigo-400/30">
+                <span className="text-rose-600 dark:text-rose-400 text-2xl">❦</span>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-rose-700 dark:text-amber-300 mt-1">
                   میری روحِ من کے نام
                 </h3>
-                <p className="font-hand text-base text-stone-500">
+                <p className="font-hand text-base sm:text-lg text-stone-600 dark:text-rose-300 mt-1">
                   {DATA.gifterName} کا محبت بھرا خط
                 </p>
               </div>
 
               {/* Letter Body in Beautiful Urdu */}
-              <div className="urdu-text text-stone-800 space-y-4 px-2 sm:px-4 max-h-[60vh] overflow-y-auto pr-2">
+              <div className="urdu-text text-stone-800 dark:text-rose-100 space-y-5 px-2 sm:px-4 max-h-[60vh] overflow-y-auto pr-3 leading-relaxed">
                 {DATA.loveLetter.split('\n\n').map((paragraph, idx) => (
                   <p key={idx} className="leading-loose">
                     {paragraph}
@@ -167,16 +162,16 @@ export default function LoveEnvelope() {
               </div>
 
               {/* Footer Signature */}
-              <div className="mt-8 pt-4 border-t border-amber-300/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
+              <div className="mt-8 pt-4 border-t border-rose-200/70 dark:border-indigo-400/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
                   <span className="wax-seal w-10 h-10 text-xs">
                     {DATA.envelopeSealLetter || 'M'}
                   </span>
                   <div className="text-left">
-                    <p className="font-hand text-lg font-bold text-rose-900 leading-none">
+                    <p className="font-hand text-xl font-bold text-rose-700 dark:text-amber-300 leading-none">
                       Forever Yours,
                     </p>
-                    <p className="font-display text-sm text-stone-600">
+                    <p className="font-display text-sm text-stone-700 dark:text-rose-200 mt-0.5">
                       {DATA.gifterName}
                     </p>
                   </div>
@@ -184,7 +179,7 @@ export default function LoveEnvelope() {
 
                 <button
                   onClick={handleClose}
-                  className="px-6 py-2 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-sm transition-colors shadow-md hover:shadow-rose-500/30"
+                  className="px-6 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-medium text-sm transition-colors shadow-md hover:shadow-rose-500/30 active:scale-95"
                 >
                   Keep In My Heart 💖
                 </button>

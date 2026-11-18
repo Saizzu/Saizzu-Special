@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <div
-      className={`relative min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden w-full transition-all duration-700 ease-in-out ${
+      className={`relative min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden w-full transition-colors duration-700 ease-in-out ${
         darkMode
           ? 'dark bg-gradient-to-b from-[#060918] via-[#0c1433] to-[#111936] text-rose-100'
           : 'bg-[#FFF0F3] text-stone-900'

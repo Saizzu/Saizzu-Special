@@ -87,18 +87,18 @@ export default function MemoryTrivia() {
           Four sweet questions from our story. Let's see how much you remember, Saizzu! 😜
         </motion.p>
 
-        {/* Quiz Card */}
-        <div className="w-full bg-white/90 backdrop-blur-md border-2 border-rose-300/80 rounded-3xl p-6 sm:p-8 shadow-xl text-left relative overflow-hidden">
+        {/* Primary Quiz Card — Soft Rose-Tinted Glass */}
+        <div className="w-full bg-rose-50/75 dark:bg-slate-900/65 backdrop-blur-md border border-rose-200/70 dark:border-indigo-400/25 rounded-3xl p-6 sm:p-8 shadow-sm text-left relative overflow-hidden">
           {!isCompleted ? (
             <div>
               {/* Progress Header */}
-              <div className="flex items-center justify-between text-xs font-mono text-warm-500 mb-3">
+              <div className="flex items-center justify-between text-xs font-mono text-warm-700/80 dark:text-rose-300 mb-3">
                 <span>QUESTION {currentIdx + 1} OF {questions.length}</span>
-                <span className="font-bold text-rose-600">SCORE: {score}</span>
+                <span className="font-bold text-rose-600 dark:text-amber-300">SCORE: {score}</span>
               </div>
 
               {/* Progress Bar */}
-              <div className="w-full h-2 rounded-full bg-rose-100 overflow-hidden mb-6">
+              <div className="w-full h-2 rounded-full bg-rose-200/60 dark:bg-slate-800 overflow-hidden mb-6">
                 <div
                   className="h-full bg-gradient-to-r from-rose-500 to-amber-500 transition-all duration-300"
                   style={{
@@ -108,7 +108,7 @@ export default function MemoryTrivia() {
               </div>
 
               {/* Question Text */}
-              <h3 className="font-display text-lg sm:text-xl font-bold text-stone-900 mb-5">
+              <h3 className="font-display text-lg sm:text-xl font-bold text-stone-900 dark:text-rose-100 mb-5">
                 {currentQ.question}
               </h3>
 
@@ -119,15 +119,15 @@ export default function MemoryTrivia() {
                   const isCorrect = idx === currentQ.correctIndex;
                   const hasAnswered = selectedOption !== null;
 
-                  let style = 'bg-rose-50/70 border-rose-200/80 hover:bg-rose-100/80 text-stone-800';
+                  let style = 'bg-[#FFE4E9]/70 dark:bg-slate-800/70 border-rose-200/80 dark:border-indigo-400/20 hover:bg-[#FFE4E9]/95 text-stone-800 dark:text-rose-100';
 
                   if (hasAnswered) {
                     if (isCorrect) {
-                      style = 'bg-emerald-100 border-emerald-500 text-emerald-950 font-bold ring-2 ring-emerald-400/40 shadow-sm';
+                      style = 'bg-emerald-100/90 dark:bg-emerald-950/60 border-emerald-500 text-emerald-950 dark:text-emerald-200 font-bold ring-2 ring-emerald-400/40 shadow-sm';
                     } else if (isChosen && !isCorrect) {
-                      style = 'bg-rose-100 border-rose-500 text-rose-950 font-medium ring-2 ring-rose-400/30';
+                      style = 'bg-rose-100/90 dark:bg-rose-950/60 border-rose-500 text-rose-950 dark:text-rose-200 font-medium ring-2 ring-rose-400/30';
                     } else {
-                      style = 'bg-stone-50 border-stone-200 text-stone-400 opacity-50';
+                      style = 'bg-rose-50/40 dark:bg-slate-900/40 border-rose-100 dark:border-slate-800 text-stone-400 dark:text-slate-500 opacity-50';
                     }
                   }
 
@@ -162,8 +162,8 @@ export default function MemoryTrivia() {
                     exit={{ opacity: 0, y: 10 }}
                     className={`p-4 rounded-2xl border mb-6 ${
                       selectedOption === currentQ.correctIndex
-                        ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
-                        : 'bg-rose-50 border-rose-300 text-rose-900'
+                        ? 'bg-emerald-50/90 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-600/40 text-emerald-900 dark:text-emerald-200'
+                        : 'bg-rose-50/90 dark:bg-rose-950/50 border-rose-300 dark:border-rose-600/40 text-rose-900 dark:text-rose-200'
                     }`}
                   >
                     <p className="font-hand text-base sm:text-lg leading-relaxed">
@@ -190,20 +190,20 @@ export default function MemoryTrivia() {
             /* Final Score & Rank Card */
             <div className="text-center py-4">
               <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amber-400 to-rose-500 p-[2px] shadow-lg mb-4 flex items-center justify-center">
-                <div className="w-full h-full bg-white rounded-full flex items-center justify-center text-3xl">
+                <div className="w-full h-full bg-[#FFE4E9] dark:bg-slate-800 rounded-full flex items-center justify-center text-3xl">
                   {score >= 3 ? '👑' : '🍮'}
                 </div>
               </div>
 
-              <span className="text-xs font-mono uppercase tracking-widest text-rose-600 font-bold block mb-1">
+              <span className="text-xs font-mono uppercase tracking-widest text-rose-600 dark:text-amber-300 font-bold block mb-1">
                 {score === 4 ? 'PERFECT SCORE' : 'QUIZ COMPLETED'}
               </span>
 
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 mb-2">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 dark:text-rose-50 mb-2">
                 {score} out of {questions.length} Correct!
               </h3>
 
-              <p className="font-hand text-xl text-warm-800 max-w-md mx-auto mb-6 leading-relaxed">
+              <p className="font-hand text-xl text-warm-800 dark:text-rose-100 max-w-md mx-auto mb-6 leading-relaxed">
                 {score === 4
                   ? "Flawless memory! Certified Queen of Mudassir's Heart! You remember every single detail. I love you endlessly! ❤️"
                   : score >= 2
@@ -214,7 +214,7 @@ export default function MemoryTrivia() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="px-6 py-3 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm shadow-md active:scale-95 transition-all inline-flex items-center gap-2"
+                className="px-6 py-3 rounded-2xl bg-stone-900 dark:bg-slate-800 hover:bg-stone-800 dark:hover:bg-slate-700 text-white font-semibold text-sm shadow-md active:scale-95 transition-all inline-flex items-center gap-2"
               >
                 <span>🔄</span>
                 <span>Play Again</span>
