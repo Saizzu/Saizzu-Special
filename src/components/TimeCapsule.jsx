@@ -3,6 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import DATA from '../data.js';
 
+const TREAT_OPTIONS = [
+  'Dark & Milk Chocolates 🍫',
+  'Ice Cream Tub / Cone 🍦',
+  'Warm Brown Gulab Jamun 🍮',
+  'Soanpapdi 📦',
+  'Chicken Biryani 🍗',
+  'Panipuri & Chaat 🥟',
+  'Extra Long Hugs & Cuddles 🤗',
+];
+
 function getWeekOfYear(d) {
   const start = new Date(d.getFullYear(), 0, 1);
   const diff = d - start + (start.getTimezoneOffset() - d.getTimezoneOffset()) * 60000;
@@ -64,7 +74,11 @@ function getNextUnlockCandidate(now) {
 export default function TimeCapsule() {
   const [now, setNow] = useState(new Date());
   const [overrideKey, setOverrideKey] = useState(false);
-  const [previewMode, setPreviewMode] = useState('milestone'); // 'milestone' | 'pamper' | 'sunday'
+  const [previewMode, setPreviewMode] = useState('pamper'); // 'milestone' | 'pamper' | 'sunday'
+
+  // Interactive treat selection state
+  const [selectedTreats, setSelectedTreats] = useState(['Warm Brown Gulab Jamun 🍮']);
+  const [customTreat, setCustomTreat] = useState('');
 
   const config = DATA.timeCapsuleConfig || {};
   const { specialDates = [], monthlyPamperMessages = [], sundayMessages = [] } = config;
@@ -99,7 +113,7 @@ export default function TimeCapsule() {
   const weekIdx = sundayMessages.length ? getWeekOfYear(now) % sundayMessages.length : 0;
   const matchedSunday = sundayMessages[weekIdx] || sundayMessages[0];
 
-  // Determine active priority
+  // Determine active unlock state
   const isUnlockedNaturally = isMilestone || isMonthly15th || isSunday;
   const isUnlocked = isUnlockedNaturally || overrideKey;
 
@@ -111,16 +125,40 @@ export default function TimeCapsule() {
   const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
   const seconds = Math.floor((diffMs / 1000) % 60);
 
-  const handleClaimPamper = (treat) => {
+  const toggleTreat = (item) => {
+    setSelectedTreats((prev) =>
+      prev.includes(item) ? prev.filter((t) => t !== item) : [...prev, item]
+    );
+  };
+
+  const handleClaimDynamicTreat = () => {
     confetti({
-      particleCount: 50,
-      spread: 70,
+      particleCount: 65,
+      spread: 75,
       origin: { y: 0.6 },
-      colors: ['#FB7185', '#E11D48', '#FCD34D'],
+      colors: ['#FB7185', '#E11D48', '#FCD34D', '#10B981'],
     });
-    const text = `Hey Mudassir ❤️ I'm claiming my Monthly Pamper Treat today:\n\n✨ "${treat}"\n\nPlease spoil me and make me smile! 🧸🍫`;
+
+    const activeCapsuleName = isMilestone || (overrideKey && previewMode === 'milestone')
+      ? (matchedMilestone ? matchedMilestone.title : 'Milestone Special Date Capsule 💖')
+      : isMonthly15th || (overrideKey && previewMode === 'pamper')
+      ? 'Monthly 15th Pamper & Comfort Capsule 🧸'
+      : 'Sunday Surprise Time Capsule ✨';
+
+    let msg = `Hey Mudassir! ❤️ I opened our *${activeCapsuleName}* on our special page:\n\n`;
+
+    if (selectedTreats.length > 0) {
+      msg += `✨ *Cravings & Pamper Treats Picked:*\n${selectedTreats.map((t) => `• ${t}`).join('\n')}\n\n`;
+    }
+
+    if (customTreat.trim()) {
+      msg += `💌 *Special Wish:* "${customTreat.trim()}"\n\n`;
+    }
+
+    msg += `Please spoil me today, my love! Can't wait! 🧸🍫😘`;
+
     window.open(
-      `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(text)}`,
+      `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(msg)}`,
       '_blank',
       'noopener,noreferrer'
     );
@@ -164,8 +202,8 @@ export default function TimeCapsule() {
           Locked capsules that open only when the calendar reaches our sacred days
         </motion.p>
 
-        {/* Discreet Master Key Bypass / Preview */}
-        <div className="mb-6 flex items-center justify-center gap-2">
+        {/* Discreet Master Key Bypass / Preview Controls */}
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-2">
           <button
             type="button"
             onClick={() => setOverrideKey(!overrideKey)}
@@ -176,17 +214,11 @@ export default function TimeCapsule() {
             }`}
           >
             <span>🗝️</span>
-            <span>{overrideKey ? "Mudassir's Key Active (Unlocked)" : "Peek Inside (Mudassir's Key)"}</span>
+            <span>{overrideKey ? "Preview Mode Active (Unlocked)" : "Preview Unlocked Mode (Mudassir's Key)"}</span>
           </button>
 
           {overrideKey && (
             <div className="inline-flex rounded-full bg-stone-900 p-0.5 border border-white/10 text-[11px]">
-              <button
-                onClick={() => setPreviewMode('milestone')}
-                className={`px-2.5 py-1 rounded-full ${previewMode === 'milestone' ? 'bg-rose-600 text-white font-bold' : 'text-warm-300'}`}
-              >
-                Milestone
-              </button>
               <button
                 onClick={() => setPreviewMode('pamper')}
                 className={`px-2.5 py-1 rounded-full ${previewMode === 'pamper' ? 'bg-rose-600 text-white font-bold' : 'text-warm-300'}`}
@@ -198,6 +230,12 @@ export default function TimeCapsule() {
                 className={`px-2.5 py-1 rounded-full ${previewMode === 'sunday' ? 'bg-rose-600 text-white font-bold' : 'text-warm-300'}`}
               >
                 Sunday
+              </button>
+              <button
+                onClick={() => setPreviewMode('milestone')}
+                className={`px-2.5 py-1 rounded-full ${previewMode === 'milestone' ? 'bg-rose-600 text-white font-bold' : 'text-warm-300'}`}
+              >
+                Milestone
               </button>
             </div>
           )}
@@ -231,48 +269,31 @@ export default function TimeCapsule() {
                 </span>
               </div>
 
-              {/* Priority 1 Content */}
+              {/* Priority 1 Message */}
               {(isMilestone || (overrideKey && previewMode === 'milestone')) && (
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-3 text-gradient-gold">
                     {matchedMilestone ? matchedMilestone.title : specialDates[0]?.title || 'Milestone Special'}
                   </h3>
-                  <p className="font-hand text-xl text-warm-100 leading-relaxed mb-6">
+                  <p className="font-hand text-xl text-warm-100 leading-relaxed mb-4">
                     "{matchedMilestone ? matchedMilestone.message : specialDates[0]?.message}"
                   </p>
                 </div>
               )}
 
-              {/* Priority 2 Content */}
+              {/* Priority 2 Message */}
               {(isMonthly15th || (overrideKey && previewMode === 'pamper')) && (
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-3 text-rose-300">
                     {matchedPamper?.title || 'Your Monthly Comfort & Pamper Capsule 🧸🍫'}
                   </h3>
-                  <p className="font-hand text-lg sm:text-xl text-warm-100 leading-relaxed mb-6">
+                  <p className="font-hand text-lg sm:text-xl text-warm-100 leading-relaxed mb-4">
                     "{matchedPamper?.message}"
                   </p>
-                  {matchedPamper?.pamperTreat && (
-                    <div className="p-4 rounded-2xl bg-white/5 border border-rose-400/30 mb-6">
-                      <span className="text-[11px] font-mono text-amber-300 font-bold block mb-1">
-                        YOUR COMFORT TREAT:
-                      </span>
-                      <p className="font-display text-base font-bold text-white mb-3">
-                        {matchedPamper.pamperTreat}
-                      </p>
-                      <button
-                        type="button"
-                        onClick={() => handleClaimPamper(matchedPamper.pamperTreat)}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:from-rose-500 hover:to-pink-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-rose-900/30 transition-all flex items-center justify-center gap-2"
-                      >
-                        <span>Claim My Pamper Treat 💌</span>
-                      </button>
-                    </div>
-                  )}
                 </div>
               )}
 
-              {/* Priority 3 Content */}
+              {/* Priority 3 Message */}
               {(isSunday || (overrideKey && previewMode === 'sunday')) &&
                 !isMilestone &&
                 !isMonthly15th && (
@@ -280,23 +301,73 @@ export default function TimeCapsule() {
                     <h3 className="font-display text-xl sm:text-2xl font-bold text-amber-300 mb-3">
                       Happy Sunday, Saizzu! 🌸
                     </h3>
-                    <p className="font-hand text-xl text-warm-100 leading-relaxed mb-6">
+                    <p className="font-hand text-xl text-warm-100 leading-relaxed mb-4">
                       "{matchedSunday}"
                     </p>
-                    <a
-                      href={`https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(
-                        "Happy Sunday, Mudassir! ❤️ I opened our Sunday Time Capsule. Tell me, what's our craving today? 😉"
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-xs sm:text-sm shadow-md hover:brightness-110 transition-all flex items-center justify-center gap-2 text-center"
-                    >
-                      <span>💬 Send Sunday Reply to Mudassir</span>
-                    </a>
                   </div>
                 )}
 
-              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-warm-300/60">
+              {/* ── Interactive Treat Selector & Custom Input (Upgraded for All Unlocked States) ── */}
+              <div className="mt-5 pt-5 border-t border-white/10 text-left">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono uppercase tracking-wider text-amber-300 font-bold flex items-center gap-1.5">
+                    <span>🎁</span>
+                    <span>Pick What You Want to Be Pampered With:</span>
+                  </span>
+                  {selectedTreats.length > 0 && (
+                    <span className="text-[11px] font-mono text-rose-300 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-400/20">
+                      {selectedTreats.length} selected
+                    </span>
+                  )}
+                </div>
+
+                {/* Quick-Pick Multi-Select Toggle Pills */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {TREAT_OPTIONS.map((item, idx) => {
+                    const isSelected = selectedTreats.includes(item);
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => toggleTreat(item)}
+                        className={`px-3 py-1.5 rounded-2xl text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${
+                          isSelected
+                            ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/40 ring-2 ring-rose-300/50 scale-[1.02]'
+                            : 'bg-white/5 text-warm-200 border border-white/10 hover:bg-white/10 hover:border-amber-400/30'
+                        }`}
+                      >
+                        <span>{isSelected ? '✓' : '+'}</span>
+                        <span>{item}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Custom Wish / Craving Text Input */}
+                <div className="mb-5">
+                  <label className="block text-[11px] font-mono uppercase tracking-wider text-warm-300/80 mb-1.5">
+                    Or write any custom wish, craving, or mood: 💭
+                  </label>
+                  <input
+                    type="text"
+                    value={customTreat}
+                    onChange={(e) => setCustomTreat(e.target.value)}
+                    placeholder="e.g., Dairy Milk Silk, Butterscotch ice cream, or a late-night walk..."
+                    className="w-full px-4 py-2.5 rounded-2xl bg-stone-900/90 border border-white/15 text-warm-100 placeholder-warm-400/40 text-xs sm:text-sm focus:outline-none focus:border-amber-400/60 focus:ring-1 focus:ring-amber-400/30 transition-all"
+                  />
+                </div>
+
+                {/* Dynamic WhatsApp Claim Button */}
+                <button
+                  type="button"
+                  onClick={handleClaimDynamicTreat}
+                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 hover:from-rose-500 hover:to-pink-500 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-rose-950/40 flex items-center justify-center gap-2 active:scale-[0.98] transition-all"
+                >
+                  <span>Claim My Pamper / Special Treat 💌</span>
+                </button>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-warm-300/60">
                 <span>Unlocked on {now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</span>
                 <span className="font-hand text-amber-300 text-sm">Always yours, Mudassir ♥</span>
               </div>

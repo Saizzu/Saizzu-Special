@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BackgroundEffects from './components/BackgroundEffects';
 import HeroSection from './components/HeroSection';
 import ScratchCard from './components/ScratchCard';
@@ -29,6 +29,14 @@ export default function App() {
     return localStorage.getItem('saizzu_dark_mode') === 'true';
   });
 
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
       const next = !prev;
@@ -48,8 +56,10 @@ export default function App() {
 
   return (
     <div
-      className={`relative min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden w-full transition-colors duration-700 ${
-        darkMode ? 'bg-[#0c0a09] text-rose-100' : 'bg-[#FFF0F3] text-stone-900'
+      className={`relative min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden w-full transition-all duration-700 ease-in-out ${
+        darkMode
+          ? 'dark bg-gradient-to-b from-[#060918] via-[#0c1433] to-[#111936] text-rose-100'
+          : 'bg-[#FFF0F3] text-stone-900'
       }`}
     >
       {/* Ambient background particles & starry midnight effects */}

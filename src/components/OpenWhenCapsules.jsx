@@ -145,22 +145,23 @@ export default function OpenWhenCapsules() {
                   {activeCapsule.title}
                 </h3>
 
-                {/* Cute GIF with Fallback Handling */}
+                {/* Cute GIF with Centered Responsive Frame & Fallback Handling */}
                 {activeCapsule.gifUrl && (
-                  <div className="w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-5 bg-stone-900 border border-white/10 flex items-center justify-center relative">
+                  <div className="w-full mb-5 flex items-center justify-center relative">
                     <img
                       src={activeCapsule.gifUrl}
                       alt={activeCapsule.title}
-                      className="w-full h-full object-cover rounded-2xl"
+                      loading="lazy"
+                      className="w-full max-h-64 sm:max-h-72 object-contain mx-auto rounded-2xl bg-black/10 dark:bg-slate-950/40 p-1.5 border border-white/10 shadow-inner"
                       onError={(e) => {
                         e.target.style.display = 'none';
                         const fallback = e.target.nextElementSibling;
                         if (fallback) fallback.style.display = 'flex';
                       }}
                     />
-                    <div className="hidden absolute inset-0 flex-col items-center justify-center bg-stone-900/90 text-center p-4">
+                    <div className="hidden w-full py-8 rounded-2xl bg-black/20 dark:bg-slate-950/40 border border-white/10 flex-col items-center justify-center text-center p-4">
                       <span className="text-3xl mb-1">💖</span>
-                      <span className="font-hand text-lg text-rose-300">Sending you the biggest warmest hug!</span>
+                      <span className="font-hand text-lg text-rose-300">Sending you the warmest hug, Saizzu!</span>
                     </div>
                   </div>
                 )}

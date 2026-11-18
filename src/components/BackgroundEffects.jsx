@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 
-// ── Ambient floating love particles & starry midnight effects ──
+// ── Ambient floating love particles & magical starry midnight effects ──
 const PARTICLE_COUNT = 36;
-const STAR_COUNT = 28;
+const STAR_COUNT = 48;
 
 function BackgroundEffects({ darkMode = false }) {
   const particles = useMemo(() => {
@@ -43,12 +43,12 @@ function BackgroundEffects({ darkMode = false }) {
   const stars = useMemo(() => {
     return Array.from({ length: STAR_COUNT }, (_, i) => ({
       id: i,
-      top: ((i * 13) % 95),
-      left: ((i * 17 + (i % 5) * 7) % 96),
-      size: 1.5 + (i % 3),
-      delay: (i * 0.25) % 3,
-      duration: 2 + (i % 4),
-      color: i % 2 === 0 ? '#FCD34D' : '#FDA4AF',
+      top: (i * 11) % 96,
+      left: (i * 19 + (i % 5) * 7) % 98,
+      size: i % 4 === 0 ? 3 : i % 2 === 0 ? 2 : 1.5,
+      delay: (i * 0.2) % 4,
+      duration: 1.8 + (i % 4) * 0.8,
+      color: i % 3 === 0 ? '#FDE68A' : i % 3 === 1 ? '#FDA4AF' : '#BAE6FD',
     }));
   }, []);
 
@@ -68,13 +68,24 @@ function BackgroundEffects({ darkMode = false }) {
         }
         @keyframes star-twinkle {
           0%, 100% { opacity: 0.2; transform: scale(0.8); }
-          50%      { opacity: 0.85; transform: scale(1.3); }
+          50%      { opacity: 0.95; transform: scale(1.4); }
+        }
+        @keyframes shooting-star {
+          0%   { transform: translateX(0) translateY(0) rotate(-45deg) scale(0); opacity: 0; }
+          10%  { opacity: 1; transform: translateX(-50px) translateY(50px) rotate(-45deg) scale(1); }
+          25%  { transform: translateX(-200px) translateY(200px) rotate(-45deg) scale(1); opacity: 0; }
+          100% { transform: translateX(-200px) translateY(200px) rotate(-45deg) scale(0); opacity: 0; }
         }
       `}</style>
 
-      {/* Midnight Starry Twinkles (visible especially in dark mode) */}
+      {/* Midnight Ambient Constellations & Nebulae */}
       {darkMode && (
         <div className="absolute inset-0">
+          {/* Subtle cosmic ambient glow orbs */}
+          <div className="absolute top-1/4 left-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-2/3 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl" />
+
+          {/* Twinkling Starfield */}
           {stars.map((s) => (
             <span
               key={`star-${s.id}`}
@@ -85,11 +96,19 @@ function BackgroundEffects({ darkMode = false }) {
                 width: `${s.size}px`,
                 height: `${s.size}px`,
                 backgroundColor: s.color,
-                boxShadow: `0 0 6px ${s.color}`,
+                boxShadow: `0 0 ${s.size * 3}px ${s.color}`,
                 animation: `star-twinkle ${s.duration}s ${s.delay}s ease-in-out infinite`,
               }}
             />
           ))}
+
+          {/* Gentle Shooting Star */}
+          <div
+            className="absolute top-16 right-20 w-24 h-0.5 bg-gradient-to-l from-white via-amber-200 to-transparent rounded-full opacity-0"
+            style={{
+              animation: 'shooting-star 9s 3s ease-in-out infinite',
+            }}
+          />
         </div>
       )}
 
@@ -108,7 +127,7 @@ function BackgroundEffects({ darkMode = false }) {
             backgroundColor: !p.isHeart ? p.color : undefined,
             borderRadius: !p.isHeart ? '50%' : undefined,
             '--sway': `${p.swayAmp}px`,
-            '--max-op': darkMode ? p.opacity * 0.8 : p.opacity,
+            '--max-op': darkMode ? p.opacity * 0.9 : p.opacity,
             animation: `float-heart-rise ${p.duration}s ${p.delay}s linear infinite`,
             willChange: 'transform, opacity',
           }}
