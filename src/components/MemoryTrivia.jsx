@@ -3,27 +3,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import DATA from '../data.js';
 
-export default function CoupleTrivia() {
+export default function MemoryTrivia() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [score, setScore] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
 
-  const questions = DATA.triviaQuestions;
+  const questions = DATA.triviaQuestions || [];
   const currentQ = questions[currentIdx];
 
-  const handleSelectOption = (idx) => {
-    if (selectedOption !== null) return; // prevent changing
+  const handleSelect = (idx) => {
+    if (selectedOption !== null) return;
     setSelectedOption(idx);
 
     const isCorrect = idx === currentQ.correctIndex;
     if (isCorrect) {
-      setScore((prev) => prev + 1);
+      setScore((s) => s + 1);
       confetti({
-        particleCount: 40,
+        particleCount: 45,
         spread: 60,
         origin: { y: 0.6 },
-        colors: ['#10B981', '#F59E0B', '#EC4899'],
+        colors: ['#10B981', '#F59E0B', '#EC4899', '#FB7185'],
       });
     }
   };
@@ -35,7 +35,7 @@ export default function CoupleTrivia() {
     } else {
       setIsCompleted(true);
       confetti({
-        particleCount: 100,
+        particleCount: 90,
         spread: 100,
         origin: { y: 0.5 },
         colors: ['#E11D48', '#FB7185', '#FCD34D', '#10B981'],
@@ -43,12 +43,14 @@ export default function CoupleTrivia() {
     }
   };
 
-  const handleRestart = () => {
+  const handleReset = () => {
     setCurrentIdx(0);
     setSelectedOption(null);
     setScore(0);
     setIsCompleted(false);
   };
+
+  if (!questions.length) return null;
 
   return (
     <section className="section-light py-14 sm:py-24 px-3 sm:px-6 relative overflow-hidden text-center">
@@ -61,7 +63,7 @@ export default function CoupleTrivia() {
           className="inline-block mb-2 sm:mb-3"
         >
           <span className="pill-badge pill-badge-rose text-xs">
-            <span>🧠</span> MEMORY & LOVE QUIZ
+            <span>🧠</span> MEMORY & LOVE TRIVIA
           </span>
         </motion.div>
 
@@ -82,10 +84,10 @@ export default function CoupleTrivia() {
           transition={{ delay: 0.2 }}
           className="font-hand text-lg sm:text-xl text-warm-700 mb-6 sm:mb-8 max-w-lg"
         >
-          Four quick questions to test your memory of our journey. No cheating, Saizzu! 😜
+          Four sweet questions from our story. Let's see how much you remember, Saizzu! 😜
         </motion.p>
 
-        {/* Quiz Container */}
+        {/* Quiz Card */}
         <div className="w-full bg-white/90 backdrop-blur-md border-2 border-rose-300/80 rounded-3xl p-6 sm:p-8 shadow-xl text-left relative overflow-hidden">
           {!isCompleted ? (
             <div>
@@ -105,7 +107,7 @@ export default function CoupleTrivia() {
                 />
               </div>
 
-              {/* Question */}
+              {/* Question Text */}
               <h3 className="font-display text-lg sm:text-xl font-bold text-stone-900 mb-5">
                 {currentQ.question}
               </h3>
@@ -114,38 +116,44 @@ export default function CoupleTrivia() {
               <div className="space-y-3 mb-6">
                 {currentQ.options.map((opt, idx) => {
                   const isChosen = selectedOption === idx;
-                  const isCorrectAnswer = idx === currentQ.correctIndex;
+                  const isCorrect = idx === currentQ.correctIndex;
                   const hasAnswered = selectedOption !== null;
 
-                  let btnStyle = 'bg-rose-50/70 border-rose-200/80 hover:bg-rose-100/80 text-stone-800';
+                  let style = 'bg-rose-50/70 border-rose-200/80 hover:bg-rose-100/80 text-stone-800';
 
                   if (hasAnswered) {
-                    if (isCorrectAnswer) {
-                      btnStyle = 'bg-emerald-100 border-emerald-500 text-emerald-950 font-bold ring-2 ring-emerald-400/30';
-                    } else if (isChosen && !isCorrectAnswer) {
-                      btnStyle = 'bg-rose-100 border-rose-500 text-rose-950 font-medium ring-2 ring-rose-400/30';
+                    if (isCorrect) {
+                      style = 'bg-emerald-100 border-emerald-500 text-emerald-950 font-bold ring-2 ring-emerald-400/40 shadow-sm';
+                    } else if (isChosen && !isCorrect) {
+                      style = 'bg-rose-100 border-rose-500 text-rose-950 font-medium ring-2 ring-rose-400/30';
                     } else {
-                      btnStyle = 'bg-stone-50 border-stone-200 text-stone-400 opacity-60';
+                      style = 'bg-stone-50 border-stone-200 text-stone-400 opacity-50';
                     }
                   }
 
                   return (
-                    <button
+                    <motion.button
                       key={idx}
                       type="button"
-                      onClick={() => handleSelectOption(idx)}
+                      onClick={() => handleSelect(idx)}
                       disabled={hasAnswered}
-                      className={`w-full text-left p-3.5 sm:p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between text-xs sm:text-sm ${btnStyle}`}
+                      animate={
+                        hasAnswered && isChosen && !isCorrect
+                          ? { x: [-8, 8, -6, 6, -3, 3, 0] }
+                          : {}
+                      }
+                      transition={{ duration: 0.4 }}
+                      className={`w-full text-left p-3.5 sm:p-4 rounded-2xl border transition-all duration-200 flex items-center justify-between text-xs sm:text-sm ${style}`}
                     >
                       <span>{opt}</span>
-                      {hasAnswered && isCorrectAnswer && <span>✅</span>}
-                      {hasAnswered && isChosen && !isCorrectAnswer && <span>❌</span>}
-                    </button>
+                      {hasAnswered && isCorrect && <span>✅</span>}
+                      {hasAnswered && isChosen && !isCorrect && <span>❌</span>}
+                    </motion.button>
                   );
                 })}
               </div>
 
-              {/* Reaction Feedback */}
+              {/* Answer Feedback Reaction */}
               <AnimatePresence>
                 {selectedOption !== null && (
                   <motion.div
@@ -174,12 +182,12 @@ export default function CoupleTrivia() {
                   onClick={handleNext}
                   className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 text-white font-semibold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all text-center flex items-center justify-center gap-2"
                 >
-                  <span>{currentIdx + 1 === questions.length ? 'See Final Score 🏆' : 'Next Question ➔'}</span>
+                  <span>{currentIdx + 1 === questions.length ? 'View My Final Rank 🏆' : 'Next Question ➔'}</span>
                 </button>
               )}
             </div>
           ) : (
-            /* Results Screen */
+            /* Final Score & Rank Card */
             <div className="text-center py-4">
               <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amber-400 to-rose-500 p-[2px] shadow-lg mb-4 flex items-center justify-center">
                 <div className="w-full h-full bg-white rounded-full flex items-center justify-center text-3xl">
@@ -188,28 +196,28 @@ export default function CoupleTrivia() {
               </div>
 
               <span className="text-xs font-mono uppercase tracking-widest text-rose-600 font-bold block mb-1">
-                QUIZ COMPLETED
+                {score === 4 ? 'PERFECT SCORE' : 'QUIZ COMPLETED'}
               </span>
 
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 mb-2">
-                You scored {score} out of {questions.length}!
+                {score} out of {questions.length} Correct!
               </h3>
 
               <p className="font-hand text-xl text-warm-800 max-w-md mx-auto mb-6 leading-relaxed">
                 {score === 4
-                  ? "Perfect 4/4! Certified Queen of Mudassir's Heart! You remember every single detail. I love you so much! ❤️"
+                  ? "Flawless memory! Certified Queen of Mudassir's Heart! You remember every single detail. I love you endlessly! ❤️"
                   : score >= 2
-                  ? "Pretty good, Saizzu! But you definitely owe me some Brown Gulab Jamun for those missed memories! 😜"
-                  : "Oh no, Babu! Looks like we need to go on that college walk again so you can refresh your memory! 😂💕"}
+                  ? "Pretty good, Saizzu! But you definitely owe me some Brown Gulab Jamun for the ones you missed! 😜"
+                  : "Oh no, Babu! Looks like we need another college walk date immediately to refresh your memory! 😂💕"}
               </p>
 
               <button
                 type="button"
-                onClick={handleRestart}
+                onClick={handleReset}
                 className="px-6 py-3 rounded-2xl bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm shadow-md active:scale-95 transition-all inline-flex items-center gap-2"
               >
                 <span>🔄</span>
-                <span>Play Trivia Again</span>
+                <span>Play Again</span>
               </button>
             </div>
           )}

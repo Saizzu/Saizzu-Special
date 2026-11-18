@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 
-// ── Ambient floating love particles & hearts ──────────────────
-// Fixed overlay — z-1, pointer-events: none, smooth CSS animations.
+// ── Ambient floating love particles & starry midnight effects ──
 const PARTICLE_COUNT = 36;
+const STAR_COUNT = 28;
 
-function BackgroundEffects() {
+function BackgroundEffects({ darkMode = false }) {
   const particles = useMemo(() => {
     return Array.from({ length: PARTICLE_COUNT }, (_, i) => {
       const isHeart = i % 3 === 0;
@@ -40,9 +40,21 @@ function BackgroundEffects() {
     });
   }, []);
 
+  const stars = useMemo(() => {
+    return Array.from({ length: STAR_COUNT }, (_, i) => ({
+      id: i,
+      top: ((i * 13) % 95),
+      left: ((i * 17 + (i % 5) * 7) % 96),
+      size: 1.5 + (i % 3),
+      delay: (i * 0.25) % 3,
+      duration: 2 + (i % 4),
+      color: i % 2 === 0 ? '#FCD34D' : '#FDA4AF',
+    }));
+  }, []);
+
   return (
     <div
-      className="fixed inset-0 overflow-hidden pointer-events-none"
+      className="fixed inset-0 overflow-hidden pointer-events-none transition-opacity duration-700"
       style={{ zIndex: 1 }}
       aria-hidden="true"
     >
@@ -55,11 +67,33 @@ function BackgroundEffects() {
           100% { transform: translateY(-105vh) translateX(calc(var(--sway) * -0.5)) rotate(-12deg); opacity: 0; }
         }
         @keyframes star-twinkle {
-          0%, 100% { opacity: 0.15; transform: scale(0.9); }
-          50%      { opacity: 0.5; transform: scale(1.2); }
+          0%, 100% { opacity: 0.2; transform: scale(0.8); }
+          50%      { opacity: 0.85; transform: scale(1.3); }
         }
       `}</style>
 
+      {/* Midnight Starry Twinkles (visible especially in dark mode) */}
+      {darkMode && (
+        <div className="absolute inset-0">
+          {stars.map((s) => (
+            <span
+              key={`star-${s.id}`}
+              className="absolute rounded-full"
+              style={{
+                top: `${s.top}%`,
+                left: `${s.left}%`,
+                width: `${s.size}px`,
+                height: `${s.size}px`,
+                backgroundColor: s.color,
+                boxShadow: `0 0 6px ${s.color}`,
+                animation: `star-twinkle ${s.duration}s ${s.delay}s ease-in-out infinite`,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Floating hearts */}
       {particles.map((p) => (
         <span
           key={p.id}
@@ -74,12 +108,12 @@ function BackgroundEffects() {
             backgroundColor: !p.isHeart ? p.color : undefined,
             borderRadius: !p.isHeart ? '50%' : undefined,
             '--sway': `${p.swayAmp}px`,
-            '--max-op': p.opacity,
+            '--max-op': darkMode ? p.opacity * 0.8 : p.opacity,
             animation: `float-heart-rise ${p.duration}s ${p.delay}s linear infinite`,
             willChange: 'transform, opacity',
           }}
         >
-          {p.isHeart ? '♥' : p.isSparkle ? '' : ''}
+          {p.isHeart ? '♥' : ''}
         </span>
       ))}
     </div>

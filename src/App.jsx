@@ -3,20 +3,19 @@ import BackgroundEffects from './components/BackgroundEffects';
 import HeroSection from './components/HeroSection';
 import ScratchCard from './components/ScratchCard';
 import LoveEnvelope from './components/LoveEnvelope';
+import OpenWhenCapsules from './components/OpenWhenCapsules';
 import RelationshipTimer from './components/RelationshipTimer';
 import ChatStats from './components/ChatStats';
+import MemoryTrivia from './components/MemoryTrivia';
 import FlowerBurst from './components/FlowerBurst';
 import ReasonsList from './components/ReasonsList';
-import CoupleTrivia from './components/CoupleTrivia';
 import SpinWheel from './components/SpinWheel';
+import WishOrderBox from './components/WishOrderBox';
 import CompatibilityMeter from './components/CompatibilityMeter';
-import TimeCapsule from './components/TimeCapsule';
-import MonthlyPamper from './components/MonthlyPamper';
 import MusicPlayer from './components/MusicPlayer';
 import PhotoCarousel from './components/PhotoCarousel';
-import OpenWhenNotes from './components/OpenWhenNotes';
-import OrderWish from './components/OrderWish';
 import MoonPhase from './components/MoonPhase';
+import TimeCapsule from './components/TimeCapsule';
 import ClosingNote from './components/ClosingNote';
 import PasswordGate from './components/PasswordGate';
 import DATA from './data';
@@ -25,6 +24,18 @@ export default function App() {
   const [unlocked, setUnlocked] = useState(() => {
     return localStorage.getItem('saizzu_auth_unlocked') === 'true';
   });
+
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('saizzu_dark_mode') === 'true';
+  });
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      const next = !prev;
+      localStorage.setItem('saizzu_dark_mode', String(next));
+      return next;
+    });
+  };
 
   const handleLock = () => {
     localStorage.removeItem('saizzu_auth_unlocked');
@@ -36,9 +47,13 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen bg-[#FFF0F3] selection:bg-rose-500 selection:text-white overflow-x-hidden w-full">
-      {/* Ambient background particles */}
-      <BackgroundEffects />
+    <div
+      className={`relative min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden w-full transition-colors duration-700 ${
+        darkMode ? 'bg-[#0c0a09] text-rose-100' : 'bg-[#FFF0F3] text-stone-900'
+      }`}
+    >
+      {/* Ambient background particles & starry midnight effects */}
+      <BackgroundEffects darkMode={darkMode} />
 
       {/* Floating Header Pill */}
       <header className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-40 max-w-[94vw] w-auto">
@@ -52,10 +67,25 @@ export default function App() {
             From {DATA.gifterName}
           </span>
           <span className="text-rose-400/30">|</span>
+
+          {/* Starry Midnight Theme Toggle (☀️ / 🌙) */}
           <button
+            type="button"
+            onClick={toggleDarkMode}
+            title={darkMode ? 'Switch to Pastel Rose Mode' : 'Switch to Starry Midnight Mode'}
+            className="text-xs hover:scale-110 active:scale-95 transition-transform px-1 py-0.5 rounded text-amber-300"
+            aria-label="Toggle theme"
+          >
+            <span>{darkMode ? '☀️' : '🌙'}</span>
+          </button>
+
+          {/* Lock Page Button */}
+          <button
+            type="button"
             onClick={handleLock}
             title="Lock Page"
             className="text-[11px] text-warm-300/60 hover:text-rose-400 transition-colors flex items-center gap-1"
+            aria-label="Lock page"
           >
             <span>🔒</span>
           </button>
@@ -71,32 +101,32 @@ export default function App() {
       {/* 3. Interactive Wax-Sealed Love Envelope & Urdu Letter */}
       <LoveEnvelope />
 
-      {/* 4. Live Relationship Timer */}
+      {/* 4. "Open When..." Mood Capsules (Directly after LoveEnvelope) */}
+      <OpenWhenCapsules />
+
+      {/* 5. Live Relationship Timer */}
       <RelationshipTimer />
 
-      {/* 5. Our Story in Numbers (Spotify Wrapped Chat Stats) */}
+      {/* 6. Our Story in Numbers (Spotify Wrapped Chat Stats) */}
       <ChatStats />
 
-      {/* 6. Spontaneous Flowers / Love Burst Button */}
+      {/* 7. Memory & Relationship Trivia (Directly after ChatStats) */}
+      <MemoryTrivia />
+
+      {/* 8. Spontaneous Flowers / Love Burst Button */}
       <FlowerBurst />
 
-      {/* 7. Reasons I Love You */}
+      {/* 9. Reasons I Love You */}
       <ReasonsList />
 
-      {/* 8. Couple Trivia (Memory & Love Quiz) */}
-      <CoupleTrivia />
-
-      {/* 9. Spin the Wheel (Gift & Date Roulette) */}
+      {/* 10. Spin the Wheel (Gift & Date Roulette) */}
       <SpinWheel />
 
-      {/* 10. Love Compatibility Meter */}
+      {/* 11. Wish Order Menu (Directly after SpinWheel) */}
+      <WishOrderBox />
+
+      {/* 12. Love Compatibility Meter */}
       <CompatibilityMeter />
-
-      {/* 11. Our Secret Time Capsule (Sundays & Milestones) */}
-      <TimeCapsule />
-
-      {/* 12. The 15th Monthly Pamper & Comfort Hub */}
-      <MonthlyPamper />
 
       {/* 13. Our Soundtrack (Retro Vinyl Music Player) */}
       <MusicPlayer />
@@ -104,16 +134,13 @@ export default function App() {
       {/* 14. Memory Polaroid Carousel */}
       <PhotoCarousel />
 
-      {/* 15. "Open When..." Letters (Emotional First-Aid) */}
-      <OpenWhenNotes />
-
-      {/* 16. Order Your Wish (Craving & Vibe Hotline) */}
-      <OrderWish />
-
-      {/* 17. Celestial Moon Phase */}
+      {/* 15. Celestial Moon Phase */}
       <MoonPhase />
 
-      {/* 18. Closing Note & Signature */}
+      {/* 16. Our Secret Time Capsule (Directly after MoonPhase, before ClosingNote) */}
+      <TimeCapsule />
+
+      {/* 17. Closing Note & Signature */}
       <ClosingNote />
     </div>
   );
