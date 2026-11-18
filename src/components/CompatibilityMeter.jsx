@@ -71,7 +71,7 @@ export default function CompatibilityMeter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 dark:text-rose-100 mb-2 sm:mb-3"
         >
           Love Compatibility Meter
         </motion.h2>
@@ -81,7 +81,7 @@ export default function CompatibilityMeter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-700 mb-6 sm:mb-10"
+          className="font-hand text-lg sm:text-xl text-warm-700 dark:text-rose-200/90 mb-6 sm:mb-10"
         >
           Let's run our names through the love observatory
         </motion.p>
@@ -90,14 +90,14 @@ export default function CompatibilityMeter() {
         <div className="glass-card-light p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-6 sm:mb-8">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <div className="w-full sm:w-1/2">
-              <label className="block text-xs uppercase tracking-wider text-warm-700/80 font-semibold mb-1 text-left">
+              <label className="block text-xs uppercase tracking-wider text-warm-700/80 dark:text-rose-300/80 font-semibold mb-1 text-left">
                 His Name
               </label>
               <input
                 type="text"
                 value={person1}
                 readOnly
-                className="w-full px-4 py-3 rounded-2xl bg-gradient-to-r from-rose-100/80 to-rose-50 border-2 border-rose-300/70 text-rose-950 font-display font-semibold text-center cursor-default outline-none shadow-sm"
+                className="w-full px-4 py-3 rounded-2xl bg-gradient-to-r from-rose-100/80 to-rose-50 dark:from-indigo-900/60 dark:to-slate-900/60 border-2 border-rose-300/70 dark:border-indigo-400/40 text-rose-950 dark:text-rose-200 font-display font-semibold text-center cursor-default outline-none shadow-sm"
               />
             </div>
 
@@ -106,7 +106,7 @@ export default function CompatibilityMeter() {
             </div>
 
             <div className="w-full sm:w-1/2">
-              <label className="block text-xs uppercase tracking-wider text-warm-700/80 font-semibold mb-1 text-left">
+              <label className="block text-xs uppercase tracking-wider text-warm-700/80 dark:text-rose-300/80 font-semibold mb-1 text-left">
                 Her Name
               </label>
               <input
@@ -114,7 +114,7 @@ export default function CompatibilityMeter() {
                 value={person2}
                 onChange={(e) => setPerson2(e.target.value)}
                 placeholder="Enter her name..."
-                className="w-full px-4 py-3 rounded-2xl bg-gradient-to-r from-rose-50 to-amber-50/50 border-2 border-rose-300 text-stone-900 font-display font-semibold text-center focus:ring-2 focus:ring-rose-500 outline-none shadow-sm transition-all"
+                className="w-full px-4 py-3 rounded-2xl bg-gradient-to-r from-rose-50 to-amber-50/50 dark:from-indigo-900/60 dark:to-slate-900/60 border-2 border-rose-300 dark:border-indigo-400/40 text-stone-900 dark:text-rose-100 font-display font-semibold text-center focus:ring-2 focus:ring-rose-500 outline-none shadow-sm transition-all placeholder:text-rose-400 dark:placeholder:text-indigo-300/50"
               />
             </div>
           </div>
@@ -130,13 +130,13 @@ export default function CompatibilityMeter() {
           {/* Calculating Progress State */}
           {isCalculating && (
             <div className="mt-6">
-              <div className="w-full h-2.5 bg-stone-100 rounded-full overflow-hidden mb-2">
+              <div className="w-full h-2.5 bg-stone-100 dark:bg-slate-800 rounded-full overflow-hidden mb-2">
                 <div
                   className="h-full bg-gradient-to-r from-rose-500 to-amber-400 transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <p className="font-hand text-lg text-rose-800 animate-pulse">
+              <p className="font-hand text-lg text-rose-800 dark:text-rose-300 animate-pulse">
                 {calculationStep}
               </p>
             </div>
@@ -148,7 +148,7 @@ export default function CompatibilityMeter() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring', damping: 20 }}
-              className="mt-8 pt-6 border-t border-rose-200/60"
+              className="mt-8 pt-6 border-t border-rose-200/60 dark:border-indigo-400/20"
             >
               {/* Radial Meter Visual */}
               <div className="relative inline-flex items-center justify-center mb-3">
@@ -159,7 +159,7 @@ export default function CompatibilityMeter() {
                     r="58"
                     stroke="currentColor"
                     strokeWidth="10"
-                    className="text-rose-100"
+                    className="text-rose-100 dark:text-slate-800"
                     fill="transparent"
                   />
                   <circle
@@ -179,16 +179,16 @@ export default function CompatibilityMeter() {
                   <span className="font-mono text-4xl font-extrabold text-gradient-rose">
                     {result}%
                   </span>
-                  <span className="text-[10px] uppercase font-bold text-warm-700 tracking-wider">
+                  <span className="text-[10px] uppercase font-bold text-warm-700 dark:text-rose-300 tracking-wider">
                     Off the charts
                   </span>
                 </div>
               </div>
 
-              <h4 className="font-display text-2xl font-bold text-love-900 mb-1">
+              <h4 className="font-display text-2xl font-bold text-love-900 dark:text-amber-200 mb-1">
                 {DATA.compatVerdict}
               </h4>
-              <p className="font-hand text-xl text-warm-800 max-w-md mx-auto">
+              <p className="font-hand text-xl text-warm-800 dark:text-rose-200 max-w-md mx-auto">
                 "Math cannot measure what God already destined. You and I are forever, Saizzu."
               </p>
             </motion.div>

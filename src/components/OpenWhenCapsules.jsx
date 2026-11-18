@@ -167,11 +167,11 @@ export default function OpenWhenCapsules() {
                 )}
 
                 {/* Heartfelt Note */}
-                <p className="font-hand text-lg sm:text-xl text-warm-100 leading-relaxed mb-6">
+                <p className="font-hand text-lg sm:text-xl text-warm-100 dark:text-rose-100 leading-relaxed mb-6">
                   "{activeCapsule.message}"
                 </p>
 
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-warm-300/60">
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-warm-300/80 dark:text-rose-200/70">
                   <span>Always with you, no matter what</span>
                   <span className="font-hand text-amber-300 text-sm">With all my love, Mudassir ♥</span>
                 </div>

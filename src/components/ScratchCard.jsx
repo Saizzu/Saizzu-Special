@@ -192,16 +192,14 @@ export default function ScratchCard() {
 
         {/* Title */}
         <h2
-          className="font-display text-2xl sm:text-4xl md:text-5xl mb-2 sm:mb-3"
-          style={{ color: 'var(--color-wine)' }}
+          className="font-display text-2xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 text-rose-950 dark:text-rose-100"
         >
           Scratch to uncover something special
         </h2>
 
         {/* Subtitle */}
         <p
-          className="font-hand text-lg sm:text-2xl mb-6 sm:mb-10"
-          style={{ color: 'var(--color-text-mid)' }}
+          className="font-hand text-lg sm:text-2xl mb-6 sm:mb-10 text-stone-700 dark:text-rose-200/90"
         >
           {prompt}
         </p>
@@ -275,8 +273,7 @@ export default function ScratchCard() {
 
         {/* Scratch progress hint */}
         <motion.p
-          className="font-hand text-base mt-4"
-          style={{ color: 'var(--color-text-mid)' }}
+          className="font-hand text-base mt-4 text-stone-700 dark:text-rose-200/90"
           animate={{ opacity: revealed ? 0 : 1 }}
         >
           {scratchPercent > 10 && !revealed
@@ -288,8 +285,7 @@ export default function ScratchCard() {
 
         {/* Revealed caption below card */}
         <motion.p
-          className="font-hand text-lg mt-4"
-          style={{ color: 'var(--color-wine)' }}
+          className="font-hand text-lg mt-4 text-rose-950 dark:text-rose-100"
           initial={{ opacity: 0, y: 10 }}
           animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.6, delay: 0.3 }}

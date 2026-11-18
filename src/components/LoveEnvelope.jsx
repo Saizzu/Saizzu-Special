@@ -130,7 +130,7 @@ export default function LoveEnvelope() {
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-[#FFF8F9]/95 dark:bg-[#131b3a]/90 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-xl my-8 border border-rose-200/80 dark:border-indigo-400/30 backdrop-blur-md"
+              className="relative w-full max-w-2xl bg-[#FFF8F9] dark:bg-[#0f172a]/95 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-rose-300/80 dark:border-indigo-400/40 backdrop-blur-md"
             >
               {/* Close Button */}
               <button
@@ -153,7 +153,7 @@ export default function LoveEnvelope() {
               </div>
 
               {/* Letter Body in Beautiful Urdu */}
-              <div className="urdu-text text-stone-800 dark:text-rose-100 space-y-5 px-2 sm:px-4 max-h-[60vh] overflow-y-auto pr-3 leading-relaxed">
+              <div className="urdu-text text-stone-900 dark:text-rose-50 space-y-5 px-2 sm:px-4 max-h-[60vh] overflow-y-auto pr-3 leading-relaxed">
                 {DATA.loveLetter.split('\n\n').map((paragraph, idx) => (
                   <p key={idx} className="leading-loose">
                     {paragraph}

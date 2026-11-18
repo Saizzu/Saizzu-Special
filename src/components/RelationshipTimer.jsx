@@ -90,7 +90,7 @@ export default function RelationshipTimer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-1.5 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 dark:text-rose-100 mb-1.5 sm:mb-3"
         >
           {DATA.timerTitle}
         </motion.h2>
@@ -100,7 +100,7 @@ export default function RelationshipTimer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-2xl text-warm-700 mb-6 sm:mb-12 max-w-xl mx-auto"
+          className="font-hand text-lg sm:text-2xl text-warm-700 dark:text-rose-200/90 mb-6 sm:mb-12 max-w-xl mx-auto"
         >
           {DATA.timerSubtitle}
         </motion.p>
@@ -122,7 +122,7 @@ export default function RelationshipTimer() {
               <span className="font-mono text-2xl sm:text-4xl md:text-5xl font-extrabold text-gradient-rose tracking-tight">
                 {unit.value}
               </span>
-              <span className="font-display text-[10px] sm:text-xs uppercase tracking-wider text-warm-700/80 mt-1 sm:mt-2 font-medium">
+              <span className="font-display text-[10px] sm:text-xs uppercase tracking-wider text-warm-700/80 dark:text-rose-200/80 mt-1 sm:mt-2 font-medium">
                 {unit.label}
               </span>
             </motion.div>
@@ -137,14 +137,14 @@ export default function RelationshipTimer() {
           transition={{ delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gradient-to-r from-rose-100/90 via-pink-50 to-rose-100/90 border border-rose-300/80 shadow-md text-xs sm:text-sm font-medium text-rose-950">
+          <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gradient-to-r from-rose-100/90 via-pink-50 to-rose-100/90 dark:from-indigo-950/80 dark:via-slate-900/80 dark:to-indigo-950/80 border border-rose-300/80 dark:border-rose-400/30 shadow-md text-xs sm:text-sm font-medium text-rose-950 dark:text-rose-100">
             <span className="text-rose-500 text-sm sm:text-base">💖</span>
             <span>
               <strong>{timeTogether.totalDays.toLocaleString()}</strong> days of loving you
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gradient-to-r from-amber-50 to-rose-50 border border-amber-200/80 shadow-sm text-xs sm:text-sm font-medium text-amber-900">
+          <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gradient-to-r from-amber-50 to-rose-50 dark:from-amber-950/60 dark:to-indigo-950/60 border border-amber-200/80 dark:border-amber-400/30 shadow-sm text-xs sm:text-sm font-medium text-amber-900 dark:text-amber-200">
             <span className="text-amber-500 text-sm sm:text-base">✨</span>
             <span>
               {DATA.milestoneText || "1 year to our milestone, Insha'Allah 💫"}
