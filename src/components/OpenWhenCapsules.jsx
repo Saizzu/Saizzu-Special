@@ -57,7 +57,7 @@ export default function OpenWhenCapsules() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-2 sm:mb-3"
         >
           "Open When..." Envelopes
         </motion.h2>
@@ -67,7 +67,7 @@ export default function OpenWhenCapsules() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-200 mb-8 sm:mb-12 max-w-lg"
+          className="font-hand text-lg sm:text-xl text-stone-900 dark:text-warm-200 mb-8 sm:mb-12 max-w-lg"
         >
           No matter how your mood changes, there is a letter waiting right here for your heart
         </motion.p>
@@ -82,7 +82,7 @@ export default function OpenWhenCapsules() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               onClick={() => handleOpen(note)}
-              className="glass-card p-5 sm:p-6 rounded-3xl border border-rose-400/30 hover:border-amber-300/60 cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all flex flex-col items-center justify-between text-center relative overflow-hidden shadow-lg hover:shadow-rose-950/40"
+              className="bg-[#FFD6E0]/75 dark:bg-stone-950/80 backdrop-blur-md border border-rose-300/70 dark:border-rose-400/30 hover:border-amber-400/60 p-5 sm:p-6 rounded-3xl cursor-pointer group hover:scale-[1.02] active:scale-[0.98] transition-all flex flex-col items-center justify-between text-center relative overflow-hidden shadow-sm shadow-rose-300/30"
             >
               {/* Wax Seal / Stamp Icon */}
               <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-rose-700 via-pink-600 to-amber-500 p-[2px] mb-3 shadow-lg shadow-rose-900/40 group-hover:rotate-6 transition-transform">
@@ -91,15 +91,15 @@ export default function OpenWhenCapsules() {
                 </div>
               </div>
 
-              <span className="text-[10px] font-mono tracking-widest uppercase text-amber-300/80 mb-1">
+              <span className="text-[10px] font-mono tracking-widest uppercase text-rose-900/90 dark:text-amber-300/80 mb-1">
                 SEALED CAPSULE #{idx + 1}
               </span>
 
-              <h3 className="font-display text-base sm:text-lg font-bold text-white mb-2">
+              <h3 className="font-display text-base sm:text-lg font-bold text-rose-950 dark:text-white mb-2">
                 {note.label}
               </h3>
 
-              <div className="mt-3 inline-flex items-center gap-1.5 text-xs text-rose-300 font-medium group-hover:text-amber-300 transition-colors">
+              <div className="mt-3 inline-flex items-center gap-1.5 text-xs text-rose-800 dark:text-rose-300 font-medium group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors">
                 <span>Break Wax Seal</span>
                 <span>✨</span>
               </div>
@@ -125,12 +125,12 @@ export default function OpenWhenCapsules() {
                 exit={{ scale: 0.85, y: 30, opacity: 0 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="glass-card max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-amber-300/40 relative max-h-[90vh] overflow-y-auto text-left shadow-2xl"
+                className="bg-[#FFF0F4] dark:bg-stone-950/95 max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-rose-300/80 dark:border-amber-300/40 relative max-h-[90vh] overflow-y-auto text-left shadow-2xl"
               >
                 {/* Accessible Close Button */}
                 <button
                   onClick={() => setActiveCapsule(null)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-lg transition-colors focus:outline-none focus:ring-2 focus:ring-amber-300"
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-[#FFC4D3]/60 hover:bg-[#FFB3C6]/75 text-stone-800 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white flex items-center justify-center text-lg transition-colors focus:outline-none focus:ring-2 focus:ring-amber-300"
                   aria-label="Close"
                 >
                   ×
@@ -141,7 +141,7 @@ export default function OpenWhenCapsules() {
                   {activeCapsule.label}
                 </span>
 
-                <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-4">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-white mb-4">
                   {activeCapsule.title}
                 </h3>
 
@@ -167,11 +167,11 @@ export default function OpenWhenCapsules() {
                 )}
 
                 {/* Heartfelt Note */}
-                <p className="font-hand text-lg sm:text-xl text-warm-100 dark:text-rose-100 leading-relaxed mb-6">
+                <p className="font-hand text-lg sm:text-xl text-stone-900 dark:text-warm-100 leading-relaxed mb-6">
                   "{activeCapsule.message}"
                 </p>
 
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-warm-300/80 dark:text-rose-200/70">
+                <div className="pt-3 border-t border-rose-200/80 dark:border-white/10 flex items-center justify-between text-xs text-stone-700 dark:text-warm-300/80">
                   <span>Always with you, no matter what</span>
                   <span className="font-hand text-amber-300 text-sm">With all my love, Mudassir ♥</span>
                 </div>

@@ -13,7 +13,7 @@ function HeroSection() {
   return (
     <section
       className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-start sm:justify-center text-center overflow-hidden pt-20 sm:pt-28 pb-12 sm:pb-16 px-4"
-      style={{ background: 'linear-gradient(180deg, #12091A 0%, #1A0F26 50%, #12091A 100%)' }}
+      /* Background flows from active theme */
     >
       {/* ── animated gradient mesh bg ─────────────────────── */}
       <div
@@ -34,7 +34,7 @@ function HeroSection() {
         <motion.span
           {...fadeUp(0)}
           className="inline-block px-4 py-1.5 rounded-full text-xs tracking-widest uppercase
-                     border border-love-500/30 text-love-300 bg-love-500/10 backdrop-blur-sm"
+                     border border-love-500/30 text-rose-700 dark:text-rose-300 bg-rose-200/60 dark:bg-love-500/10 backdrop-blur-sm"
         >
           made with love ♥
         </motion.span>
@@ -57,7 +57,7 @@ function HeroSection() {
         {/* headline */}
         <motion.h2
           {...fadeUp(0.6)}
-          className="font-display text-xl sm:text-2xl md:text-3xl text-gold-500 font-medium"
+          className="font-display text-xl sm:text-2xl md:text-3xl text-amber-800 dark:text-amber-300 font-medium"
         >
           {DATA.heroHeadline}
         </motion.h2>
@@ -65,7 +65,7 @@ function HeroSection() {
         {/* subtext */}
         <motion.p
           {...fadeUp(0.9)}
-          className="font-hand text-base sm:text-xl leading-relaxed max-w-lg sm:max-w-xl text-warm-100/90"
+          className="font-hand text-base sm:text-xl leading-relaxed max-w-lg sm:max-w-xl text-stone-800 dark:text-warm-100/90"
         >
           {DATA.heroSubtext}
         </motion.p>
@@ -78,10 +78,10 @@ function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}
       >
-        <span className="text-gold-500/60 text-[10px] sm:text-xs tracking-widest uppercase">Scroll to explore</span>
+        <span className="text-amber-800/70 dark:text-gold-500/60 text-[10px] sm:text-xs tracking-widest uppercase">Scroll to explore</span>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500/60"
+          className="w-4 h-4 sm:w-5 sm:h-5 text-amber-800/70 dark:text-gold-500/60"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

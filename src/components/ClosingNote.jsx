@@ -14,7 +14,7 @@ function ClosingNote() {
   return (
     <section
       className="relative py-14 sm:py-24 md:py-32 overflow-hidden px-4"
-      style={{ background: 'linear-gradient(180deg, #110A18 0%, #0D0718 100%)' }}
+      /* Background flows from active theme */
     >
       <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center text-center gap-5 sm:gap-8">
 
@@ -46,8 +46,7 @@ function ClosingNote() {
         {/* ── closing note body ────────────────────────────── */}
         <motion.p
           {...inView(0.3)}
-          className="font-hand text-xl md:text-2xl leading-relaxed"
-          style={{ color: '#FFF3E8' }}
+          className="font-hand text-xl md:text-2xl leading-relaxed text-stone-800 dark:text-[#FFF3E8]"
         >
           {DATA.closingNote}
         </motion.p>
@@ -55,7 +54,7 @@ function ClosingNote() {
         {/* ── sign-off ────────────────────────────────────── */}
         <motion.p
           {...inView(0.45)}
-          className="italic text-gold-500 text-base md:text-lg"
+          className="italic text-amber-800 dark:text-gold-500 text-base md:text-lg"
         >
           {DATA.signOff}
         </motion.p>
@@ -96,7 +95,7 @@ function ClosingNote() {
         {/* ── footer credit ───────────────────────────────── */}
         <motion.p
           {...inView(0.75)}
-          className="mt-8 text-xs tracking-widest text-gold-500/40"
+          className="mt-8 text-xs tracking-widest text-stone-600 dark:text-gold-500/40"
         >
           Made with <span className="text-love-400">♥</span> by Mudassir
         </motion.p>

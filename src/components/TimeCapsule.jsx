@@ -187,7 +187,7 @@ export default function TimeCapsule() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-2 sm:mb-3"
         >
           Our Secret Time Capsule
         </motion.h2>
@@ -197,7 +197,7 @@ export default function TimeCapsule() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-200 mb-6 sm:mb-8 max-w-lg"
+          className="font-hand text-lg sm:text-xl text-stone-800 dark:text-warm-200 mb-6 sm:mb-8 max-w-lg"
         >
           Locked capsules that open only when the calendar reaches our sacred days
         </motion.p>
@@ -210,7 +210,7 @@ export default function TimeCapsule() {
             className={`text-xs px-3.5 py-1.5 rounded-full border transition-all flex items-center gap-1.5 ${
               overrideKey
                 ? 'bg-amber-400 text-stone-950 border-amber-300 font-semibold shadow-md shadow-amber-400/20'
-                : 'bg-stone-900/80 text-warm-300/70 border-white/10 hover:border-amber-400/30'
+                : 'bg-stone-900/80 text-stone-700 dark:text-warm-300/70 border-white/10 hover:border-amber-400/30'
             }`}
           >
             <span>🗝️</span>
@@ -221,19 +221,19 @@ export default function TimeCapsule() {
             <div className="inline-flex rounded-full bg-stone-900 p-0.5 border border-white/10 text-[11px]">
               <button
                 onClick={() => setPreviewMode('pamper')}
-                className={`px-2.5 py-1 rounded-full ${previewMode === 'pamper' ? 'bg-rose-600 text-white font-bold' : 'text-warm-300'}`}
+                className={`px-2.5 py-1 rounded-full ${previewMode === 'pamper' ? 'bg-rose-600 text-white font-bold' : 'text-stone-700 dark:text-warm-300'}`}
               >
                 15th Pamper
               </button>
               <button
                 onClick={() => setPreviewMode('sunday')}
-                className={`px-2.5 py-1 rounded-full ${previewMode === 'sunday' ? 'bg-rose-600 text-white font-bold' : 'text-warm-300'}`}
+                className={`px-2.5 py-1 rounded-full ${previewMode === 'sunday' ? 'bg-rose-600 text-white font-bold' : 'text-stone-700 dark:text-warm-300'}`}
               >
                 Sunday
               </button>
               <button
                 onClick={() => setPreviewMode('milestone')}
-                className={`px-2.5 py-1 rounded-full ${previewMode === 'milestone' ? 'bg-rose-600 text-white font-bold' : 'text-warm-300'}`}
+                className={`px-2.5 py-1 rounded-full ${previewMode === 'milestone' ? 'bg-rose-600 text-white font-bold' : 'text-stone-700 dark:text-warm-300'}`}
               >
                 Milestone
               </button>
@@ -272,10 +272,10 @@ export default function TimeCapsule() {
               {/* Priority 1 Message */}
               {(isMilestone || (overrideKey && previewMode === 'milestone')) && (
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-3 text-gradient-gold">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-gradient-gold mb-3">
                     {matchedMilestone ? matchedMilestone.title : specialDates[0]?.title || 'Milestone Special'}
                   </h3>
-                  <p className="font-hand text-xl text-warm-100 leading-relaxed mb-4">
+                  <p className="font-hand text-xl text-stone-900 dark:text-warm-100 leading-relaxed mb-4">
                     "{matchedMilestone ? matchedMilestone.message : specialDates[0]?.message}"
                   </p>
                 </div>
@@ -284,10 +284,10 @@ export default function TimeCapsule() {
               {/* Priority 2 Message */}
               {(isMonthly15th || (overrideKey && previewMode === 'pamper')) && (
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-3 text-rose-300">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-rose-300 mb-3">
                     {matchedPamper?.title || 'Your Monthly Comfort & Pamper Capsule 🧸🍫'}
                   </h3>
-                  <p className="font-hand text-lg sm:text-xl text-warm-100 leading-relaxed mb-4">
+                  <p className="font-hand text-lg sm:text-xl text-stone-900 dark:text-warm-100 leading-relaxed mb-4">
                     "{matchedPamper?.message}"
                   </p>
                 </div>
@@ -298,10 +298,10 @@ export default function TimeCapsule() {
                 !isMilestone &&
                 !isMonthly15th && (
                   <div>
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-amber-300 mb-3">
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-amber-300 mb-3">
                       Happy Sunday, Saizzu! 🌸
                     </h3>
-                    <p className="font-hand text-xl text-warm-100 leading-relaxed mb-4">
+                    <p className="font-hand text-xl text-stone-900 dark:text-warm-100 leading-relaxed mb-4">
                       "{matchedSunday}"
                     </p>
                   </div>
@@ -310,7 +310,7 @@ export default function TimeCapsule() {
               {/* ── Interactive Treat Selector & Custom Input (Upgraded for All Unlocked States) ── */}
               <div className="mt-5 pt-5 border-t border-white/10 text-left">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono uppercase tracking-wider text-amber-300 font-bold flex items-center gap-1.5">
+                  <span className="text-xs font-mono uppercase tracking-wider text-rose-950 dark:text-amber-300 font-bold flex items-center gap-1.5">
                     <span>🎁</span>
                     <span>Pick What You Want to Be Pampered With:</span>
                   </span>
@@ -333,7 +333,7 @@ export default function TimeCapsule() {
                         className={`px-3 py-1.5 rounded-2xl text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${
                           isSelected
                             ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/40 ring-2 ring-rose-300/50 scale-[1.02]'
-                            : 'bg-white/5 text-warm-200 border border-white/10 hover:bg-white/10 hover:border-amber-400/30'
+                            : 'bg-[#FFC4D3]/60 hover:bg-[#FFB3C6]/75 border border-rose-300/80 text-stone-900 dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10'
                         }`}
                       >
                         <span>{isSelected ? '✓' : '+'}</span>
@@ -345,7 +345,7 @@ export default function TimeCapsule() {
 
                 {/* Custom Wish / Craving Text Input */}
                 <div className="mb-5">
-                  <label className="block text-[11px] font-mono uppercase tracking-wider text-warm-300/80 mb-1.5">
+                  <label className="block text-[11px] font-mono uppercase tracking-wider text-stone-700 dark:text-warm-300/80 mb-1.5">
                     Or write any custom wish, craving, or mood: 💭
                   </label>
                   <input
@@ -353,7 +353,7 @@ export default function TimeCapsule() {
                     value={customTreat}
                     onChange={(e) => setCustomTreat(e.target.value)}
                     placeholder="e.g., Dairy Milk Silk, Butterscotch ice cream, or a late-night walk..."
-                    className="w-full px-4 py-2.5 rounded-2xl bg-stone-900/90 border border-white/15 text-warm-100 placeholder-warm-400/40 text-xs sm:text-sm focus:outline-none focus:border-amber-400/60 focus:ring-1 focus:ring-amber-400/30 transition-all"
+                    className="w-full px-4 py-2.5 rounded-2xl bg-[#FFF0F4] border border-rose-300/80 text-stone-900 placeholder:text-rose-700/60 dark:bg-stone-900/90 dark:border-white/15 dark:text-warm-100 dark:placeholder-warm-400/40 text-xs sm:text-sm focus:outline-none focus:border-rose-500 dark:focus:border-amber-400/60 focus:ring-1 focus:ring-amber-400/30 transition-all"
                   />
                 </div>
 
@@ -367,7 +367,7 @@ export default function TimeCapsule() {
                 </button>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-warm-300/60">
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-stone-700 dark:text-warm-300/60">
                 <span>Unlocked on {now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</span>
                 <span className="font-hand text-amber-300 text-sm">Always yours, Mudassir ♥</span>
               </div>
@@ -380,16 +380,16 @@ export default function TimeCapsule() {
                 🔒
               </div>
 
-              <span className="text-xs font-mono uppercase tracking-widest text-amber-300 font-bold block mb-1">
+              <span className="text-xs font-mono uppercase tracking-widest text-rose-900/90 dark:text-amber-300 font-bold block mb-1">
                 CAPSULE CURRENTLY SEALED
               </span>
 
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-2">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-white mb-2">
                 Time-Locked Love Note
               </h3>
 
               {/* Softly Blurred Preview Text */}
-              <p className="font-hand text-base sm:text-lg text-warm-200/40 select-none blur-[4px] pointer-events-none mb-6">
+              <p className="font-hand text-base sm:text-lg text-stone-800 dark:text-warm-200/40 select-none blur-[4px] pointer-events-none mb-6">
                 "Words fall short when I try to describe how special today is for us... Take good care of yourself today, my strong girl..."
               </p>
 
@@ -403,12 +403,12 @@ export default function TimeCapsule() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="p-2 sm:p-3 rounded-2xl bg-stone-900/90 border border-amber-400/20 flex flex-col items-center"
+                    className="p-2 sm:p-3 rounded-2xl bg-[#FFC4D3]/70 dark:bg-stone-900/90 border border-rose-300/80 dark:border-amber-400/20 flex flex-col items-center"
                   >
                     <span className="font-mono text-xl sm:text-2xl font-bold text-gradient-gold">
                       {String(item.val).padStart(2, '0')}
                     </span>
-                    <span className="text-[10px] font-mono text-warm-400/70">
+                    <span className="text-[10px] font-mono text-rose-900/80 dark:text-warm-400/70">
                       {item.label}
                     </span>
                   </div>
@@ -416,9 +416,9 @@ export default function TimeCapsule() {
               </div>
 
               {/* Subtle Pill Badge for Next Unlock */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-amber-200">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFC4D3]/50 border border-rose-300/70 text-xs text-rose-950 dark:bg-white/5 dark:border-white/10 dark:text-amber-200">
                 <span>Next unlock:</span>
-                <span className="font-bold text-amber-300">{nextUnlock.label}</span>
+                <span className="font-bold text-rose-900 dark:text-amber-300">{nextUnlock.label}</span>
               </div>
             </div>
           )}

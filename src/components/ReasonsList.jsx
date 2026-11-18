@@ -62,7 +62,7 @@ export default function ReasonsList() {
                 className={`cursor-pointer relative p-4 sm:p-6 sm:p-8 rounded-2xl sm:rounded-3xl transition-all duration-300 ${
                   isLast
                     ? 'bg-gradient-to-br from-rose-500 via-rose-600 to-rose-700 text-white shadow-xl shadow-rose-500/25 border-2 border-rose-300/40'
-                    : 'glass-card-light hover:shadow-xl'
+                    : 'bg-[#FFD6E0]/75 dark:glass-card-light backdrop-blur-md border border-rose-300/70 shadow-sm shadow-rose-300/30 hover:shadow-md'
                 }`}
               >
                 {/* Washi Tape on top left corner (except last) */}
@@ -77,7 +77,7 @@ export default function ReasonsList() {
                       className={`w-10 h-10 rounded-2xl flex items-center justify-center font-mono font-bold text-lg flex-shrink-0 ${
                         isLast
                           ? 'bg-white/20 text-white'
-                          : 'bg-rose-100 dark:bg-indigo-900/80 text-rose-700 dark:text-rose-300'
+                          : 'bg-[#FFC4D3]/80 dark:bg-indigo-900/80 text-rose-900 dark:text-rose-300'
                       }`}
                     >
                       {String(index + 1).padStart(2, '0')}
@@ -100,7 +100,7 @@ export default function ReasonsList() {
                     className={`text-xs px-3 py-1 rounded-full font-medium ${
                       isLast
                         ? 'bg-white/20 text-white'
-                        : 'bg-amber-100/70 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300'
+                        : 'bg-amber-100/90 dark:bg-amber-900/40 text-amber-900 dark:text-amber-300 border border-amber-300/60'
                     }`}
                   >
                     {isExpanded ? 'Fold ↑' : 'Read ✦'}
@@ -112,7 +112,7 @@ export default function ReasonsList() {
                   className={`mt-4 pt-4 border-t transition-all duration-300 ${
                     isLast
                       ? 'border-white/20 text-rose-50'
-                      : 'border-amber-200/40 dark:border-indigo-400/20 text-stone-700 dark:text-rose-100'
+                      : 'border-rose-300/60 dark:border-indigo-400/20 text-stone-900 dark:text-rose-100'
                   }`}
                 >
                   <p className="font-hand text-xl sm:text-2xl leading-relaxed">

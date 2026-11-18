@@ -199,13 +199,13 @@ export default function ScratchCard() {
 
         {/* Subtitle */}
         <p
-          className="font-hand text-lg sm:text-2xl mb-6 sm:mb-10 text-stone-700 dark:text-rose-200/90"
+          className="font-hand text-lg sm:text-2xl mb-6 sm:mb-10 text-stone-900 dark:text-rose-200/90"
         >
           {prompt}
         </p>
 
         {/* Scratch card container */}
-        <div className="stitch-border max-w-md mx-auto shadow-xl">
+        <div className="border-2 border-dashed border-rose-300/80 bg-[#FFD6E0]/70 dark:border-rose-400/30 dark:bg-slate-900/60 shadow-xl max-w-md mx-auto rounded-3xl p-2">
           <div
             ref={containerRef}
             className="relative w-full overflow-hidden rounded-2xl h-[420px] sm:h-[500px]"
@@ -273,7 +273,7 @@ export default function ScratchCard() {
 
         {/* Scratch progress hint */}
         <motion.p
-          className="font-hand text-base mt-4 text-stone-700 dark:text-rose-200/90"
+          className="font-hand text-base mt-4 text-stone-900 dark:text-rose-200/90"
           animate={{ opacity: revealed ? 0 : 1 }}
         >
           {scratchPercent > 10 && !revealed

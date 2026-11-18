@@ -59,7 +59,7 @@ export default function WishOrderBox() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-2 sm:mb-3"
         >
           Order Your Wish
         </motion.h2>
@@ -69,16 +69,16 @@ export default function WishOrderBox() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-200 mb-8 sm:mb-12 max-w-lg"
+          className="font-hand text-lg sm:text-xl text-stone-800 dark:text-warm-200 mb-8 sm:mb-12 max-w-lg"
         >
           Pick what your heart or tummy desires, and send it straight to my phone with one tap!
         </motion.p>
 
         {/* Menu Form Card */}
-        <div className="w-full glass-card border border-rose-400/30 rounded-3xl p-6 sm:p-8 text-left shadow-2xl relative">
+        <div className="w-full bg-[#FFD6E0]/75 dark:glass-card border border-rose-300/70 dark:border-rose-400/30 rounded-3xl p-6 sm:p-8 text-left shadow-sm shadow-rose-300/30 dark:shadow-2xl relative">
           {/* Step 1: Craving */}
           <div className="mb-6">
-            <label className="block text-xs font-mono uppercase tracking-wider text-amber-300 font-bold mb-3">
+            <label className="block text-xs font-mono uppercase tracking-wider text-rose-950 dark:text-amber-300 font-bold mb-3">
               1. What are you craving right now? 🍽️
             </label>
             <div className="flex flex-wrap gap-2">
@@ -90,7 +90,7 @@ export default function WishOrderBox() {
                   className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-medium transition-all ${
                     selectedCraving === item
                       ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/40 ring-2 ring-rose-400/50 scale-105'
-                      : 'bg-white/5 text-warm-200 border border-white/10 hover:bg-white/10'
+                      : 'bg-[#FFC4D3]/60 hover:bg-[#FFB3C6]/75 border border-rose-300/80 text-stone-900 dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10'
                   }`}
                 >
                   {item}
@@ -101,7 +101,7 @@ export default function WishOrderBox() {
 
           {/* Step 2: Vibe */}
           <div className="mb-6">
-            <label className="block text-xs font-mono uppercase tracking-wider text-amber-300 font-bold mb-3">
+            <label className="block text-xs font-mono uppercase tracking-wider text-rose-950 dark:text-amber-300 font-bold mb-3">
               2. What kind of date or vibe do you want? ✨
             </label>
             <div className="flex flex-wrap gap-2">
@@ -113,7 +113,7 @@ export default function WishOrderBox() {
                   className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-medium transition-all ${
                     selectedVibe === item
                       ? 'bg-amber-500 text-stone-950 font-semibold shadow-lg shadow-amber-500/30 ring-2 ring-amber-300/50 scale-105'
-                      : 'bg-white/5 text-warm-200 border border-white/10 hover:bg-white/10'
+                      : 'bg-[#FFC4D3]/60 hover:bg-[#FFB3C6]/75 border border-rose-300/80 text-stone-900 dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10'
                   }`}
                 >
                   {item}
@@ -124,7 +124,7 @@ export default function WishOrderBox() {
 
           {/* Step 3: Urgency */}
           <div className="mb-6">
-            <label className="block text-xs font-mono uppercase tracking-wider text-amber-300 font-bold mb-3">
+            <label className="block text-xs font-mono uppercase tracking-wider text-rose-950 dark:text-amber-300 font-bold mb-3">
               3. When should this be delivered / fulfilled? ⏰
             </label>
             <div className="flex flex-wrap gap-2">
@@ -136,7 +136,7 @@ export default function WishOrderBox() {
                   className={`px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-medium transition-all ${
                     selectedUrgency === item
                       ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg ring-2 ring-pink-400/40 scale-105'
-                      : 'bg-white/5 text-warm-200 border border-white/10 hover:bg-white/10'
+                      : 'bg-[#FFC4D3]/60 hover:bg-[#FFB3C6]/75 border border-rose-300/80 text-stone-900 dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10'
                   }`}
                 >
                   {item}
@@ -147,7 +147,7 @@ export default function WishOrderBox() {
 
           {/* Step 4: Optional Custom Note */}
           <div className="mb-6">
-            <label className="block text-xs font-mono uppercase tracking-wider text-amber-300 font-bold mb-2">
+            <label className="block text-xs font-mono uppercase tracking-wider text-rose-950 dark:text-amber-300 font-bold mb-2">
               4. Any special instructions for Mudassir? (Optional) 📝
             </label>
             <input
@@ -155,20 +155,20 @@ export default function WishOrderBox() {
               value={customNote}
               onChange={(e) => setCustomNote(e.target.value)}
               placeholder="e.g., Don't forget my favourite sweets, or call me right away! 💕"
-              className="w-full px-4 py-3 rounded-2xl bg-stone-900/90 border border-white/10 text-warm-100 placeholder-warm-400/40 text-xs sm:text-sm focus:outline-none focus:border-amber-400/50 transition-colors"
+              className="w-full px-4 py-3 rounded-2xl bg-[#FFF0F4] border border-rose-300/80 text-stone-900 placeholder:text-rose-700/60 dark:bg-stone-900/90 dark:border-white/10 dark:text-warm-100 dark:placeholder-warm-400/40 text-xs sm:text-sm focus:outline-none focus:border-rose-500 dark:focus:border-amber-400/50 transition-colors"
             />
           </div>
 
           {/* Live Order Receipt */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-stone-950/70 border border-amber-400/20 mb-6 font-mono text-xs">
-            <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-2 text-amber-300 font-bold">
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#FFC4D3]/40 dark:bg-stone-950/70 border border-rose-300/60 dark:border-amber-400/20 mb-6 font-mono text-xs">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2 mb-2 text-rose-900 dark:text-amber-300 font-bold">
               <span>🧾 THE SAIZZU EXPRESS RECEIPT</span>
               <span>READY TO DISPATCH</span>
             </div>
-            <div className="space-y-1 text-warm-200">
-              <p>• Craving: <span className="text-white font-bold">{selectedCraving}</span></p>
-              <p>• Vibe: <span className="text-white font-bold">{selectedVibe}</span></p>
-              <p>• Urgency: <span className="text-white font-bold">{selectedUrgency}</span></p>
+            <div className="space-y-1 text-stone-800 dark:text-warm-200">
+              <p>• Craving: <span className="text-rose-950 dark:text-white font-bold">{selectedCraving}</span></p>
+              <p>• Vibe: <span className="text-rose-950 dark:text-white font-bold">{selectedVibe}</span></p>
+              <p>• Urgency: <span className="text-rose-950 dark:text-white font-bold">{selectedUrgency}</span></p>
               {customNote.trim() && (
                 <p>• Note: <span className="text-rose-300">"{customNote.trim()}"</span></p>
               )}

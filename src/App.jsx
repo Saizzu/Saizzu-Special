@@ -59,7 +59,7 @@ export default function App() {
       className={`relative min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden w-full transition-colors duration-700 ease-in-out ${
         darkMode
           ? 'dark bg-gradient-to-b from-[#060918] via-[#0c1433] to-[#111936] text-rose-100'
-          : 'bg-[#FFF0F3] text-stone-900'
+          : 'bg-gradient-to-b from-[#FFE6ED] via-[#FFF0F4] to-[#FFE2EA] text-stone-900'
       }`}
     >
       {/* Ambient background particles & starry midnight effects */}

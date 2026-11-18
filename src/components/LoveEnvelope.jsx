@@ -54,7 +54,7 @@ export default function LoveEnvelope() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-300 mb-8 sm:mb-12 max-w-md mx-auto"
+          className="font-hand text-lg sm:text-xl text-stone-900 dark:text-warm-300 mb-8 sm:mb-12 max-w-md mx-auto"
         >
           Tap the wax seal to break the seal and read what my soul wrote for you
         </motion.p>
@@ -95,7 +95,7 @@ export default function LoveEnvelope() {
             </div>
 
             {/* Letter peek edge */}
-            <div className="absolute top-8 left-8 right-8 h-12 bg-white/80 dark:bg-slate-800/80 rounded-t border-t border-dashed border-rose-300/40 opacity-70" />
+            <div className="absolute top-8 left-8 right-8 h-12 bg-[#FFD6E0]/80 dark:bg-slate-800/80 rounded-t border-t border-dashed border-rose-300/40 opacity-70" />
 
             {/* Front Envelope Details */}
             <div className="mt-24 text-center">
@@ -130,7 +130,7 @@ export default function LoveEnvelope() {
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-[#FFF8F9] dark:bg-[#0f172a]/95 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-rose-300/80 dark:border-indigo-400/40 backdrop-blur-md"
+              className="relative w-full max-w-2xl bg-[#FFF0F4] dark:bg-[#0f172a]/95 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-rose-300/80 dark:border-indigo-400/40 backdrop-blur-md"
             >
               {/* Close Button */}
               <button

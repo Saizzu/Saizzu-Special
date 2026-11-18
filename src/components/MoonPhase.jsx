@@ -105,7 +105,7 @@ export default function MoonPhase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-2 sm:mb-3"
         >
           The Moon That Night
         </motion.h2>
@@ -116,7 +116,7 @@ export default function MoonPhase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-200 mb-6 sm:mb-8 max-w-lg"
+          className="font-hand text-lg sm:text-xl text-stone-800 dark:text-warm-200 mb-6 sm:mb-8 max-w-lg"
         >
           November 26, 2023 — The exact sky that looked down upon our beginning
         </motion.p>
@@ -212,7 +212,7 @@ export default function MoonPhase() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -5 }}
                   onClick={handleMoonClick}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-amber-300/20 text-xs sm:text-sm text-amber-200/90 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD6E0]/80 hover:bg-[#FFB3C6] border border-rose-300/80 text-xs sm:text-sm text-rose-950 dark:bg-white/5 dark:hover:bg-white/10 dark:border-amber-300/20 dark:text-amber-200/90 transition-all hover:scale-105"
                 >
                   <span className="animate-pulse">✨</span>
                   <span>Tap the moon to play our song</span>
@@ -264,7 +264,7 @@ export default function MoonPhase() {
                   <button
                     type="button"
                     onClick={handleStop}
-                    className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-warm-300 hover:text-white text-xs flex items-center justify-center transition-colors"
+                    className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 text-stone-700 dark:text-warm-300 hover:text-white text-xs flex items-center justify-center transition-colors"
                     title="Stop song"
                   >
                     ✕
@@ -282,7 +282,7 @@ export default function MoonPhase() {
             transition={{ delay: 0.3 }}
             className="flex justify-center w-full mt-6 sm:mt-8 mb-5 sm:mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-amber-300/30 text-amber-200 text-xs sm:text-sm uppercase tracking-widest font-mono font-bold shadow-lg">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#FFD6E0]/80 backdrop-blur-md border border-rose-300/70 text-rose-950 dark:bg-white/10 dark:border-amber-300/30 dark:text-amber-200 text-xs sm:text-sm uppercase tracking-widest font-mono font-bold shadow-sm">
               <span>🌕</span>
               <span>Waxing Gibbous • 98% Illuminated</span>
             </div>
@@ -296,12 +296,12 @@ export default function MoonPhase() {
             transition={{ delay: 0.4 }}
             className="space-y-2 max-w-md mx-auto"
           >
-            <p className="font-hand text-xl sm:text-2xl text-warm-100 leading-relaxed">
+            <p className="font-hand text-xl sm:text-2xl text-stone-900 dark:text-warm-100 leading-relaxed">
               "The same moon that lights up the sky tonight is the one that
               watched two souls become one."
             </p>
 
-            <p className="font-hand text-sm sm:text-base text-rose-300/80">
+            <p className="font-hand text-sm sm:text-base text-rose-800 dark:text-rose-300/80">
               Chaand mein bhi tera hi chehra nazar aata hai... ✨
             </p>
           </motion.div>

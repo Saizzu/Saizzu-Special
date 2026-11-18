@@ -30,7 +30,7 @@ export default function ChatStats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gradient-gold mb-2 sm:mb-3"
+            className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-2 sm:mb-3"
           >
             Our Story in Numbers
           </motion.h2>
@@ -40,7 +40,7 @@ export default function ChatStats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-hand text-lg sm:text-xl text-warm-200"
+            className="font-hand text-lg sm:text-xl text-stone-800 dark:text-warm-200"
           >
             Every message, every late-night call, and every single "hmmm" between us
           </motion.p>
@@ -57,7 +57,7 @@ export default function ChatStats() {
             className="sm:col-span-2 glass-card p-6 sm:p-8 flex flex-col justify-between hover:border-rose-400/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs uppercase tracking-widest text-warm-300/70 font-semibold">
+              <span className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold">
                 Total Words of Love
               </span>
               <span className="text-2xl">💬</span>
@@ -66,7 +66,7 @@ export default function ChatStats() {
               <span className="font-mono text-5xl sm:text-6xl font-extrabold text-gradient-rose tracking-tight block">
                 {chatStats.totalMessages}
               </span>
-              <p className="font-hand text-lg text-warm-200 mt-2">
+              <p className="font-hand text-lg text-stone-800 dark:text-warm-200 mt-2">
                 Messages typed with love, laughter, and endless care
               </p>
             </div>
@@ -81,16 +81,16 @@ export default function ChatStats() {
             className="glass-card p-6 flex flex-col justify-between hover:border-amber-400/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs uppercase tracking-widest text-warm-300/70 font-semibold">
+              <span className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold">
                 Daily Average
               </span>
               <span className="text-2xl">⚡</span>
             </div>
             <div>
-              <span className="font-mono text-4xl sm:text-5xl font-extrabold text-amber-300 block">
+              <span className="font-mono text-4xl sm:text-5xl font-extrabold text-amber-800 dark:text-amber-300 block">
                 ~{chatStats.dailyAverage}
               </span>
-              <p className="font-hand text-base text-warm-200 mt-2">
+              <p className="font-hand text-base text-stone-800 dark:text-warm-200 mt-2">
                 texts exchanged every single day
               </p>
             </div>
@@ -105,16 +105,16 @@ export default function ChatStats() {
             className="glass-card p-6 flex flex-col justify-between hover:border-rose-400/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between mb-4">
-              <span className="text-xs uppercase tracking-widest text-warm-300/70 font-semibold">
+              <span className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold">
                 Busiest Hours
               </span>
               <span className="text-2xl">⏰</span>
             </div>
             <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-rose-300 block leading-tight">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-rose-800 dark:text-rose-300 block leading-tight">
                 {chatStats.busiestHours}
               </span>
-              <p className="font-hand text-base text-warm-200 mt-2">
+              <p className="font-hand text-base text-stone-800 dark:text-warm-200 mt-2">
                 First thing in the morning & late night talks
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function ChatStats() {
             className="sm:col-span-2 glass-card p-6 sm:p-8 hover:border-rose-400/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs uppercase tracking-widest text-warm-300/70 font-semibold">
+              <span className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold">
                 Who Texts More?
               </span>
               <span className="text-xs text-rose-300 font-mono">50% / 50%</span>
@@ -151,7 +151,7 @@ export default function ChatStats() {
               </div>
             </div>
 
-            <p className="font-hand text-lg text-center text-warm-100">
+            <p className="font-hand text-lg text-center text-stone-900 dark:text-warm-100">
               ⚖️ Perfectly balanced — two hearts beating at the exact same rhythm
             </p>
           </motion.div>
@@ -165,16 +165,16 @@ export default function ChatStats() {
             className="glass-card p-6 flex flex-col justify-between hover:border-amber-400/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs uppercase tracking-widest text-warm-300/70 font-semibold">
+              <span className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold">
                 Our Signature Word
               </span>
               <span className="text-2xl">💭</span>
             </div>
             <div>
-              <span className="font-display text-4xl sm:text-5xl font-black text-amber-300 italic block">
+              <span className="font-display text-4xl sm:text-5xl font-black text-amber-800 dark:text-amber-300 italic block">
                 "{chatStats.mostUsedWord}"
               </span>
-              <p className="font-hand text-base text-warm-200 mt-2">
+              <p className="font-hand text-base text-stone-800 dark:text-warm-200 mt-2">
                 Says a thousand unspoken feelings
               </p>
             </div>
@@ -189,7 +189,7 @@ export default function ChatStats() {
             className="glass-card p-6 flex flex-col justify-between hover:border-rose-400/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs uppercase tracking-widest text-warm-300/70 font-semibold">
+              <span className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold">
                 Top Emojis
               </span>
               <span className="text-2xl">✨</span>
@@ -204,7 +204,7 @@ export default function ChatStats() {
                 </span>
               ))}
             </div>
-            <p className="font-hand text-sm text-center text-warm-300/80">
+            <p className="font-hand text-sm text-center text-stone-700 dark:text-warm-300/80">
               Our emotional vocabulary
             </p>
           </motion.div>
@@ -218,16 +218,16 @@ export default function ChatStats() {
             className="sm:col-span-2 glass-card p-6 sm:p-8 flex items-center justify-between hover:border-rose-400/30 transition-all duration-300"
           >
             <div>
-              <span className="text-xs uppercase tracking-widest text-warm-300/70 font-semibold block mb-1">
+              <span className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold block mb-1">
                 Hours on Call
               </span>
               <div className="flex items-baseline gap-3">
-                <span className="font-mono text-4xl sm:text-5xl font-bold text-rose-300">
+                <span className="font-mono text-4xl sm:text-5xl font-bold text-rose-800 dark:text-rose-300">
                   {chatStats.totalCalls}
                 </span>
-                <span className="text-warm-300 text-sm">calls connected</span>
+                <span className="text-stone-700 dark:text-warm-300 text-sm">calls connected</span>
               </div>
-              <p className="font-hand text-base text-warm-200 mt-2">
+              <p className="font-hand text-base text-stone-800 dark:text-warm-200 mt-2">
                 Longest call: <strong className="text-amber-300">{chatStats.longestCall}</strong> of never wanting to hang up
               </p>
             </div>
@@ -240,7 +240,7 @@ export default function ChatStats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.45 }}
-            className="sm:col-span-2 lg:col-span-4 glass-card p-6 sm:p-8 border-amber-400/40 bg-gradient-to-r from-rose-950/40 via-amber-950/30 to-rose-950/40 hover:border-amber-400/60 transition-all duration-300"
+            className="sm:col-span-2 lg:col-span-4 glass-card p-6 sm:p-8 border border-rose-300/80 dark:border-amber-400/40 bg-[#FFD6E0]/85 dark:bg-gradient-to-r dark:from-rose-950/40 dark:via-amber-950/30 dark:to-rose-950/40 transition-all duration-300"
           >
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
               <div className="flex items-center gap-4">
@@ -249,20 +249,20 @@ export default function ChatStats() {
                   <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold block">
                     Our Greatest Ongoing Mystery
                   </span>
-                  <h3 className="font-hand text-2xl sm:text-3xl text-rose-200 mt-1">
+                  <h3 className="font-hand text-2xl sm:text-3xl text-rose-950 dark:text-rose-200 mt-1">
                     "{chatStats.funStat.label}"
                   </h3>
-                  <p className="font-hand text-lg sm:text-xl text-warm-200 mt-1 max-w-xl">
+                  <p className="font-hand text-lg sm:text-xl text-stone-800 dark:text-warm-200 mt-1 max-w-xl">
                     Whether it's 6 AM or midnight, whenever I say <em>"please sona mat, baat karni hai"</em> because I want to hear your voice... despite knowing this, you still don't listen and always fall straight asleep! 😂💕
                   </p>
                 </div>
               </div>
 
-              <div className="px-6 py-3 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex-shrink-0">
-                <span className="font-mono text-3xl font-extrabold text-amber-300">
+              <div className="px-6 py-3 rounded-2xl bg-[#FFC4D3]/70 dark:bg-amber-400/10 border border-rose-300/80 dark:border-amber-400/30 flex-shrink-0">
+                <span className="font-mono text-3xl font-extrabold text-rose-950 dark:text-amber-300">
                   {chatStats.funStat.value}
                 </span>
-                <span className="block text-[11px] uppercase tracking-wider text-amber-200/80 mt-0.5">
+                <span className="block text-[11px] uppercase tracking-wider text-rose-800/90 dark:text-amber-200/80 mt-0.5">
                   Sleep Score
                 </span>
               </div>

@@ -88,7 +88,7 @@ export default function MemoryTrivia() {
         </motion.p>
 
         {/* Primary Quiz Card — Soft Rose-Tinted Glass */}
-        <div className="w-full bg-rose-50/75 dark:bg-slate-900/65 backdrop-blur-md border border-rose-200/70 dark:border-indigo-400/25 rounded-3xl p-6 sm:p-8 shadow-sm text-left relative overflow-hidden">
+        <div className="w-full bg-[#FFD6E0]/75 dark:bg-slate-900/65 backdrop-blur-md border border-rose-300/70 dark:border-indigo-400/25 rounded-3xl p-6 sm:p-8 shadow-sm shadow-rose-300/30 text-left relative overflow-hidden">
           {!isCompleted ? (
             <div>
               {/* Progress Header */}
@@ -98,7 +98,7 @@ export default function MemoryTrivia() {
               </div>
 
               {/* Progress Bar */}
-              <div className="w-full h-2 rounded-full bg-rose-200/60 dark:bg-slate-800 overflow-hidden mb-6">
+              <div className="w-full h-2 rounded-full bg-rose-200/70 dark:bg-slate-800 overflow-hidden mb-6">
                 <div
                   className="h-full bg-gradient-to-r from-rose-500 to-amber-500 transition-all duration-300"
                   style={{
@@ -119,7 +119,7 @@ export default function MemoryTrivia() {
                   const isCorrect = idx === currentQ.correctIndex;
                   const hasAnswered = selectedOption !== null;
 
-                  let style = 'bg-[#FFE4E9]/70 dark:bg-slate-800/70 border-rose-200/80 dark:border-indigo-400/20 hover:bg-[#FFE4E9]/95 text-stone-800 dark:text-rose-100';
+                  let style = 'bg-[#FFC4D3]/60 dark:bg-slate-800/70 border border-rose-300/80 dark:border-indigo-400/20 hover:bg-[#FFB3C6]/75 text-stone-900 dark:text-rose-100';
 
                   if (hasAnswered) {
                     if (isCorrect) {
