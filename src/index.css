@@ -88,36 +88,43 @@ body {
   position: relative;
 }
 
-/* ── Glass Cards (Rose-tinted in Light Mode, Midnight in Dark Mode) ── */
+/* ── Glass Cards (Frosted in Rose Mode, Obsidian Midnight in Dark Mode) ── */
 .glass-card {
-  background: rgba(255, 228, 233, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(251, 113, 133, 0.25);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(244, 63, 94, 0.08);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  color: #FFFFFF;
 }
 
 .dark .glass-card {
-  background: rgba(10, 18, 48, 0.72) !important;
-  border-color: rgba(244, 114, 182, 0.28) !important;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5) !important;
+  background: rgba(10, 16, 42, 0.86) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-color: rgba(129, 140, 248, 0.28) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65) !important;
+  color: #FFF0F3 !important;
 }
 
 .glass-card-light {
-  background: rgba(255, 228, 233, 0.7);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(244, 63, 94, 0.25);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 24px;
-  box-shadow: 0 10px 28px -5px rgba(244, 63, 94, 0.1);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  color: #FFFFFF;
 }
 
 .dark .glass-card-light {
-  background: rgba(13, 22, 58, 0.78) !important;
-  border-color: rgba(251, 113, 133, 0.35) !important;
+  background: rgba(13, 20, 50, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-color: rgba(129, 140, 248, 0.3) !important;
   color: #FFF0F3 !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65) !important;
 }
 
 /* ── Text Gradients ────────────────────────────────────────── */
@@ -173,9 +180,10 @@ body {
 }
 
 .pill-badge-rose {
-  background: rgba(225, 29, 72, 0.12);
-  color: #9F1239;
-  border: 1px solid rgba(225, 29, 72, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
 }
 
 .dark .pill-badge-rose {
@@ -185,9 +193,10 @@ body {
 }
 
 .pill-badge-gold {
-  background: rgba(212, 165, 116, 0.2);
-  color: #78350F;
-  border: 1px solid rgba(212, 165, 116, 0.4);
+  background: rgba(254, 243, 199, 0.25);
+  color: #FDE68A;
+  border: 1px solid rgba(253, 230, 138, 0.4);
+  backdrop-filter: blur(8px);
 }
 
 .dark .pill-badge-gold {
@@ -197,9 +206,9 @@ body {
 }
 
 .pill-badge-dark {
-  background: rgba(225, 29, 72, 0.14);
-  color: #9F1239;
-  border: 1px solid rgba(251, 113, 133, 0.35);
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .dark .pill-badge-dark {
@@ -210,15 +219,15 @@ body {
 
 /* ── Stitch Border ─────────────────────────────────────────── */
 .stitch-border {
-  border: 2px dashed rgba(244, 63, 94, 0.4);
+  border: 2px dashed rgba(255, 255, 255, 0.4);
   border-radius: 20px;
   padding: 4px;
-  background: rgba(255, 228, 233, 0.6);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .dark .stitch-border {
-  border-color: rgba(251, 113, 133, 0.45) !important;
-  background-color: rgba(10, 18, 46, 0.75) !important;
+  border-color: rgba(129, 140, 248, 0.4) !important;
+  background-color: rgba(10, 16, 42, 0.75) !important;
 }
 
 /* ── Wax Seal ──────────────────────────────────────────────── */

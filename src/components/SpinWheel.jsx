@@ -98,7 +98,7 @@ export default function SpinWheel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white dark:text-gradient-gold mb-2 sm:mb-3 drop-shadow-sm"
         >
           Spin for Your Surprise
         </motion.h2>
@@ -108,7 +108,7 @@ export default function SpinWheel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-2xl text-stone-800 dark:text-warm-200 mb-6 sm:mb-10 max-w-xl mx-auto"
+          className="font-hand text-lg sm:text-2xl text-white/90 dark:text-warm-200 mb-6 sm:mb-10 max-w-xl mx-auto"
         >
           {DATA.wheelNote}
         </motion.p>
@@ -256,18 +256,18 @@ export default function SpinWheel() {
             <motion.div
               initial={{ opacity: 0, scale: 0.85, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              className="p-6 sm:p-8 bg-[#FFD6E0]/90 dark:glass-card border-2 border-rose-400/80 dark:border-amber-400/80 max-w-lg mx-auto mb-12 shadow-md dark:shadow-2xl"
+              className="p-6 sm:p-8 glass-card border-2 border-white/30 dark:border-amber-400/80 max-w-lg mx-auto mb-12 shadow-2xl rounded-3xl"
             >
               <div className="inline-block px-4 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs uppercase font-bold tracking-widest mb-2 border border-amber-400/30">
                 🎉 Your Claimed Prize
               </div>
               <div className="flex items-center justify-center gap-3 my-3">
                 <span className="text-4xl sm:text-5xl">{winningItem.emoji}</span>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-rose-950 dark:text-white">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-white dark:text-white">
                   {winningItem.label}
                 </h3>
               </div>
-              <p className="font-hand text-xl text-stone-800 dark:text-warm-200 mt-2">
+              <p className="font-hand text-xl text-white/95 dark:text-warm-200 mt-2">
                 "A promise is a promise, Babu. Screenshot this and send it to me whenever you want to redeem it! 💕"
               </p>
             </motion.div>
@@ -276,7 +276,7 @@ export default function SpinWheel() {
 
         {/* Full Visible Prize Menu (Ensures 100% of all options are readable & clear) */}
         <div className="text-left mt-8 pt-8 border-t border-white/10">
-          <p className="text-xs uppercase tracking-widest text-stone-700 dark:text-rose-900/90 dark:text-warm-300/70 font-semibold text-center mb-6">
+          <p className="text-xs uppercase tracking-widest text-amber-200 dark:text-warm-300/70 font-semibold text-center mb-6">
             ✦ All 7 Wheel Prizes &amp; Promises ✦
           </p>
 
@@ -290,7 +290,7 @@ export default function SpinWheel() {
                   className={`p-4 rounded-2xl transition-all duration-300 flex items-center gap-3 border ${
                     isWinner
                       ? 'bg-amber-400/20 border-amber-400 shadow-lg shadow-amber-400/20 scale-[1.02]'
-                      : 'bg-[#FFC4D3]/50 hover:bg-[#FFB3C6]/60 dark:bg-white/5 dark:hover:bg-white/10 border border-rose-300/60 dark:border-white/10'
+                      : 'bg-white/15 hover:bg-white/25 dark:bg-white/5 dark:hover:bg-white/10 border border-white/20 dark:border-white/10'
                   }`}
                 >
                   <span
@@ -300,10 +300,10 @@ export default function SpinWheel() {
                     {item.emoji}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-stone-900 dark:text-white truncate">
+                    <p className="text-sm font-semibold text-white dark:text-white truncate">
                       {item.label}
                     </p>
-                    <p className="text-xs text-stone-700 dark:text-warm-300/70 font-hand">
+                    <p className="text-xs text-white/80 dark:text-warm-300/70 font-hand">
                       {isWinner ? '★ WON! Redeemable with Mudassir' : `Slot 0${idx + 1}`}
                     </p>
                   </div>

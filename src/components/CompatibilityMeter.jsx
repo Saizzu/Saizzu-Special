@@ -71,7 +71,7 @@ export default function CompatibilityMeter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 dark:text-rose-100 mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white dark:text-rose-100 mb-2 sm:mb-3 drop-shadow-sm"
         >
           Love Compatibility Meter
         </motion.h2>
@@ -81,23 +81,23 @@ export default function CompatibilityMeter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-700 dark:text-rose-200/90 mb-6 sm:mb-10"
+          className="font-hand text-lg sm:text-xl text-white/90 dark:text-rose-200/90 mb-6 sm:mb-10"
         >
           Let's run our names through the love observatory
         </motion.p>
 
         {/* Input Names Box */}
-        <div className="bg-[#FFD6E0]/75 dark:glass-card-light p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-6 sm:mb-8 border border-rose-300/70 shadow-sm shadow-rose-300/30">
+        <div className="glass-card p-4 sm:p-8 rounded-2xl sm:rounded-3xl mb-6 sm:mb-8 border border-white/20 dark:border-indigo-400/25 shadow-2xl">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <div className="w-full sm:w-1/2">
-              <label className="block text-xs uppercase tracking-wider text-warm-700/80 dark:text-rose-300/80 font-semibold mb-1 text-left">
+              <label className="block text-xs uppercase tracking-wider text-white/80 dark:text-rose-300/80 font-semibold mb-1 text-left">
                 His Name
               </label>
               <input
                 type="text"
                 value={person1}
                 readOnly
-                className="w-full px-4 py-3 rounded-2xl bg-[#FFC4D3]/60 dark:from-indigo-900/60 dark:to-slate-900/60 border-2 border-rose-300/80 dark:border-indigo-400/40 text-rose-950 dark:text-rose-200 font-display font-semibold text-center cursor-default outline-none shadow-sm"
+                className="w-full px-4 py-3 rounded-2xl bg-white/20 dark:bg-slate-900/80 border-2 border-white/30 dark:border-indigo-400/40 text-white dark:text-rose-200 font-display font-semibold text-center cursor-default outline-none shadow-inner"
               />
             </div>
 
@@ -106,7 +106,7 @@ export default function CompatibilityMeter() {
             </div>
 
             <div className="w-full sm:w-1/2">
-              <label className="block text-xs uppercase tracking-wider text-warm-700/80 dark:text-rose-300/80 font-semibold mb-1 text-left">
+              <label className="block text-xs uppercase tracking-wider text-white/80 dark:text-rose-300/80 font-semibold mb-1 text-left">
                 Her Name
               </label>
               <input
@@ -114,7 +114,7 @@ export default function CompatibilityMeter() {
                 value={person2}
                 onChange={(e) => setPerson2(e.target.value)}
                 placeholder="Enter her name..."
-                className="w-full px-4 py-3 rounded-2xl bg-[#FFF0F4] dark:from-indigo-900/60 dark:to-slate-900/60 border-2 border-rose-300/80 dark:border-indigo-400/40 text-stone-900 dark:text-rose-100 font-display font-semibold text-center focus:ring-2 focus:ring-rose-500 outline-none shadow-sm transition-all placeholder:text-rose-700/60 dark:placeholder:text-indigo-300/50"
+                className="w-full px-4 py-3 rounded-2xl bg-white/20 dark:bg-slate-900/80 border-2 border-white/30 dark:border-indigo-400/40 text-white dark:text-rose-100 font-display font-semibold text-center focus:ring-2 focus:ring-rose-300 dark:focus:ring-indigo-400 outline-none shadow-inner transition-all placeholder:text-white/60 dark:placeholder:text-indigo-300/50"
               />
             </div>
           </div>
@@ -179,16 +179,16 @@ export default function CompatibilityMeter() {
                   <span className="font-mono text-4xl font-extrabold text-gradient-rose">
                     {result}%
                   </span>
-                  <span className="text-[10px] uppercase font-bold text-warm-700 dark:text-rose-300 tracking-wider">
+                  <span className="text-[10px] uppercase font-bold text-white/80 dark:text-rose-300 tracking-wider">
                     Off the charts
                   </span>
                 </div>
               </div>
 
-              <h4 className="font-display text-2xl font-bold text-love-900 dark:text-amber-200 mb-1">
+              <h4 className="font-display text-2xl font-bold text-white dark:text-amber-200 mb-1">
                 {DATA.compatVerdict}
               </h4>
-              <p className="font-hand text-xl text-stone-900 dark:text-rose-200 max-w-md mx-auto">
+              <p className="font-hand text-xl text-white/95 dark:text-rose-200 max-w-md mx-auto">
                 "Math cannot measure what God already destined. You and I are forever, Saizzu."
               </p>
             </motion.div>

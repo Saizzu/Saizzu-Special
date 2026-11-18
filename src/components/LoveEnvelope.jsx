@@ -95,14 +95,14 @@ export default function LoveEnvelope() {
             </div>
 
             {/* Letter peek edge */}
-            <div className="absolute top-8 left-8 right-8 h-12 bg-[#FFD6E0]/80 dark:bg-slate-800/80 rounded-t border-t border-dashed border-rose-300/40 opacity-70" />
+            <div className="absolute top-8 left-8 right-8 h-12 bg-white/20 dark:bg-slate-800/80 rounded-t border-t border-dashed border-rose-300/40 opacity-70" />
 
             {/* Front Envelope Details */}
             <div className="mt-24 text-center">
-              <p className="font-hand text-2xl text-rose-900 dark:text-rose-200 font-semibold mb-1">
+              <p className="font-hand text-2xl text-white dark:text-rose-200 font-semibold mb-1">
                 For: {DATA.partnerName} ({DATA.nicknames[0]})
               </p>
-              <p className="font-hand text-sm text-warm-700/80 dark:text-warm-300/80">
+              <p className="font-hand text-sm text-white/80 dark:text-warm-300/80">
                 From: {DATA.gifterName} • Tap seal to open ✦
               </p>
             </div>
@@ -130,12 +130,12 @@ export default function LoveEnvelope() {
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-[#FFF0F4] dark:bg-[#0f172a]/95 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-rose-300/80 dark:border-indigo-400/40 backdrop-blur-md"
+              className="relative w-full max-w-2xl bg-[#FFF5F7] dark:bg-[#0c1433]/95 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-rose-300/80 dark:border-indigo-400/40 backdrop-blur-md"
             >
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-rose-100/80 hover:bg-rose-200 dark:bg-stone-800/80 dark:hover:bg-slate-700 text-stone-700 hover:text-rose-700 dark:text-rose-200 flex items-center justify-center transition-colors text-lg shadow-sm"
+                className="absolute top-5 right-5 w-10 h-10 rounded-full bg-rose-200/80 hover:bg-rose-300 dark:bg-slate-800/80 dark:hover:bg-slate-700 text-stone-800 dark:text-rose-200 flex items-center justify-center transition-colors text-lg shadow-sm"
                 aria-label="Close letter"
               >
                 ✕

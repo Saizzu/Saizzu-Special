@@ -212,7 +212,7 @@ export default function MoonPhase() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -5 }}
                   onClick={handleMoonClick}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD6E0]/80 hover:bg-[#FFB3C6] border border-rose-300/80 text-xs sm:text-sm text-rose-950 dark:bg-white/5 dark:hover:bg-white/10 dark:border-amber-300/20 dark:text-amber-200/90 transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 text-xs sm:text-sm text-white dark:bg-white/5 dark:hover:bg-white/10 dark:border-amber-300/20 dark:text-amber-200/90 transition-all hover:scale-105"
                 >
                   <span className="animate-pulse">✨</span>
                   <span>Tap the moon to play our song</span>
@@ -282,7 +282,7 @@ export default function MoonPhase() {
             transition={{ delay: 0.3 }}
             className="flex justify-center w-full mt-6 sm:mt-8 mb-5 sm:mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#FFD6E0]/80 backdrop-blur-md border border-rose-300/70 text-rose-950 dark:bg-white/10 dark:border-amber-300/30 dark:text-amber-200 text-xs sm:text-sm uppercase tracking-widest font-mono font-bold shadow-sm">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white dark:bg-white/10 dark:border-amber-300/30 dark:text-amber-200 text-xs sm:text-sm uppercase tracking-widest font-mono font-bold shadow-sm">
               <span>🌕</span>
               <span>Waxing Gibbous • 98% Illuminated</span>
             </div>

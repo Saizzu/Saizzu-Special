@@ -192,20 +192,20 @@ export default function ScratchCard() {
 
         {/* Title */}
         <h2
-          className="font-display text-2xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 text-rose-950 dark:text-rose-100"
+          className="font-display text-2xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 text-white dark:text-rose-100 drop-shadow-sm"
         >
           Scratch to uncover something special
         </h2>
 
         {/* Subtitle */}
         <p
-          className="font-hand text-lg sm:text-2xl mb-6 sm:mb-10 text-stone-900 dark:text-rose-200/90"
+          className="font-hand text-lg sm:text-2xl mb-6 sm:mb-10 text-white/90 dark:text-rose-200/90"
         >
           {prompt}
         </p>
 
         {/* Scratch card container */}
-        <div className="border-2 border-dashed border-rose-300/80 bg-[#FFD6E0]/70 dark:border-rose-400/30 dark:bg-slate-900/60 shadow-xl max-w-md mx-auto rounded-3xl p-2">
+        <div className="border-2 border-dashed border-white/40 dark:border-indigo-400/40 glass-card dark:bg-slate-900/80 shadow-2xl max-w-md mx-auto rounded-3xl p-2">
           <div
             ref={containerRef}
             className="relative w-full overflow-hidden rounded-2xl h-[420px] sm:h-[500px]"
@@ -273,7 +273,7 @@ export default function ScratchCard() {
 
         {/* Scratch progress hint */}
         <motion.p
-          className="font-hand text-base mt-4 text-stone-900 dark:text-rose-200/90"
+          className="font-hand text-base mt-4 text-white/90 dark:text-rose-200/90"
           animate={{ opacity: revealed ? 0 : 1 }}
         >
           {scratchPercent > 10 && !revealed
@@ -285,7 +285,7 @@ export default function ScratchCard() {
 
         {/* Revealed caption below card */}
         <motion.p
-          className="font-hand text-lg mt-4 text-rose-950 dark:text-rose-100"
+          className="font-hand text-lg mt-4 text-white dark:text-rose-100"
           initial={{ opacity: 0, y: 10 }}
           animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.6, delay: 0.3 }}

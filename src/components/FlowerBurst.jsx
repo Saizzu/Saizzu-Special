@@ -69,10 +69,10 @@ export default function FlowerBurst() {
           <span className="pill-badge pill-badge-rose mb-2 sm:mb-3 text-xs">
             <span>💐</span> Spontaneous Blooms
           </span>
-          <h3 className="font-display text-xl sm:text-3xl font-bold text-love-900 dark:text-rose-100 mb-1.5 sm:mb-2">
+          <h3 className="font-display text-xl sm:text-3xl font-bold text-white dark:text-rose-100 mb-1.5 sm:mb-2 drop-shadow-sm">
             Just In Case Nobody Told You Today
           </h3>
-          <p className="font-hand text-base sm:text-xl text-warm-700 dark:text-rose-200/90 mb-6 sm:mb-8">
+          <p className="font-hand text-base sm:text-xl text-white/90 dark:text-rose-200/90 mb-6 sm:mb-8">
             You deserve every flower that ever bloomed under the sun
           </p>
 
@@ -91,9 +91,9 @@ export default function FlowerBurst() {
           </button>
 
           {/* Bouquet count tracker */}
-          <div className="mt-4 flex items-center justify-center gap-2 text-sm text-warm-700 dark:text-rose-200/80">
+          <div className="mt-4 flex items-center justify-center gap-2 text-sm text-white/80 dark:text-rose-200/80">
             <span>Bouquets sent today:</span>
-            <span className="font-mono font-bold text-rose-600 dark:text-amber-300 text-base">
+            <span className="font-mono font-bold text-amber-200 dark:text-amber-300 text-base">
               {flowerCount}
             </span>
             <span>{flowerCount > 0 ? '💐' : '🌱'}</span>

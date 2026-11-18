@@ -34,7 +34,7 @@ function HeroSection() {
         <motion.span
           {...fadeUp(0)}
           className="inline-block px-4 py-1.5 rounded-full text-xs tracking-widest uppercase
-                     border border-love-500/30 text-rose-700 dark:text-rose-300 bg-rose-200/60 dark:bg-love-500/10 backdrop-blur-sm"
+                     border border-white/30 text-white dark:text-rose-300 bg-white/20 dark:bg-love-500/10 backdrop-blur-sm"
         >
           made with love ♥
         </motion.span>
@@ -44,11 +44,12 @@ function HeroSection() {
           {...fadeUp(0.3)}
           className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-tight sm:leading-none animate-float-slow break-words max-w-full px-2"
           style={{
-            background: 'linear-gradient(135deg, #E11D48, #FB7185, #FDA4AF, #E11D48)',
+            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFE4E6 40%, #FDE68A 70%, #FFFFFF 100%)',
             backgroundSize: '300% 300%',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             animation: 'floatSlow 8s ease-in-out infinite, gradientShift 6s ease-in-out infinite',
+            filter: 'drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25))',
           }}
         >
           {DATA.heroName || DATA.partnerName}
@@ -57,7 +58,7 @@ function HeroSection() {
         {/* headline */}
         <motion.h2
           {...fadeUp(0.6)}
-          className="font-display text-xl sm:text-2xl md:text-3xl text-amber-800 dark:text-amber-300 font-medium"
+          className="font-display text-xl sm:text-2xl md:text-3xl text-amber-200 dark:text-amber-300 font-medium drop-shadow"
         >
           {DATA.heroHeadline}
         </motion.h2>
@@ -65,7 +66,7 @@ function HeroSection() {
         {/* subtext */}
         <motion.p
           {...fadeUp(0.9)}
-          className="font-hand text-base sm:text-xl leading-relaxed max-w-lg sm:max-w-xl text-stone-800 dark:text-warm-100/90"
+          className="font-hand text-base sm:text-xl leading-relaxed max-w-lg sm:max-w-xl text-white/95 dark:text-warm-100/90"
         >
           {DATA.heroSubtext}
         </motion.p>
@@ -78,10 +79,10 @@ function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}
       >
-        <span className="text-amber-800/70 dark:text-gold-500/60 text-[10px] sm:text-xs tracking-widest uppercase">Scroll to explore</span>
+        <span className="text-white/80 dark:text-gold-500/60 text-[10px] sm:text-xs tracking-widest uppercase">Scroll to explore</span>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 sm:w-5 sm:h-5 text-amber-800/70 dark:text-gold-500/60"
+          className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 dark:text-gold-500/60"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

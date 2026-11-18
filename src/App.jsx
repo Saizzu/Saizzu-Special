@@ -57,13 +57,34 @@ export default function App() {
   return (
     <div
       className={`relative min-h-screen selection:bg-rose-500 selection:text-white overflow-x-hidden w-full transition-colors duration-700 ease-in-out ${
-        darkMode
-          ? 'dark bg-gradient-to-b from-[#060918] via-[#0c1433] to-[#111936] text-rose-100'
-          : 'bg-gradient-to-b from-[#FFE6ED] via-[#FFF0F4] to-[#FFE2EA] text-stone-900'
+        darkMode ? 'dark text-rose-100' : 'text-white'
       }`}
     >
+      {/* Background layer for Starry Midnight */}
+      <div
+        className={`fixed inset-0 pointer-events-none transition-opacity duration-700 ease-in-out bg-gradient-to-b from-[#060918] via-[#0c1433] to-[#111936] ${
+          darkMode ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{ zIndex: 0 }}
+      />
+
+      {/* Background layer for Vibrant Romantic Rose */}
+      <div
+        className={`fixed inset-0 pointer-events-none transition-opacity duration-700 ease-in-out ${
+          darkMode ? 'opacity-0' : 'opacity-100'
+        }`}
+        style={{
+          zIndex: 0,
+          background: 'hsla(348, 92%, 56%, 1)',
+          backgroundImage:
+            'linear-gradient(90deg, hsla(348, 92%, 56%, 1) 0%, hsla(325, 84%, 36%, 1) 100%)',
+        }}
+      />
+
       {/* Ambient background particles & starry midnight effects */}
       <BackgroundEffects darkMode={darkMode} />
+
+      <div className="relative z-10">
 
       {/* Floating Header Pill */}
       <header className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-40 max-w-[94vw] w-auto">
@@ -152,6 +173,7 @@ export default function App() {
 
       {/* 17. Closing Note & Signature */}
       <ClosingNote />
+      </div>
     </div>
   );
 }

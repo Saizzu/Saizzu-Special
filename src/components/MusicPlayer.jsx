@@ -42,7 +42,7 @@ export default function MusicPlayer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-1.5 sm:mb-3"
+            className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white dark:text-gradient-gold mb-1.5 sm:mb-3 drop-shadow-sm"
           >
             {DATA.playlistTitle}
           </motion.h2>
@@ -52,7 +52,7 @@ export default function MusicPlayer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-hand text-lg sm:text-xl text-stone-800 dark:text-warm-200"
+            className="font-hand text-lg sm:text-xl text-white/90 dark:text-warm-200"
           >
             {DATA.playlistSubtitle} — Plays right here in your browser
           </motion.p>
@@ -189,20 +189,20 @@ export default function MusicPlayer() {
                   onClick={() => handleTrackClick(index)}
                   className={`cursor-pointer p-3 sm:p-4 rounded-2xl transition-all duration-300 border ${
                     isSelected
-                      ? 'bg-[#FFD6E0] border-rose-400/80 shadow-md ring-1 ring-rose-400/40 dark:glass-card dark:border-amber-400/70 dark:bg-white/10'
-                      : 'bg-[#FFD6E0]/60 hover:bg-[#FFD6E0]/85 border border-rose-300/60 dark:bg-white/5 dark:border-white/5 dark:hover:bg-white/10'
+                      ? 'bg-white/30 border-white/50 shadow-lg ring-2 ring-white/40 dark:glass-card dark:border-amber-400/70 dark:bg-white/10 text-white'
+                      : 'bg-white/15 hover:bg-white/25 border border-white/20 dark:bg-white/5 dark:border-white/5 dark:hover:bg-white/10 text-white'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3 min-w-0">
-                      <span className="font-mono text-xs sm:text-sm font-bold text-rose-900 dark:text-amber-400/80">
+                      <span className="font-mono text-xs sm:text-sm font-bold text-white dark:text-amber-400/80">
                         {String(index + 1).padStart(2, '0')}
                       </span>
                       <div className="min-w-0">
-                        <h4 className="font-display text-sm sm:text-lg font-bold text-stone-900 dark:text-white truncate">
+                        <h4 className="font-display text-sm sm:text-lg font-bold text-white dark:text-white truncate">
                           {song.title}
                         </h4>
-                        <p className="text-[11px] sm:text-xs text-stone-700 dark:text-warm-300/80 font-medium truncate">
+                        <p className="text-[11px] sm:text-xs text-white/80 dark:text-warm-300/80 font-medium truncate">
                           {song.artist}
                         </p>
                       </div>

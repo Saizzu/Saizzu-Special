@@ -46,7 +46,7 @@ function ClosingNote() {
         {/* ── closing note body ────────────────────────────── */}
         <motion.p
           {...inView(0.3)}
-          className="font-hand text-xl md:text-2xl leading-relaxed text-stone-800 dark:text-[#FFF3E8]"
+          className="font-hand text-xl md:text-2xl leading-relaxed text-white/95 dark:text-[#FFF3E8]"
         >
           {DATA.closingNote}
         </motion.p>
@@ -54,7 +54,7 @@ function ClosingNote() {
         {/* ── sign-off ────────────────────────────────────── */}
         <motion.p
           {...inView(0.45)}
-          className="italic text-amber-800 dark:text-gold-500 text-base md:text-lg"
+          className="italic text-amber-200 dark:text-gold-500 text-base md:text-lg"
         >
           {DATA.signOff}
         </motion.p>
@@ -81,11 +81,12 @@ function ClosingNote() {
           <span
             className="font-display text-3xl md:text-4xl font-bold"
             style={{
-              background: 'linear-gradient(135deg, #E11D48, #FB7185, #FDA4AF, #E11D48)',
+              background: 'linear-gradient(135deg, #FFFFFF 0%, #FFE4E6 40%, #FDE68A 70%, #FFFFFF 100%)',
               backgroundSize: '300% 300%',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               animation: 'gradientShift 6s ease-in-out infinite',
+              filter: 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2))',
             }}
           >
             {DATA.signName}
@@ -95,7 +96,7 @@ function ClosingNote() {
         {/* ── footer credit ───────────────────────────────── */}
         <motion.p
           {...inView(0.75)}
-          className="mt-8 text-xs tracking-widest text-stone-600 dark:text-gold-500/40"
+          className="mt-8 text-xs tracking-widest text-white/70 dark:text-gold-500/40"
         >
           Made with <span className="text-love-400">♥</span> by Mudassir
         </motion.p>

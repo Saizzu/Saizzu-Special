@@ -272,10 +272,10 @@ export default function TimeCapsule() {
               {/* Priority 1 Message */}
               {(isMilestone || (overrideKey && previewMode === 'milestone')) && (
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-gradient-gold mb-3">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white dark:text-gradient-gold mb-3">
                     {matchedMilestone ? matchedMilestone.title : specialDates[0]?.title || 'Milestone Special'}
                   </h3>
-                  <p className="font-hand text-xl text-stone-900 dark:text-warm-100 leading-relaxed mb-4">
+                  <p className="font-hand text-xl text-white/95 dark:text-warm-100 leading-relaxed mb-4">
                     "{matchedMilestone ? matchedMilestone.message : specialDates[0]?.message}"
                   </p>
                 </div>
@@ -284,10 +284,10 @@ export default function TimeCapsule() {
               {/* Priority 2 Message */}
               {(isMonthly15th || (overrideKey && previewMode === 'pamper')) && (
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-rose-300 mb-3">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-white dark:text-rose-300 mb-3">
                     {matchedPamper?.title || 'Your Monthly Comfort & Pamper Capsule 🧸🍫'}
                   </h3>
-                  <p className="font-hand text-lg sm:text-xl text-stone-900 dark:text-warm-100 leading-relaxed mb-4">
+                  <p className="font-hand text-lg sm:text-xl text-white/95 dark:text-warm-100 leading-relaxed mb-4">
                     "{matchedPamper?.message}"
                   </p>
                 </div>
@@ -298,10 +298,10 @@ export default function TimeCapsule() {
                 !isMilestone &&
                 !isMonthly15th && (
                   <div>
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-rose-950 dark:text-amber-300 mb-3">
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-white dark:text-amber-300 mb-3">
                       Happy Sunday, Saizzu! 🌸
                     </h3>
-                    <p className="font-hand text-xl text-stone-900 dark:text-warm-100 leading-relaxed mb-4">
+                    <p className="font-hand text-xl text-white/95 dark:text-warm-100 leading-relaxed mb-4">
                       "{matchedSunday}"
                     </p>
                   </div>
@@ -310,7 +310,7 @@ export default function TimeCapsule() {
               {/* ── Interactive Treat Selector & Custom Input (Upgraded for All Unlocked States) ── */}
               <div className="mt-5 pt-5 border-t border-white/10 text-left">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono uppercase tracking-wider text-rose-950 dark:text-amber-300 font-bold flex items-center gap-1.5">
+                  <span className="text-xs font-mono uppercase tracking-wider text-amber-200 dark:text-amber-300 font-bold flex items-center gap-1.5">
                     <span>🎁</span>
                     <span>Pick What You Want to Be Pampered With:</span>
                   </span>
@@ -333,7 +333,7 @@ export default function TimeCapsule() {
                         className={`px-3 py-1.5 rounded-2xl text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${
                           isSelected
                             ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/40 ring-2 ring-rose-300/50 scale-[1.02]'
-                            : 'bg-[#FFC4D3]/60 hover:bg-[#FFB3C6]/75 border border-rose-300/80 text-stone-900 dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10'
+                            : 'bg-white/20 hover:bg-white/30 border border-white/30 text-white dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10'
                         }`}
                       >
                         <span>{isSelected ? '✓' : '+'}</span>
@@ -345,7 +345,7 @@ export default function TimeCapsule() {
 
                 {/* Custom Wish / Craving Text Input */}
                 <div className="mb-5">
-                  <label className="block text-[11px] font-mono uppercase tracking-wider text-stone-700 dark:text-warm-300/80 mb-1.5">
+                  <label className="block text-[11px] font-mono uppercase tracking-wider text-white/80 dark:text-warm-300/80 mb-1.5">
                     Or write any custom wish, craving, or mood: 💭
                   </label>
                   <input
@@ -353,7 +353,7 @@ export default function TimeCapsule() {
                     value={customTreat}
                     onChange={(e) => setCustomTreat(e.target.value)}
                     placeholder="e.g., Dairy Milk Silk, Butterscotch ice cream, or a late-night walk..."
-                    className="w-full px-4 py-2.5 rounded-2xl bg-[#FFF0F4] border border-rose-300/80 text-stone-900 placeholder:text-rose-700/60 dark:bg-stone-900/90 dark:border-white/15 dark:text-warm-100 dark:placeholder-warm-400/40 text-xs sm:text-sm focus:outline-none focus:border-rose-500 dark:focus:border-amber-400/60 focus:ring-1 focus:ring-amber-400/30 transition-all"
+                    className="w-full px-4 py-2.5 rounded-2xl bg-white/20 border border-white/30 text-white placeholder:text-white/60 dark:bg-stone-900/90 dark:border-white/15 dark:text-warm-100 dark:placeholder-warm-400/40 text-xs sm:text-sm focus:outline-none focus:border-rose-300 dark:focus:border-amber-400/60 focus:ring-1 focus:ring-amber-400/30 transition-all"
                   />
                 </div>
 
@@ -403,12 +403,12 @@ export default function TimeCapsule() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="p-2 sm:p-3 rounded-2xl bg-[#FFC4D3]/70 dark:bg-stone-900/90 border border-rose-300/80 dark:border-amber-400/20 flex flex-col items-center"
+                    className="p-2 sm:p-3 rounded-2xl bg-white/20 dark:bg-stone-900/90 border border-white/30 dark:border-amber-400/20 flex flex-col items-center"
                   >
                     <span className="font-mono text-xl sm:text-2xl font-bold text-gradient-gold">
                       {String(item.val).padStart(2, '0')}
                     </span>
-                    <span className="text-[10px] font-mono text-rose-900/80 dark:text-warm-400/70">
+                    <span className="text-[10px] font-mono text-white/80 dark:text-warm-400/70">
                       {item.label}
                     </span>
                   </div>
@@ -416,9 +416,9 @@ export default function TimeCapsule() {
               </div>
 
               {/* Subtle Pill Badge for Next Unlock */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFC4D3]/50 border border-rose-300/70 text-xs text-rose-950 dark:bg-white/5 dark:border-white/10 dark:text-amber-200">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 border border-white/30 text-xs text-white dark:bg-white/5 dark:border-white/10 dark:text-amber-200">
                 <span>Next unlock:</span>
-                <span className="font-bold text-rose-900 dark:text-amber-300">{nextUnlock.label}</span>
+                <span className="font-bold text-amber-200 dark:text-amber-300">{nextUnlock.label}</span>
               </div>
             </div>
           )}

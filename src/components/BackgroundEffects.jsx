@@ -1,33 +1,24 @@
 import { useMemo } from 'react';
 
-// ── Ambient floating love particles & magical starry midnight effects ──
-const PARTICLE_COUNT = 36;
+// ── Floating love particles & starry midnight effects ──
 const STAR_COUNT = 48;
 
 function BackgroundEffects({ darkMode = false }) {
   const particles = useMemo(() => {
-    return Array.from({ length: PARTICLE_COUNT }, (_, i) => {
-      const isHeart = i % 3 === 0;
-      const isSparkle = i % 3 === 1;
-      const size = isHeart ? 14 + (i % 4) * 4 : 2 + (i % 3) * 2;
-      const left = ((i * 2.8) + (i % 7) * 11) % 100;
-      const startTop = 70 + (i % 5) * 6;
-      const duration = 14 + (i % 5) * 3;
-      const delay = -(i * 0.8);
-      const swayAmp = 20 + (i % 4) * 15;
-      const opacity = isHeart ? 0.2 + (i % 3) * 0.12 : 0.15 + (i % 4) * 0.1;
-      const color = isHeart
-        ? i % 6 === 0
-          ? '#E11D48'
-          : i % 6 === 3
-          ? '#FB7185'
-          : '#FDA4AF'
-        : '#D4A574';
+    const icons = ['♥', '💖', '🌹', '🌸', '✨', '💕', '💌'];
+    return Array.from({ length: 42 }, (_, i) => {
+      const icon = icons[i % icons.length];
+      const size = 16 + (i % 5) * 5; // 16px to 36px
+      const left = ((i * 2.4) + (i % 7) * 13) % 100;
+      const startTop = 80 + (i % 4) * 5;
+      const duration = 12 + (i % 5) * 3;
+      const delay = -(i * 0.65);
+      const swayAmp = 18 + (i % 4) * 16;
+      const opacity = darkMode ? (0.15 + (i % 3) * 0.1) : (0.35 + (i % 4) * 0.15);
 
       return {
         id: i,
-        isHeart,
-        isSparkle,
+        icon,
         size,
         left,
         startTop,
@@ -35,10 +26,9 @@ function BackgroundEffects({ darkMode = false }) {
         delay,
         swayAmp,
         opacity,
-        color,
       };
     });
-  }, []);
+  }, [darkMode]);
 
   const stars = useMemo(() => {
     return Array.from({ length: STAR_COUNT }, (_, i) => ({
@@ -61,10 +51,10 @@ function BackgroundEffects({ darkMode = false }) {
       <style>{`
         @keyframes float-heart-rise {
           0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
-          10%  { opacity: var(--max-op); }
-          50%  { transform: translateY(-50vh) translateX(var(--sway)) rotate(12deg); }
-          90%  { opacity: var(--max-op); }
-          100% { transform: translateY(-105vh) translateX(calc(var(--sway) * -0.5)) rotate(-12deg); opacity: 0; }
+          12%  { opacity: var(--max-op); }
+          50%  { transform: translateY(-50vh) translateX(var(--sway)) rotate(15deg); }
+          88%  { opacity: var(--max-op); }
+          100% { transform: translateY(-105vh) translateX(calc(var(--sway) * -0.6)) rotate(-15deg); opacity: 0; }
         }
         @keyframes star-twinkle {
           0%, 100% { opacity: 0.2; transform: scale(0.8); }
@@ -81,7 +71,6 @@ function BackgroundEffects({ darkMode = false }) {
       {/* Midnight Ambient Constellations & Nebulae */}
       {darkMode && (
         <div className="absolute inset-0">
-          {/* Subtle cosmic ambient glow orbs */}
           <div className="absolute top-1/4 left-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
           <div className="absolute top-2/3 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl" />
 
@@ -112,27 +101,22 @@ function BackgroundEffects({ darkMode = false }) {
         </div>
       )}
 
-      {/* Floating hearts */}
+      {/* Floating hearts, roses, and love icons */}
       {particles.map((p) => (
         <span
           key={p.id}
-          className="absolute select-none"
+          className="absolute select-none flex items-center justify-center filter drop-shadow-sm"
           style={{
             left: `${p.left}%`,
             top: `${p.startTop}%`,
-            color: p.color,
-            fontSize: p.isHeart ? `${p.size}px` : undefined,
-            width: !p.isHeart ? `${p.size}px` : undefined,
-            height: !p.isHeart ? `${p.size}px` : undefined,
-            backgroundColor: !p.isHeart ? p.color : undefined,
-            borderRadius: !p.isHeart ? '50%' : undefined,
+            fontSize: `${p.size}px`,
             '--sway': `${p.swayAmp}px`,
-            '--max-op': darkMode ? p.opacity * 0.9 : p.opacity,
+            '--max-op': p.opacity,
             animation: `float-heart-rise ${p.duration}s ${p.delay}s linear infinite`,
             willChange: 'transform, opacity',
           }}
         >
-          {p.isHeart ? '♥' : ''}
+          {p.icon}
         </span>
       ))}
     </div>

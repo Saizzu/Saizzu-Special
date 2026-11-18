@@ -36,7 +36,7 @@ export default function PhotoCarousel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white dark:text-rose-100 mb-2 sm:mb-3 drop-shadow-sm"
         >
           Snapshots of Us
         </motion.h2>
@@ -46,7 +46,7 @@ export default function PhotoCarousel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-700 mb-6 sm:mb-12"
+          className="font-hand text-lg sm:text-xl text-white/90 dark:text-rose-200/90 mb-6 sm:mb-12"
         >
           A few frozen fragments of time that I hold closest to my heart
         </motion.p>
@@ -135,8 +135,8 @@ export default function PhotoCarousel() {
               onClick={() => setCurrentIndex(idx)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 currentIndex === idx
-                  ? 'w-8 bg-rose-600 rounded-full'
-                  : 'bg-stone-300 hover:bg-rose-300'
+                  ? 'w-8 bg-white dark:bg-rose-500 rounded-full'
+                  : 'bg-white/40 dark:bg-stone-600 hover:bg-white/70'
               }`}
               aria-label={`Jump to photo ${idx + 1}`}
             />

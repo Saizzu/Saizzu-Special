@@ -72,7 +72,7 @@ export default function MemoryTrivia() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-love-900 mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white dark:text-rose-100 mb-2 sm:mb-3 drop-shadow-sm"
         >
           How Well Do You Know Us?
         </motion.h2>
@@ -82,23 +82,23 @@ export default function MemoryTrivia() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-hand text-lg sm:text-xl text-warm-700 mb-6 sm:mb-8 max-w-lg"
+          className="font-hand text-lg sm:text-xl text-white/90 dark:text-rose-200/90 mb-6 sm:mb-8 max-w-lg"
         >
           Four sweet questions from our story. Let's see how much you remember, Saizzu! 😜
         </motion.p>
 
         {/* Primary Quiz Card — Soft Rose-Tinted Glass */}
-        <div className="w-full bg-[#FFD6E0]/75 dark:bg-slate-900/65 backdrop-blur-md border border-rose-300/70 dark:border-indigo-400/25 rounded-3xl p-6 sm:p-8 shadow-sm shadow-rose-300/30 text-left relative overflow-hidden">
+        <div className="w-full glass-card dark:bg-slate-900/80 backdrop-blur-md border border-white/20 dark:border-indigo-400/25 rounded-3xl p-6 sm:p-8 shadow-2xl text-left relative overflow-hidden">
           {!isCompleted ? (
             <div>
               {/* Progress Header */}
-              <div className="flex items-center justify-between text-xs font-mono text-warm-700/80 dark:text-rose-300 mb-3">
+              <div className="flex items-center justify-between text-xs font-mono text-white/80 dark:text-rose-300 mb-3">
                 <span>QUESTION {currentIdx + 1} OF {questions.length}</span>
-                <span className="font-bold text-rose-600 dark:text-amber-300">SCORE: {score}</span>
+                <span className="font-bold text-amber-300 dark:text-amber-300">SCORE: {score}</span>
               </div>
 
               {/* Progress Bar */}
-              <div className="w-full h-2 rounded-full bg-rose-200/70 dark:bg-slate-800 overflow-hidden mb-6">
+              <div className="w-full h-2 rounded-full bg-white/20 dark:bg-slate-800 overflow-hidden mb-6">
                 <div
                   className="h-full bg-gradient-to-r from-rose-500 to-amber-500 transition-all duration-300"
                   style={{
@@ -108,7 +108,7 @@ export default function MemoryTrivia() {
               </div>
 
               {/* Question Text */}
-              <h3 className="font-display text-lg sm:text-xl font-bold text-stone-900 dark:text-rose-100 mb-5">
+              <h3 className="font-display text-lg sm:text-xl font-bold text-white dark:text-rose-100 mb-5">
                 {currentQ.question}
               </h3>
 
@@ -119,7 +119,7 @@ export default function MemoryTrivia() {
                   const isCorrect = idx === currentQ.correctIndex;
                   const hasAnswered = selectedOption !== null;
 
-                  let style = 'bg-[#FFC4D3]/60 dark:bg-slate-800/70 border border-rose-300/80 dark:border-indigo-400/20 hover:bg-[#FFB3C6]/75 text-stone-900 dark:text-rose-100';
+                  let style = 'bg-white/20 dark:bg-slate-800/70 border border-white/30 dark:border-indigo-400/20 hover:bg-white/30 text-white dark:text-rose-100';
 
                   if (hasAnswered) {
                     if (isCorrect) {
@@ -190,20 +190,20 @@ export default function MemoryTrivia() {
             /* Final Score & Rank Card */
             <div className="text-center py-4">
               <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-amber-400 to-rose-500 p-[2px] shadow-lg mb-4 flex items-center justify-center">
-                <div className="w-full h-full bg-[#FFE4E9] dark:bg-slate-800 rounded-full flex items-center justify-center text-3xl">
+                <div className="w-full h-full bg-white/30 dark:bg-slate-800 rounded-full flex items-center justify-center text-3xl">
                   {score >= 3 ? '👑' : '🍮'}
                 </div>
               </div>
 
-              <span className="text-xs font-mono uppercase tracking-widest text-rose-600 dark:text-amber-300 font-bold block mb-1">
+              <span className="text-xs font-mono uppercase tracking-widest text-amber-300 dark:text-amber-300 font-bold block mb-1">
                 {score === 4 ? 'PERFECT SCORE' : 'QUIZ COMPLETED'}
               </span>
 
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-stone-900 dark:text-rose-50 mb-2">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-white dark:text-rose-50 mb-2">
                 {score} out of {questions.length} Correct!
               </h3>
 
-              <p className="font-hand text-xl text-warm-800 dark:text-rose-100 max-w-md mx-auto mb-6 leading-relaxed">
+              <p className="font-hand text-xl text-white/95 dark:text-rose-100 max-w-md mx-auto mb-6 leading-relaxed">
                 {score === 4
                   ? "Flawless memory! Certified Queen of Mudassir's Heart! You remember every single detail. I love you endlessly! ❤️"
                   : score >= 2
