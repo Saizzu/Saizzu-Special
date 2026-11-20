@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import confetti from 'canvas-confetti';
-import DATA from '../data.js';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import confetti from "canvas-confetti";
+import DATA from "../data.js";
 
 const TREAT_OPTIONS = [
-  'Dark & Milk Chocolates 🍫',
-  'Ice Cream Tub / Cone 🍦',
-  'Warm Brown Gulab Jamun 🍮',
-  'Soanpapdi 📦',
-  'Chicken Biryani 🍗',
-  'Panipuri & Chaat 🥟',
-  'Extra Long Hugs & Cuddles 🤗',
+  "Dark & Milk Chocolates 🍫",
+  "Ice Cream Tub / Cone 🍦",
+  "Warm Brown Gulab Jamun 🍮",
+  "Soanpapdi 📦",
+  "Chicken Biryani 🍗",
+  "Panipuri & Chaat 🥟",
+  "Extra Long Hugs & Cuddles 🤗",
 ];
 
 function getWeekOfYear(d) {
   const start = new Date(d.getFullYear(), 0, 1);
-  const diff = d - start + (start.getTimezoneOffset() - d.getTimezoneOffset()) * 60000;
+  const diff =
+    d - start + (start.getTimezoneOffset() - d.getTimezoneOffset()) * 60000;
   const oneDay = 1000 * 60 * 60 * 24;
   return Math.floor(Math.floor(diff / oneDay) / 7);
 }
@@ -30,7 +31,7 @@ function getNextUnlockCandidate(now) {
   nextSunday.setHours(0, 0, 0, 0);
   candidates.push({
     targetDate: nextSunday,
-    label: 'Sunday Surprise ✨',
+    label: "Sunday Surprise ✨",
   });
 
   // 2. Next 15th of the month at 00:00:00
@@ -44,7 +45,7 @@ function getNextUnlockCandidate(now) {
   next15th.setHours(0, 0, 0, 0);
   candidates.push({
     targetDate: next15th,
-    label: 'Monthly 15th Pamper Capsule 🧸',
+    label: "Monthly 15th Pamper Capsule 🧸",
   });
 
   // 3. Next September 17 at 00:00:00 (month index 8)
@@ -54,7 +55,7 @@ function getNextUnlockCandidate(now) {
   }
   candidates.push({
     targetDate: nextSept17,
-    label: '17th September Milestone ✨',
+    label: "17th September Milestone ✨",
   });
 
   // 4. Next November 15 at 00:00:00 (month index 10)
@@ -64,7 +65,7 @@ function getNextUnlockCandidate(now) {
   }
   candidates.push({
     targetDate: nextNov15,
-    label: '15th November Special 💖',
+    label: "15th November Special 💖",
   });
 
   candidates.sort((a, b) => a.targetDate - b.targetDate);
@@ -74,14 +75,20 @@ function getNextUnlockCandidate(now) {
 export default function TimeCapsule() {
   const [now, setNow] = useState(new Date());
   const [overrideKey, setOverrideKey] = useState(false);
-  const [previewMode, setPreviewMode] = useState('pamper'); // 'milestone' | 'pamper' | 'sunday'
+  const [previewMode, setPreviewMode] = useState("pamper"); // 'milestone' | 'pamper' | 'sunday'
 
   // Interactive treat selection state
-  const [selectedTreats, setSelectedTreats] = useState(['Warm Brown Gulab Jamun 🍮']);
-  const [customTreat, setCustomTreat] = useState('');
+  const [selectedTreats, setSelectedTreats] = useState([
+    "Warm Brown Gulab Jamun 🍮",
+  ]);
+  const [customTreat, setCustomTreat] = useState("");
 
   const config = DATA.timeCapsuleConfig || {};
-  const { specialDates = [], monthlyPamperMessages = [], sundayMessages = [] } = config;
+  const {
+    specialDates = [],
+    monthlyPamperMessages = [],
+    sundayMessages = [],
+  } = config;
 
   // Live clock for ticking countdown
   useEffect(() => {
@@ -98,7 +105,11 @@ export default function TimeCapsule() {
   const isNov15 = month === 10 && date === 15;
   const isMilestone = isSept17 || isNov15;
   const matchedMilestone = specialDates.find((d) =>
-    isSept17 ? d.month === 9 && d.day === 17 : isNov15 ? d.month === 11 && d.day === 15 : false
+    isSept17
+      ? d.month === 9 && d.day === 17
+      : isNov15
+        ? d.month === 11 && d.day === 15
+        : false,
   );
 
   // Priority 2 — Monthly 15th Comfort & Pamper Day (if not Nov 15 milestone)
@@ -106,11 +117,14 @@ export default function TimeCapsule() {
   const pamperMsgIndex = monthlyPamperMessages.length
     ? (month + 1) % monthlyPamperMessages.length
     : 0;
-  const matchedPamper = monthlyPamperMessages[pamperMsgIndex] || monthlyPamperMessages[0];
+  const matchedPamper =
+    monthlyPamperMessages[pamperMsgIndex] || monthlyPamperMessages[0];
 
   // Priority 3 — Every Sunday
   const isSunday = day === 0;
-  const weekIdx = sundayMessages.length ? getWeekOfYear(now) % sundayMessages.length : 0;
+  const weekIdx = sundayMessages.length
+    ? getWeekOfYear(now) % sundayMessages.length
+    : 0;
   const matchedSunday = sundayMessages[weekIdx] || sundayMessages[0];
 
   // Determine active unlock state
@@ -127,7 +141,7 @@ export default function TimeCapsule() {
 
   const toggleTreat = (item) => {
     setSelectedTreats((prev) =>
-      prev.includes(item) ? prev.filter((t) => t !== item) : [...prev, item]
+      prev.includes(item) ? prev.filter((t) => t !== item) : [...prev, item],
     );
   };
 
@@ -136,19 +150,22 @@ export default function TimeCapsule() {
       particleCount: 65,
       spread: 75,
       origin: { y: 0.6 },
-      colors: ['#FB7185', '#E11D48', '#FCD34D', '#10B981'],
+      colors: ["#FB7185", "#E11D48", "#FCD34D", "#10B981"],
     });
 
-    const activeCapsuleName = isMilestone || (overrideKey && previewMode === 'milestone')
-      ? (matchedMilestone ? matchedMilestone.title : 'Milestone Special Date Capsule 💖')
-      : isMonthly15th || (overrideKey && previewMode === 'pamper')
-      ? 'Monthly 15th Pamper & Comfort Capsule 🧸'
-      : 'Sunday Surprise Time Capsule ✨';
+    const activeCapsuleName =
+      isMilestone || (overrideKey && previewMode === "milestone")
+        ? matchedMilestone
+          ? matchedMilestone.title
+          : "Milestone Special Date Capsule 💖"
+        : isMonthly15th || (overrideKey && previewMode === "pamper")
+          ? "Monthly 15th Pamper & Comfort Capsule 🧸"
+          : "Sunday Surprise Time Capsule ✨";
 
     let msg = `Hey Mudassir! ❤️ I opened our *${activeCapsuleName}* on our special page:\n\n`;
 
     if (selectedTreats.length > 0) {
-      msg += `✨ *Cravings & Pamper Treats Picked:*\n${selectedTreats.map((t) => `• ${t}`).join('\n')}\n\n`;
+      msg += `✨ *Cravings & Pamper Treats Picked:*\n${selectedTreats.map((t) => `• ${t}`).join("\n")}\n\n`;
     }
 
     if (customTreat.trim()) {
@@ -159,8 +176,8 @@ export default function TimeCapsule() {
 
     window.open(
       `https://wa.me/${DATA.whatsappNumber}?text=${encodeURIComponent(msg)}`,
-      '_blank',
-      'noopener,noreferrer'
+      "_blank",
+      "noopener,noreferrer",
     );
   };
 
@@ -199,7 +216,8 @@ export default function TimeCapsule() {
           transition={{ delay: 0.2 }}
           className="font-hand text-lg sm:text-xl text-stone-800 dark:text-warm-200 mb-6 sm:mb-8 max-w-lg"
         >
-          Locked capsules that open only when the calendar reaches our sacred days
+          Locked capsules that open only when the calendar reaches our sacred
+          days
         </motion.p>
 
         {/* Discreet Master Key Bypass / Preview Controls */}
@@ -209,31 +227,35 @@ export default function TimeCapsule() {
             onClick={() => setOverrideKey(!overrideKey)}
             className={`text-xs px-3.5 py-1.5 rounded-full border transition-all flex items-center gap-1.5 ${
               overrideKey
-                ? 'bg-amber-400 text-stone-950 border-amber-300 font-semibold shadow-md shadow-amber-400/20'
-                : 'bg-stone-900/80 text-stone-700 dark:text-warm-300/70 border-white/10 hover:border-amber-400/30'
+                ? "bg-amber-400 text-stone-950 border-amber-300 font-semibold shadow-md shadow-amber-400/20"
+                : "bg-stone-900/80 text-red-400 dark:text-warm-300/70 border-white/10 hover:border-amber-400/30"
             }`}
           >
             <span>🗝️</span>
-            <span>{overrideKey ? "Preview Mode Active (Unlocked)" : "Preview Unlocked Mode (Mudassir's Key)"}</span>
+            <span>
+              {overrideKey
+                ? "Preview Mode Active (Unlocked)"
+                : "Preview Unlocked Mode (Mudassir's Key)"}
+            </span>
           </button>
 
           {overrideKey && (
             <div className="inline-flex rounded-full bg-stone-900 p-0.5 border border-white/10 text-[11px]">
               <button
-                onClick={() => setPreviewMode('pamper')}
-                className={`px-2.5 py-1 rounded-full ${previewMode === 'pamper' ? 'bg-rose-600 text-white font-bold' : 'text-stone-700 dark:text-warm-300'}`}
+                onClick={() => setPreviewMode("pamper")}
+                className={`px-2.5 py-1 rounded-full ${previewMode === "pamper" ? "bg-rose-600 text-white font-bold" : "text-stone-700 dark:text-warm-300"}`}
               >
                 15th Pamper
               </button>
               <button
-                onClick={() => setPreviewMode('sunday')}
-                className={`px-2.5 py-1 rounded-full ${previewMode === 'sunday' ? 'bg-rose-600 text-white font-bold' : 'text-stone-700 dark:text-warm-300'}`}
+                onClick={() => setPreviewMode("sunday")}
+                className={`px-2.5 py-1 rounded-full ${previewMode === "sunday" ? "bg-rose-600 text-white font-bold" : "text-stone-700 dark:text-warm-300"}`}
               >
                 Sunday
               </button>
               <button
-                onClick={() => setPreviewMode('milestone')}
-                className={`px-2.5 py-1 rounded-full ${previewMode === 'milestone' ? 'bg-rose-600 text-white font-bold' : 'text-stone-700 dark:text-warm-300'}`}
+                onClick={() => setPreviewMode("milestone")}
+                className={`px-2.5 py-1 rounded-full ${previewMode === "milestone" ? "bg-rose-600 text-white font-bold" : "text-stone-700 dark:text-warm-300"}`}
               >
                 Milestone
               </button>
@@ -254,38 +276,46 @@ export default function TimeCapsule() {
               {/* Top Shimmer Badge */}
               <div className="flex items-center justify-between mb-4">
                 <span className="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30 font-bold">
-                  {isMilestone || (overrideKey && previewMode === 'milestone')
-                    ? 'PRIORITY 1 • MILESTONE UNLOCKED'
-                    : isMonthly15th || (overrideKey && previewMode === 'pamper')
-                    ? 'PRIORITY 2 • 15TH PAMPER DAY'
-                    : 'PRIORITY 3 • SUNDAY VAULT'}
+                  {isMilestone || (overrideKey && previewMode === "milestone")
+                    ? "PRIORITY 1 • MILESTONE UNLOCKED"
+                    : isMonthly15th || (overrideKey && previewMode === "pamper")
+                      ? "PRIORITY 2 • 15TH PAMPER DAY"
+                      : "PRIORITY 3 • SUNDAY VAULT"}
                 </span>
                 <span className="text-2xl animate-bounce">
-                  {isMilestone || (overrideKey && previewMode === 'milestone')
-                    ? '💖'
-                    : isMonthly15th || (overrideKey && previewMode === 'pamper')
-                    ? '🧸'
-                    : '✨'}
+                  {isMilestone || (overrideKey && previewMode === "milestone")
+                    ? "💖"
+                    : isMonthly15th || (overrideKey && previewMode === "pamper")
+                      ? "🧸"
+                      : "✨"}
                 </span>
               </div>
 
               {/* Priority 1 Message */}
-              {(isMilestone || (overrideKey && previewMode === 'milestone')) && (
+              {(isMilestone ||
+                (overrideKey && previewMode === "milestone")) && (
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white dark:text-gradient-gold mb-3">
-                    {matchedMilestone ? matchedMilestone.title : specialDates[0]?.title || 'Milestone Special'}
+                    {matchedMilestone
+                      ? matchedMilestone.title
+                      : specialDates[0]?.title || "Milestone Special"}
                   </h3>
                   <p className="font-hand text-xl text-white/95 dark:text-warm-100 leading-relaxed mb-4">
-                    "{matchedMilestone ? matchedMilestone.message : specialDates[0]?.message}"
+                    "
+                    {matchedMilestone
+                      ? matchedMilestone.message
+                      : specialDates[0]?.message}
+                    "
                   </p>
                 </div>
               )}
 
               {/* Priority 2 Message */}
-              {(isMonthly15th || (overrideKey && previewMode === 'pamper')) && (
+              {(isMonthly15th || (overrideKey && previewMode === "pamper")) && (
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white dark:text-rose-300 mb-3">
-                    {matchedPamper?.title || 'Your Monthly Comfort & Pamper Capsule 🧸🍫'}
+                    {matchedPamper?.title ||
+                      "Your Monthly Comfort & Pamper Capsule 🧸🍫"}
                   </h3>
                   <p className="font-hand text-lg sm:text-xl text-white/95 dark:text-warm-100 leading-relaxed mb-4">
                     "{matchedPamper?.message}"
@@ -294,7 +324,7 @@ export default function TimeCapsule() {
               )}
 
               {/* Priority 3 Message */}
-              {(isSunday || (overrideKey && previewMode === 'sunday')) &&
+              {(isSunday || (overrideKey && previewMode === "sunday")) &&
                 !isMilestone &&
                 !isMonthly15th && (
                   <div>
@@ -332,11 +362,11 @@ export default function TimeCapsule() {
                         onClick={() => toggleTreat(item)}
                         className={`px-3 py-1.5 rounded-2xl text-xs font-medium transition-all duration-200 flex items-center gap-1.5 ${
                           isSelected
-                            ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/40 ring-2 ring-rose-300/50 scale-[1.02]'
-                            : 'bg-white/20 hover:bg-white/30 border border-white/30 text-white dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10'
+                            ? "bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/40 ring-2 ring-rose-300/50 scale-[1.02]"
+                            : "bg-white/20 hover:bg-white/30 border border-white/30 text-white dark:bg-white/5 dark:text-warm-200 dark:border-white/10 dark:hover:bg-white/10"
                         }`}
                       >
-                        <span>{isSelected ? '✓' : '+'}</span>
+                        <span>{isSelected ? "✓" : "+"}</span>
                         <span>{item}</span>
                       </button>
                     );
@@ -368,8 +398,16 @@ export default function TimeCapsule() {
               </div>
 
               <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-stone-700 dark:text-warm-300/60">
-                <span>Unlocked on {now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</span>
-                <span className="font-hand text-amber-300 text-sm">Always yours, Mudassir ♥</span>
+                <span>
+                  Unlocked on{" "}
+                  {now.toLocaleDateString(undefined, {
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
+                <span className="font-hand text-amber-300 text-sm">
+                  Always yours, Mudassir ♥
+                </span>
               </div>
             </motion.div>
           ) : (
@@ -390,23 +428,24 @@ export default function TimeCapsule() {
 
               {/* Softly Blurred Preview Text */}
               <p className="font-hand text-base sm:text-lg text-stone-800 dark:text-warm-200/40 select-none blur-[4px] pointer-events-none mb-6">
-                "Words fall short when I try to describe how special today is for us... Take good care of yourself today, my strong girl..."
+                "Words fall short when I try to describe how special today is
+                for us... Take good care of yourself today, my strong girl..."
               </p>
 
               {/* Live Ticking Countdown Box */}
               <div className="grid grid-cols-4 gap-2 sm:gap-3 max-w-sm mx-auto mb-6">
                 {[
-                  { val: days, label: 'DAYS' },
-                  { val: hours, label: 'HOURS' },
-                  { val: minutes, label: 'MINS' },
-                  { val: seconds, label: 'SECS' },
+                  { val: days, label: "DAYS" },
+                  { val: hours, label: "HOURS" },
+                  { val: minutes, label: "MINS" },
+                  { val: seconds, label: "SECS" },
                 ].map((item, i) => (
                   <div
                     key={i}
                     className="p-2 sm:p-3 rounded-2xl bg-white/20 dark:bg-stone-900/90 border border-white/30 dark:border-amber-400/20 flex flex-col items-center"
                   >
                     <span className="font-mono text-xl sm:text-2xl font-bold text-gradient-gold">
-                      {String(item.val).padStart(2, '0')}
+                      {String(item.val).padStart(2, "0")}
                     </span>
                     <span className="text-[10px] font-mono text-white/80 dark:text-warm-400/70">
                       {item.label}
@@ -418,7 +457,9 @@ export default function TimeCapsule() {
               {/* Subtle Pill Badge for Next Unlock */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 border border-white/30 text-xs text-white dark:bg-white/5 dark:border-white/10 dark:text-amber-200">
                 <span>Next unlock:</span>
-                <span className="font-bold text-amber-200 dark:text-amber-300">{nextUnlock.label}</span>
+                <span className="font-bold text-amber-200 dark:text-amber-300">
+                  {nextUnlock.label}
+                </span>
               </div>
             </div>
           )}

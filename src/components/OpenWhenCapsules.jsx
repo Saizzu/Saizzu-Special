@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import confetti from 'canvas-confetti';
-import DATA from '../data.js';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import confetti from "canvas-confetti";
+import DATA from "../data.js";
 
 export default function OpenWhenCapsules() {
   const [activeCapsule, setActiveCapsule] = useState(null);
@@ -10,10 +10,10 @@ export default function OpenWhenCapsules() {
   // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setActiveCapsule(null);
+      if (e.key === "Escape") setActiveCapsule(null);
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const handleOpen = (note) => {
@@ -22,16 +22,16 @@ export default function OpenWhenCapsules() {
       particleCount: 35,
       spread: 60,
       origin: { y: 0.65 },
-      colors: ['#E11D48', '#FB7185', '#FDA4AF', '#FCD34D'],
+      colors: ["#E11D48", "#FB7185", "#FDA4AF", "#FCD34D"],
     });
   };
 
   const getEmojiForNote = (id) => {
-    if (id === 'miss-me') return '🥺';
-    if (id === 'angry') return '😤';
-    if (id === 'stressed') return '🌧️';
-    if (id === 'hungry') return '😋';
-    return '💌';
+    if (id === "miss-me") return "🥺";
+    if (id === "angry") return "😤";
+    if (id === "stressed") return "🌧️";
+    if (id === "hungry") return "😋";
+    return "💌";
   };
 
   return (
@@ -57,7 +57,7 @@ export default function OpenWhenCapsules() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-rose-950 dark:text-gradient-gold mb-2 sm:mb-3"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-gold-500 dark:text-gradient-gold mb-2 sm:mb-3"
         >
           "Open When..." Envelopes
         </motion.h2>
@@ -69,7 +69,8 @@ export default function OpenWhenCapsules() {
           transition={{ delay: 0.2 }}
           className="font-hand text-lg sm:text-xl text-stone-900 dark:text-warm-200 mb-8 sm:mb-12 max-w-lg"
         >
-          No matter how your mood changes, there is a letter waiting right here for your heart
+          No matter how your mood changes, there is a letter waiting right here
+          for your heart
         </motion.p>
 
         {/* Responsive Grid of Cards */}
@@ -123,7 +124,7 @@ export default function OpenWhenCapsules() {
                 initial={{ scale: 0.85, y: 30, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 exit={{ scale: 0.85, y: 30, opacity: 0 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
                 className="bg-[#2a0e22] dark:bg-stone-950 max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-rose-400/40 dark:border-amber-300/40 relative max-h-[90vh] overflow-y-auto text-left shadow-2xl text-white"
               >
@@ -154,14 +155,16 @@ export default function OpenWhenCapsules() {
                       loading="lazy"
                       className="w-full max-h-64 sm:max-h-72 object-contain mx-auto rounded-2xl bg-black/10 dark:bg-slate-950/40 p-1.5 border border-white/10 shadow-inner"
                       onError={(e) => {
-                        e.target.style.display = 'none';
+                        e.target.style.display = "none";
                         const fallback = e.target.nextElementSibling;
-                        if (fallback) fallback.style.display = 'flex';
+                        if (fallback) fallback.style.display = "flex";
                       }}
                     />
                     <div className="hidden w-full py-8 rounded-2xl bg-black/20 dark:bg-slate-950/40 border border-white/10 flex-col items-center justify-center text-center p-4">
                       <span className="text-3xl mb-1">💖</span>
-                      <span className="font-hand text-lg text-rose-300">Sending you the warmest hug, Saizzu!</span>
+                      <span className="font-hand text-lg text-rose-300">
+                        Sending you the warmest hug, Saizzu!
+                      </span>
                     </div>
                   </div>
                 )}
@@ -173,7 +176,9 @@ export default function OpenWhenCapsules() {
 
                 <div className="pt-3 border-t border-white/15 dark:border-white/10 flex items-center justify-between text-xs text-white/80 dark:text-warm-300/80">
                   <span>Always with you, no matter what</span>
-                  <span className="font-hand text-amber-300 text-sm">With all my love, Mudassir ♥</span>
+                  <span className="font-hand text-amber-300 text-sm">
+                    With all my love, Mudassir ♥
+                  </span>
                 </div>
               </motion.div>
             </motion.div>

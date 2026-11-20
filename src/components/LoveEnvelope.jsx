@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import DATA from '../data.js';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import DATA from "../data.js";
 
 export default function LoveEnvelope() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function LoveEnvelope() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 text-gradient-gold"
+          className="font-display text-2xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3 text-gold-200 dark:text-red-300"
         >
           Sealed With My Whole Heart
         </motion.h2>
@@ -71,26 +71,23 @@ export default function LoveEnvelope() {
             onClick={handleOpen}
             className="cursor-pointer group relative bg-gradient-to-br from-[#FFF5EB] via-[#FCEEE2] to-[#EAD5C3] dark:from-[#1e264a] dark:via-[#161e3d] dark:to-[#101730] rounded-2xl p-6 sm:p-8 shadow-2xl border border-amber-200/40 dark:border-indigo-400/30 hover:shadow-rose-950/50 transition-all duration-300 transform group-hover:-translate-y-1"
             style={{
-              minHeight: '210px',
+              minHeight: "210px",
             }}
           >
             {/* Envelope flap folded simulation */}
             <div
               className={`absolute top-0 left-0 right-0 h-28 origin-top transition-transform duration-700 rounded-t-2xl flex items-center justify-center ${
-                isFlapped ? 'rotate-x-180 -translate-y-2' : ''
+                isFlapped ? "rotate-x-180 -translate-y-2" : ""
               }`}
               style={{
-                background: 'linear-gradient(180deg, #F5DFCC 0%, #ECD3BD 100%)',
-                clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                background: "linear-gradient(180deg, #F5DFCC 0%, #ECD3BD 100%)",
+                clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
               }}
             >
               {/* Wax Seal Centered */}
-              <div
-                className="wax-seal absolute top-12"
-                title="Tap to open"
-              >
-                <span>{DATA.envelopeSealLetter || 'M'}</span>
+              <div className="wax-seal absolute top-12" title="Tap to open">
+                <span>{DATA.envelopeSealLetter || "M"}</span>
               </div>
             </div>
 
@@ -99,10 +96,10 @@ export default function LoveEnvelope() {
 
             {/* Front Envelope Details */}
             <div className="mt-24 text-center">
-              <p className="font-hand text-2xl text-white dark:text-rose-200 font-semibold mb-1">
+              <p className="font-hand text-2xl text-red-500 dark:text-rose-200 font-semibold mb-1">
                 For: {DATA.partnerName} ({DATA.nicknames[0]})
               </p>
-              <p className="font-hand text-sm text-white/80 dark:text-warm-300/80">
+              <p className="font-hand text-sm text-stone-600 dark:text-warm-300/80">
                 From: {DATA.gifterName} • Tap seal to open ✦
               </p>
             </div>
@@ -128,7 +125,7 @@ export default function LoveEnvelope() {
               initial={{ scale: 0.85, y: 30, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-2xl bg-[#FFF5F7] dark:bg-[#0c1433]/95 text-stone-900 dark:text-rose-50 rounded-3xl p-6 sm:p-10 shadow-2xl my-8 border border-rose-300/80 dark:border-indigo-400/40 backdrop-blur-md"
             >
@@ -143,7 +140,9 @@ export default function LoveEnvelope() {
 
               {/* Decorative Header */}
               <div className="text-center pb-4 mb-6 border-b border-rose-200/70 dark:border-indigo-400/30">
-                <span className="text-rose-600 dark:text-rose-400 text-2xl">❦</span>
+                <span className="text-rose-600 dark:text-rose-400 text-2xl">
+                  ❦
+                </span>
                 <h3 className="font-display text-2xl sm:text-3xl font-bold text-rose-700 dark:text-amber-300 mt-1">
                   میری روحِ من کے نام
                 </h3>
@@ -154,7 +153,7 @@ export default function LoveEnvelope() {
 
               {/* Letter Body in Beautiful Urdu */}
               <div className="urdu-text text-stone-900 dark:text-rose-50 space-y-5 px-2 sm:px-4 max-h-[60vh] overflow-y-auto pr-3 leading-relaxed">
-                {DATA.loveLetter.split('\n\n').map((paragraph, idx) => (
+                {DATA.loveLetter.split("\n\n").map((paragraph, idx) => (
                   <p key={idx} className="leading-loose">
                     {paragraph}
                   </p>
@@ -165,7 +164,7 @@ export default function LoveEnvelope() {
               <div className="mt-8 pt-4 border-t border-rose-200/70 dark:border-indigo-400/30 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <span className="wax-seal w-10 h-10 text-xs">
-                    {DATA.envelopeSealLetter || 'M'}
+                    {DATA.envelopeSealLetter || "M"}
                   </span>
                   <div className="text-left">
                     <p className="font-hand text-xl font-bold text-rose-700 dark:text-amber-300 leading-none">
